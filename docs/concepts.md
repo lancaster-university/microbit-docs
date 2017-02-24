@@ -9,7 +9,7 @@ and [Nordic nrf51](http://www.nordicsemi.com) platforms.
 
 In addition to supporting development in C/C++, the runtime is also designed specifically to support
 higher level languages provided by our partners that target the micro:bit. It is currently used as a support library for all the
-languages on the BBC [www.microbit.co.uk](http://www.microbit.co.uk) website, including Microsoft Block Editor, Microsoft Touch Develop, Code Kingdoms
+languages on the [http://microbit.org/](http://microbit.org/) website, including Microsoft Block Editor, Microsoft Touch Develop, Code Kingdoms
 JavaScript and Micropython languages.
 
 ![micro:bit runtime](resources/examples/concepts/architecture.png)
