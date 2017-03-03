@@ -13,7 +13,7 @@ There are three methods for building
 
 * VM: install a VM machine and use Linux method
 * WSL: install [wsl](https://msdn.microsoft.com/da-dk/commandline/wsl/install_guide) and use the linux method
-* native: see below
+* Native: see below
 
 ### Install yotta and dependencies
 
