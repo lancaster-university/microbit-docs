@@ -11,9 +11,9 @@ When using `yotta` to build micro:bit projects there are currently two supported
 
 There are three methods for building
 
-- VM: install a VM machine and use Linux method
-- WSL: install [wsl](https://msdn.microsoft.com/da-dk/commandline/wsl/install_guide) and use the linux method
-- native: see below
+* VM: install a VM machine and use Linux method
+* WSL: install [wsl](https://msdn.microsoft.com/da-dk/commandline/wsl/install_guide) and use the linux method
+* native: see below
 
 ### Install yotta and dependencies
 
@@ -38,7 +38,7 @@ A `yotta` target contains the information required by `yotta` in order to build 
 
 You can use either `yotta` or `yt`, which is far easier to type!
 
-```
+```bash
 yt target bbc-microbit-classic-gcc
 ```
 
@@ -60,9 +60,10 @@ The `yt build` command will place files in `/build/<TARGET_NAME>/source`. The fi
 
 In the case of our example, using `bbc-microbit-classic-gcc` we could flash the micro:bit (assuming it is plugged in and mounted at `E:`) as follows:
 
-```
+```bash
 copy build\bbc-microbit-classic-gcc\source\microbit-samples-combined.hex E:
 ```
+
 The expected result will be that the micro:bit will scroll `HELLO WORLD! :)` on its display.
 
 ____________________
@@ -97,7 +98,7 @@ A `yotta` target contains the information required by `yotta` in order to build 
 
 You can use either `yotta` or `yt`, which is far easier to type!
 
-```
+```bash
 yt target bbc-microbit-classic-gcc
 ```
 
@@ -108,7 +109,7 @@ You only need to set the target once per project. All future `yotta` commands wi
 
 #### Build the project
 
-```
+```bash
 yt build
 ```
 
@@ -119,7 +120,7 @@ The `yt build` command will place files in `/build/<TARGET_NAME>/source`. The fi
 
 In the case of our example, using `bbc-microbit-classic-gcc` we could flash the micro:bit (assuming it is plugged in and mounted at `/Volumes/"MICROBIT"`) as follows:
 
-```
+```bash
 cp ./build/bbc-microbit-classic-gcc/source/microbit-samples-combined.hex /Volumes/"MICROBIT"
 ```
 
@@ -143,7 +144,8 @@ The first step is to get `yotta` and its dependencies onto your machine, to do t
 
 
 For the micro:bit targets you currently still need the `srecord` tools, which can be installed on **Ubuntu** using
-```
+
+```bash
 sudo apt-get install srecord
 ```
 
@@ -165,7 +167,7 @@ A `yotta` target contains the information required by `yotta` in order to build 
 
 You can use either `yotta` or `yt`, which is far easier to type!
 
-```
+```bash
 yt target bbc-microbit-classic-gcc
 ```
 
@@ -176,7 +178,7 @@ You only need to set the target once per project. All future `yotta` commands wi
 
 #### Build the project
 
-```
+```bash
 yt build
 ```
 
@@ -187,9 +189,10 @@ The `yt build` command will place files in `/build/<TARGET_NAME>/source`. The fi
 
 In the case of our example, using `bbc-microbit-classic-gcc` we could flash the micro:bit (assuming it is plugged in and mounted at `/media/MICROBIT`) as follows:
 
-```
+```bash
 cp ./build/bbc-microbit-classic-gcc/source/microbit-samples-combined.hex /media/MICROBIT
 ```
+
 The expected result will be that the micro:bit will scroll `HELLO WORLD! :)` on its display.
 
 !!!note
