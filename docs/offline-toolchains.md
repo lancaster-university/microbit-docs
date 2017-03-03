@@ -9,6 +9,12 @@ When using `yotta` to build micro:bit projects there are currently two supported
 
 ## Installation on Windows
 
+There are three methods for building
+
+- VM: install a VM machine and use Linux method
+- WSL: install [wsl](https://msdn.microsoft.com/da-dk/commandline/wsl/install_guide) and use the linux method
+- native: see below
+
 ### Install yotta and dependencies
 
 The first step is to get `yotta` and its dependencies onto your machine, to do this follow the install guide [here](http://docs.yottabuild.org/#installing).
