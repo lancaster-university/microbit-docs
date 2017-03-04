@@ -1,6 +1,6 @@
 # Yotta
 
-The micro:bit DAL is built on top of [ARM mbed](http://mbed.com) and hence uses [yotta](http://yotta.mbed.com) as an offline build system.
+The micro:bit DAL is built on top of [ARM mbed](http://mbed.com) and uses [yotta](http://yotta.mbed.com) as an offline build system.
 
 When using `yotta` to build micro:bit projects there are currently two supported toolchains:
 
