@@ -22,6 +22,14 @@ The choices are:
 * Windows 10: install [wsl](https://msdn.microsoft.com/da-dk/commandline/wsl/install_guide) and use the linux method
 * Native: follow the `yotta` install guide and install `srecord`.
 
+Note:
+
+At the time of writing, wsl does not allow access to usb. Copy the hex file over to c:
+
+```bash
+cp build/bbc-microbit-classic-gcc/source/microbit-samples.hex /mnt/c/
+```
+
 ### OSX
 
 The choices are:
