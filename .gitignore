@@ -4,4 +4,3 @@ site
 temp
 latex
 *.pyc
-.DS_Store
