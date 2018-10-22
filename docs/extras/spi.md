@@ -1,7 +1,7 @@
 #SPI
 
 SPI on the micro:bit is supported in the micro:bit runtime through the ARM mbed [`SPI`](https://developer.mbed.org/handbook/SPI) class.
-However, by design, this is this is not initialised by default as part of the uBit object.
+However, by design, this is not initialised by default as part of the uBit object.
 
 The reasons for this are:
 
