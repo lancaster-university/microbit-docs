@@ -5,14 +5,14 @@
 `MicroBitImage` represents a bitmap picture.
 
 Images can be of any size, and each pixel on the image has an individual brightness value in the range 0 - 255.
-
+l
 Once created, this class also provides functions to undertake graphical operations on that image, including setting pixels, clearing the image, pasting one
 image onto another at a given position, shifting the content of an image and comparing and copying images.
 
 It is designed to work with the [`MicroBitDisplay`](../ubit/display.md) class to allow the creation of animations and visual effects.
 
 !!! note
-    This is a **managed type**. This means that it will automatically use and release memory as needed. There is no need for you to explicitly free or release memory when your done - the memory will be freed as soon as the last piece of code stops using the data.
+    This is a **managed type**. This means that it will automatically use and release memory as needed. There is no need for you to explicitly free or release memory when you're done - the memory will be freed as soon as the last piece of code stops using the data.
 
 ## Creating Images
 
