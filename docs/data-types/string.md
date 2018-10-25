@@ -28,7 +28,7 @@ Instead, they provide code that is capable of ensuring strings remain safe.
 `ManagedString` provides this equivalent functionality for the micro:bit, as a building block for higher level languages. However, it can also makes programming the micro:bit in C easier too!
 
 !!! note
-    This is a **managed type**. This means that it will automatically use and release memory as needed. There is no need for you to explicitly free or release memory when your done - the memory will be freed as soon as the last piece of code stops using the data.
+    This is a **managed type**. This means that it will automatically use and release memory as needed. There is no need for you to explicitly free or release memory when you're done - the memory will be freed as soon as the last piece of code stops using the data.
 
 ## Creating Strings
 
