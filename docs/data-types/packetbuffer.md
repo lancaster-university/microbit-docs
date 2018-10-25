@@ -11,7 +11,7 @@ This class provides a basic set of functions for the creation, manipulation and
 accessing of a managed type for byte arrays used to hold network data packets.
 
 !!! note
-    This is a **managed type**. This means that it will automatically use and release memory as needed. There is no need for you to explicitly free or release memory when your done - the memory will be freed as soon as the last piece of code stops using the data.
+    This is a **managed type**. This means that it will automatically use and release memory as needed. There is no need for you to explicitly free or release memory when you're done - the memory will be freed as soon as the last piece of code stops using the data.
 
 
 ## Creating PacketBuffers
