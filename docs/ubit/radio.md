@@ -5,7 +5,7 @@
 The central processor unit (CPU) on the micro:bit is a Nordic Semiconductor [nRF51822](../resources/datasheets/nRF51822.pdf). In addition to being a general purpose
 computer processor, this chip also contains a built-in 2.4GHz radio module.  This radio can be configured in a number of
 ways, and is primarily designed to run the Bluetooth Low Energy (BLE) protocol. However, it can also be placed into a much
-simpler mode of operation based that allows simple, direct micro:bit to micro:bit communication.
+simpler mode of operation that allows simple, direct micro:bit to micro:bit communication.
 
 The `MicroBitRadio` component is made up of three classes - `MicroBitRadio`, [`MicroBitRadioEvent`](radioevent.md) and [`MicroBitRadioDatagram`](radiodatagram.md). Together,
 these provide the ability to send general purpose data packets from one micro:bit to another, and to extend a message bus to span multiple micro:bits...
