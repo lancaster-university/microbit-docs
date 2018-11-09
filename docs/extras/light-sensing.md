@@ -100,7 +100,7 @@ This leads our picture to look something more like this:
 <center>*Where each number represents a different column, now named a channel as it is a collection of 3 rows*</center>
 
 This reduces the resolution of our light sensing capabilities as we can
-now no longer can use 9 pins to sense light, purely due to the unfortunate fact
+now no longer use 9 pins to sense light, purely due to the unfortunate fact
 that we obtain interference from other pins that cannot be mitigated.
 
 However, we do gain an accurate picture of the overall brightness detected by the display.
