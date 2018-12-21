@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+
+	<title>PartialFlashingService - micro:bit runtime</title>
+
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link href="../../css/extra.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-custom navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            
+                <a class="navbar-brand" rel="home" href="#" title="micro:bit runtime">
+                    
+                    <!-- Logo author: Aluna Everitt (@AlunaEveritt on Twitter) --->
+                    
+                    <img style="max-width:200px; margin-top: -7px;" src="../.././img/logo[whiteruntime].png">
+                </a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">General <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../..">Introduction</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../concepts/">Concepts</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../advanced/">Advanced</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../online-toolchains/">Web-based Development</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../offline-toolchains/">Offline Development</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../device/">Hardware</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../help/">Help</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">uBit <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../ubit/">Overview</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/i2c/">i2c</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/storage/">storage</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/serial/">serial</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/messageBus/">messageBus</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/button/">buttons</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/display/">display</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/accelerometer/">accelerometer</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/compass/">compass</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/thermometer/">thermometer</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/io/">io</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/radio/">radio</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Data Types <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../data-types/image/">MicroBitImage</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../data-types/event/">MicroBitEvent</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../data-types/string/">ManagedString</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../data-types/packetbuffer/">PacketBuffer</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bluetooth <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../profile/">Profile</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../accelerometer-service/">AccelerometerService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../button-service/">ButtonService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../dfu-service/">DFUService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../event-service/">EventService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../iopin-service/">IOPinService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../led-service/">LEDService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../magnetometer-service/">MagnetometerService</a>
+</li>
+
+                    
+                        
+<li class="active">
+    <a href="./">PartialFlashingService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../temperature-service/">TemperatureService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../uart-service/">UARTService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../ble-connection-events/">Connection Events</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../eddystone/">Eddystone Beacons</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Extras <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../extras/light-sensing/">MicroBitLightSensor</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../extras/spi/">SPI</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+
+            
+            
+
+            
+
+            
+            
+
+            
+
+            
+            
+
+            
+
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right hidden-md hidden-sm">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                <li >
+                    <a rel="next" href="../magnetometer-service/">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../temperature-service/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://github.com/lancaster-university/microbit-dal/">
+                        
+                            <i class="fa fa-github"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#partial-flashing-service">Partial Flashing Service</a></li>
+        
+            <li><a href="#introduction">Introduction</a></li>
+        
+            <li><a href="#bluetooth-service-specification">Bluetooth Service Specification</a></li>
+        
+            <li><a href="#enabling-the-service">Enabling the service</a></li>
+        
+            <li><a href="#characteristic-commands">Characteristic Commands</a></li>
+        
+            <li><a href="#partial-flashing-client">Partial Flashing Client</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h1 id="partial-flashing-service">Partial Flashing Service<a class="headerlink" href="#partial-flashing-service" title="Permanent link">&para;</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>The Partial Flashing Service allows a BLE client to connect to a micro:bit and read and write the information required to partially update the firmware (e.g. the MakeCode section of the flash).</p>
+<p>This service exists in partnership with the DFU service that allows a client to fully flash the micro:bit.</p>
+<p>Diagrams showing the flow of data during partial flashing can be found at <a href="#partial flashing client">the bottom of the document</a>.</p>
+<h2 id="bluetooth-service-specification">Bluetooth Service Specification<a class="headerlink" href="#bluetooth-service-specification" title="Permanent link">&para;</a></h2>
+<p>Please see the <a href="https://lancaster-university.github.io/microbit-docs/resources/bluetooth/bluetooth_profile.html">micro:bit Bluetooth profile specification</a>.</p>
+<h2 id="enabling-the-service">Enabling the service<a class="headerlink" href="#enabling-the-service" title="Permanent link">&para;</a></h2>
+<p>Currently partial flashing is <strong>only supported by programs built using MakeCode</strong>. This is because the service requires the user program to be appended onto the end of the DAL, something which can't be guaranteed in a C++ program. The partial flashing service is enabled by default for MakeCode programs.</p>
+<h2 id="characteristic-commands">Characteristic Commands<a class="headerlink" href="#characteristic-commands" title="Permanent link">&para;</a></h2>
+<p>The service consists of a single Bluetooth GATT characteristic that responds to a client's WRITE WITHOUT RESPONSE request with a BLE Notification. The characteristic supports commands to: Read the REGION INFO i.e. request Memory Map information, WRITE DATA to the flash, inform the micro:bit that the sevice has reached END OF TRANSMISSION, obtain the MICROBIT STATUS (PFS version #, current m:b mode), and to RESET the micro:bit into either application (MakeCode) or BLE mode.</p>
+<h3 id="region-info-command">Region Info Command<a class="headerlink" href="#region-info-command" title="Permanent link">&para;</a></h3>
+<p>The Region Info command is used to request information from the Memory Map. The client sends a WRITE WITHOUT RESPONSE command with the control byte (byte 0) set to 0x00 (Region Info) and byte 1 set to the region ID:</p>
+<h4 id="client-write-request">Client Write Request<a class="headerlink" href="#client-write-request" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Byte 0 / Command</th>
+<th>Byte 1 / Region #</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Read Soft Device</td>
+<td>0x00</td>
+<td>0x00</td>
+</tr>
+<tr>
+<td>Read DAL</td>
+<td>0x00</td>
+<td>0x01</td>
+</tr>
+<tr>
+<td>Read MakeCode</td>
+<td>0x00</td>
+<td>0x02</td>
+</tr>
+</tbody>
+</table>
+<h4 id="microbit-response">micro:bit Response<a class="headerlink" href="#microbit-response" title="Permanent link">&para;</a></h4>
+<p>The micro:bit looks up the relevant information and returns it using a BLE NOTIFICATION:</p>
+<table>
+<thead>
+<tr>
+<th>Byte 0</th>
+<th>Byte 1</th>
+<th>Bytes [2,3,4,5]</th>
+<th>Bytes [6,7,8,9]</th>
+<th>Bytes [10,11,12,13,14,15,16,17]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>READ_NOTIFICATION / 0x00</td>
+<td>Region #</td>
+<td>Region Start Address</td>
+<td>Region End Address</td>
+<td>Hash</td>
+</tr>
+</tbody>
+</table>
+<h3 id="write-data-command">Write Data Command<a class="headerlink" href="#write-data-command" title="Permanent link">&para;</a></h3>
+<p>To send the new firmware and write it to the flash a WRITE_WITHOUT_RESPONSE command is used. These packets begin with the command byte (byte 0) set to 0x01. The packet is structured as follows:</p>
+<h4 id="client-write-without-response">Client Write Without Response<a class="headerlink" href="#client-write-without-response" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>1 Byte</th>
+<th>2 Bytes</th>
+<th>1 Byte</th>
+<th>16 Bytes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>COMMAND</td>
+<td>OFFSET</td>
+<td>PACKET#</td>
+<td>DATA</td>
+</tr>
+</tbody>
+</table>
+<p>The micro:bit handles data in blocks of 4 packets. This allows the micro:bit to process a 64 byte buffer and ensure that it can be successfully processed. </p>
+<p>The offset from the first packet in the block is stored whilst waiting for the remaining 3 packets. Once all 4 packets have been received the block of 4 is written to the flash at the offset specified by the packet and a notification is sent to the client to request the next block of packets.</p>
+<p><strong>The offset used is the address bytes of the current record in the hex file</strong>
+e.g.: 
+:10<strong>0100</strong>00214601360121470136007EFE09D2190140</p>
+<h4 id="microbit-response_1">micro:bit Response<a class="headerlink" href="#microbit-response_1" title="Permanent link">&para;</a></h4>
+<p><strong>Successful Write:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Byte 0</th>
+<th>Byte 1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WRITE_NOTIFICATION / 0x01</td>
+<td>0xFF</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Out Of Order Packet</strong>
+If the micro:bit detects an out of order packet the packet count is set to the end of the block (start of block + 3, ready for the next) and a notification is sent to inform the client. The client needs to update the packet # to the start of the next block - add 4 to the start of the block (block packet counts always start with a multiple of 4: 0, 4, 8, 12..).</p>
+<table>
+<thead>
+<tr>
+<th>Byte 0</th>
+<th>Byte 1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WRITE NOTIFICATION / 0x01</td>
+<td>0xAA</td>
+</tr>
+</tbody>
+</table>
+<h3 id="end-of-transmission">End Of Transmission<a class="headerlink" href="#end-of-transmission" title="Permanent link">&para;</a></h3>
+<p>When the start of the embedded source is reached a WRITE_WITHOUT_RESPONSE request is issued with a payload of 0x02. The micro:bit removes the embedded source magic to prevent confusion with the new application, and resets the micro:bit into application mode.</p>
+<table>
+<thead>
+<tr>
+<th>Byte 0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>END_OF_TX / 0x02</td>
+</tr>
+</tbody>
+</table>
+<h3 id="microbit-status">MICROBIT STATUS<a class="headerlink" href="#microbit-status" title="Permanent link">&para;</a></h3>
+<p>A client can fetch the version of the Partial Flashing Service and the micro:bit's current status using the MICROBIT STATUS command.</p>
+<table>
+<thead>
+<tr>
+<th>Byte 0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MICROBIT STATUS / 0xEE</td>
+</tr>
+</tbody>
+</table>
+<p>The micro:bit responds with a notification. Partial Flashing Version, currently returns 1 for the intial release. Current mode returns: 0x00 for Pairing Mode, 0x01 for Application Mode.</p>
+<table>
+<thead>
+<tr>
+<th>Byte 0</th>
+<th>Byte 1</th>
+<th>Byte 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MICROBIT STATUS / 0xEE</td>
+<td>Partial Flashing Version</td>
+<td>Current Mode</td>
+</tr>
+</tbody>
+</table>
+<h3 id="microbit-reset">MICROBIT RESET<a class="headerlink" href="#microbit-reset" title="Permanent link">&para;</a></h3>
+<p>The Partial Flashing Service also allows a client to reset a micro:bit into either Application or Bluetooth Pairing Mode.</p>
+<p>Reset Type: 0x00 for Pairing Mode, 0x01 for Application Mode</p>
+<table>
+<thead>
+<tr>
+<th>Byte 0</th>
+<th>Byte 1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MICROBIT RESET / 0xFF</td>
+<td>Reset Mode</td>
+</tr>
+</tbody>
+</table>
+<h3 id="uuids">UUIDs<a class="headerlink" href="#uuids" title="Permanent link">&para;</a></h3>
+<pre><code>const uint8_t  MicroBitPartialFlashServiceUUID[] = {
+    0xe9,0x7d,0xd9,0x1d,0x25,0x1d,0x47,0x0a,0xa0,0x62,0xfa,0x19,0x22,0xdf,0xa9,0xa8
+};
+
+const uint8_t  MicroBitPartialFlashServiceCharacteristicUUID[] = {
+    0xe9,0x7d,0x3b,0x10,0x25,0x1d,0x47,0x0a,0xa0,0x62,0xfa,0x19,0x22,0xdf,0xa9,0xa8
+};
+</code></pre>
+
+<h2 id="partial-flashing-client">Partial Flashing Client<a class="headerlink" href="#partial-flashing-client" title="Permanent link">&para;</a></h2>
+<h3 id="example-client-for-android">Example Client for Android<a class="headerlink" href="#example-client-for-android" title="Permanent link">&para;</a></h3>
+<p>Please see an example implementation <a href="https://github.com/microbit-sam/microbit-android">on GitHub</a>.</p>
+<h3 id="client-process">Client Process<a class="headerlink" href="#client-process" title="Permanent link">&para;</a></h3>
+<p>A client completing the partial flashing process will first need to read the Memory Map from the micro:bit to obtain the region hashes.</p>
+<p>Once the hashes have been obtained from the micro:bit they need to be compared with the hashes found within the new hex file to determine if it is possible to partially flash the micro:bit. Partial flashing requires the micro:bit to be using a matching version of the DAL. The hashes within the file can be found in the 16 bytes following the 'magic number' <code>708E3B92C615A841C49866C975EE5197</code> found in the file.</p>
+<p><strong>Defined here:</strong></p>
+<pre><code>; start
+    .startaddr 0x30000
+    .hex 708E3B92C615A841C49866C975EE5197 ; magic number
+    .hex 0662709FA0315567 ; hex template hash
+    .hex EDE9690A1093AE71 ; program hash
+    .short 11   ; num. globals
+    .short 0 ; patched with number of words resulting from assembly
+    .word 0 ; reserved
+    .word 0 ; reserved
+    .word 0 ; reserved
+</code></pre>
+
+<p><img alt="Determine Partial Flashing" src="../../resources/DeterminePF.png" /></p>
+<p>If partial flashing is possible the micro:bit needs to be in BLE mode to prevent the flashing process from interfering with instructions that are executing. This is done by sending a <code>MICROBIT_RESET</code> command with <code>0x00</code> as the payload. The client then transfers the hex data from the file starting at the 'magic number' up until the page that contains the <a href="https://makecode.com/source-embedding">embedded source</a> - also found using a magic number <code>41140E2FB82FA2BB</code>.</p>
+<p>Once the embedded source is found the client sends an END OF TRANSMISSION BLE write to inform the micro:bit the transfer is over.</p>
+<p><img alt="Do Partial Flashing" src="../../resources/PFFlow.png" /></p>
+<h4 id="martins-step-by-step-on-ios">Martin's Step by Step on iOS<a class="headerlink" href="#martins-step-by-step-on-ios" title="Permanent link">&para;</a></h4>
+<p>(1) Check the hex file for the magic (remember the file hash)</p>
+<p>(2) Request DAL region</p>
+<p>(3) Check DAL hash against stored hash - fail if different</p>
+<p>(4) Request MakeCode region</p>
+<p>(5) Calculate base address = start_address - start_address % 0x10000;</p>
+<p>(6) Request STATUS</p>
+<p>(7) If mode is application request reboot to pairing mode; try to reconnect; goto 2)</p>
+<p>(8) If mode is pairing send first batch of 4 FLASH packets</p>
+<p>(9) Send next 4 flash packets. Repeat until complete.</p>
+<p>(10) Send end of transmission</p></div>
+        </div>
+
+        <footer class="col-md-12">
+            
+            <center><a href="https://www.lancaster.ac.uk"><image style="width:auto;" height="61" src="../../img/lancs-logo.png"></image></a></center>
+            <center>DAL Version v2.1.1</center>
+            <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+        </footer>
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script>var base_url = '../..';</script>
+        <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
+        <script src="../../js/base.js"></script>
+        <!--<script src="../../archive/v2.0.0-rc3/js/base.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/js/bootstrap-3.0.3.min.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/js/highlight.pack.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/js/jquery-1.10.2.min.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/mkdocs/js/lunr-0.5.7.min.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/mkdocs/js/mustache.min.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/mkdocs/js/require.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/mkdocs/js/search.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/mkdocs/js/text.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc4/archive/v2.0.0-rc3/js/base.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc4/archive/v2.0.0-rc3/js/bootstrap-3.0.3.min.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc4/archive/v2.0.0-rc3/js/highlight.pack.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc4/archive/v2.0.0-rc3/js/jquery-1.10.2.min.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc4/archive/v2.0.0-rc3/mkdocs/js/lunr-0.5.7.min.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc4/archive/v2.0.0-rc3/mkdocs/js/mustache.min.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc4/archive/v2.0.0-rc3/mkdocs/js/require.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc4/archive/v2.0.0-rc3/mkdocs/js/search.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc4/archive/v2.0.0-rc3/mkdocs/js/text.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc4/js/base.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc4/js/bootstrap-3.0.3.min.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc4/js/highlight.pack.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc4/js/jquery-1.10.2.min.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc4/mkdocs/js/lunr-0.5.7.min.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc4/mkdocs/js/mustache.min.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc4/mkdocs/js/require.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc4/mkdocs/js/search.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc4/mkdocs/js/text.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc4/resources/bluetooth/functions.js"></script>-->
+        <!--<script src="../../archive/v2.1.0/archive/v2.0.0-rc3/js/base.js"></script>-->
+        <!--<script src="../../archive/v2.1.0/archive/v2.0.0-rc3/js/bootstrap-3.0.3.min.js"></script>-->
+        <!--<script src="../../archive/v2.1.0/archive/v2.0.0-rc3/js/highlight.pack.js"></script>-->
+        <!--<script src="../../archive/v2.1.0/archive/v2.0.0-rc3/js/jquery-1.10.2.min.js"></script>-->
+        <!--<script src="../../archive/v2.1.0/archive/v2.0.0-rc3/mkdocs/js/lunr-0.5.7.min.js"></script>-->
+        <!--<script src="../../archive/v2.1.0/archive/v2.0.0-rc3/mkdocs/js/mustache.min.js"></script>-->
+        <!--<script src="../../archive/v2.1.0/archive/v2.0.0-rc3/mkdocs/js/require.js"></script>-->
+        <!--<script src="../../archive/v2.1.0/archive/v2.0.0-rc3/mkdocs/js/search.js"></script>-->
+        <!--<script src="../../archive/v2.1.0/archive/v2.0.0-rc3/mkdocs/js/text.js"></script>-->
+        <!--<script src="../../archive/v2.1.0/js/base.js"></script>-->
+        <!--<script src="../../archive/v2.1.0/js/bootstrap-3.0.3.min.js"></script>-->
+        <!--<script src="../../archive/v2.1.0/js/highlight.pack.js"></script>-->
+        <!--<script src="../../archive/v2.1.0/js/jquery-1.10.2.min.js"></script>-->
+        <!--<script src="../../archive/v2.1.0/mkdocs/js/lunr-0.5.7.min.js"></script>-->
+        <!--<script src="../../archive/v2.1.0/mkdocs/js/mustache.min.js"></script>-->
+        <!--<script src="../../archive/v2.1.0/mkdocs/js/require.js"></script>-->
+        <!--<script src="../../archive/v2.1.0/mkdocs/js/search.js"></script>-->
+        <!--<script src="../../archive/v2.1.0/mkdocs/js/text.js"></script>-->
+        <!--<script src="../../archive/v2.1.0/resources/bluetooth/functions.js"></script>-->
+        <!--<script src="../../archive/v2.1.1/archive/v2.0.0-rc3/js/base.js"></script>-->
+        <!--<script src="../../archive/v2.1.1/archive/v2.0.0-rc3/js/bootstrap-3.0.3.min.js"></script>-->
+        <!--<script src="../../archive/v2.1.1/archive/v2.0.0-rc3/js/highlight.pack.js"></script>-->
+        <!--<script src="../../archive/v2.1.1/archive/v2.0.0-rc3/js/jquery-1.10.2.min.js"></script>-->
+        <!--<script src="../../archive/v2.1.1/archive/v2.0.0-rc3/mkdocs/js/lunr-0.5.7.min.js"></script>-->
+        <!--<script src="../../archive/v2.1.1/archive/v2.0.0-rc3/mkdocs/js/mustache.min.js"></script>-->
+        <!--<script src="../../archive/v2.1.1/archive/v2.0.0-rc3/mkdocs/js/require.js"></script>-->
+        <!--<script src="../../archive/v2.1.1/archive/v2.0.0-rc3/mkdocs/js/search.js"></script>-->
+        <!--<script src="../../archive/v2.1.1/archive/v2.0.0-rc3/mkdocs/js/text.js"></script>-->
+        <!--<script src="../../archive/v2.1.1/js/base.js"></script>-->
+        <!--<script src="../../archive/v2.1.1/js/bootstrap-3.0.3.min.js"></script>-->
+        <!--<script src="../../archive/v2.1.1/js/highlight.pack.js"></script>-->
+        <!--<script src="../../archive/v2.1.1/js/jquery-1.10.2.min.js"></script>-->
+        <!--<script src="../../archive/v2.1.1/mkdocs/js/lunr-0.5.7.min.js"></script>-->
+        <!--<script src="../../archive/v2.1.1/mkdocs/js/mustache.min.js"></script>-->
+        <!--<script src="../../archive/v2.1.1/mkdocs/js/require.js"></script>-->
+        <!--<script src="../../archive/v2.1.1/mkdocs/js/search.js"></script>-->
+        <!--<script src="../../archive/v2.1.1/mkdocs/js/text.js"></script>-->
+        <!--<script src="../../archive/v2.1.1/resources/bluetooth/functions.js"></script>-->
+        <!--<script src="../../resources/bluetooth/functions.js"></script>-->
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            From here you can search these documents. Enter
+                            your search terms below.
+                        </p>
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                            </div>
+                        </form>
+                        <div id="mkdocs-search-results"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

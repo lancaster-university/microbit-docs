@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+
+	<title>LEDService - micro:bit runtime</title>
+
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link href="../../css/extra.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-76156484-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-custom navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            
+                <a class="navbar-brand" rel="home" href="#" title="micro:bit runtime">
+                    
+                    <!-- Logo author: Aluna Everitt (@AlunaEveritt on Twitter) --->
+                    
+                    <img style="max-width:200px; margin-top: -7px;" src="../.././img/logo[whiteruntime].png">
+                </a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">General <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../..">Introduction</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../concepts/">Concepts</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../advanced/">Advanced</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../online-toolchains/">Web-based Development</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../offline-toolchains/">Offline Development</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../device/">Hardware</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../help/">Help</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">uBit <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../ubit/">Overview</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/i2c/">i2c</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/storage/">storage</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/serial/">serial</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/messageBus/">messageBus</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/button/">buttons</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/display/">display</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/accelerometer/">accelerometer</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/compass/">compass</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/thermometer/">thermometer</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/io/">io</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/radio/">radio</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Data Types <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../data-types/image/">MicroBitImage</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../data-types/event/">MicroBitEvent</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../data-types/string/">ManagedString</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../data-types/packetbuffer/">PacketBuffer</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bluetooth <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../profile/">Profile</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../accelerometer-service/">AccelerometerService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../button-service/">ButtonService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../dfu-service/">DFUService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../event-service/">EventService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../iopin-service/">IOPinService</a>
+</li>
+
+                    
+                        
+<li class="active">
+    <a href="./">LEDService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../magnetometer-service/">MagnetometerService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../temperature-service/">TemperatureService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../uart-service/">UARTService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../ble-connection-events/">Connection Events</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../eddystone/">Eddystone Beacons</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Extras <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../extras/light-sensing/">MicroBitLightSensor</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../extras/spi/">SPI</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+
+            
+            
+
+            
+
+            
+            
+
+            
+
+            
+            
+
+            
+
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right hidden-md hidden-sm">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                <li >
+                    <a rel="next" href="../iopin-service/">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../magnetometer-service/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://github.com/lancaster-university/microbit-dal/">
+                        
+                            <i class="fa fa-github"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#bluetooth-led-service">Bluetooth LED Service</a></li>
+        
+            <li><a href="#introduction">Introduction</a></li>
+        
+            <li><a href="#enabling-the-service">Enabling the Service</a></li>
+        
+            <li><a href="#bluetooth-service-specification">Bluetooth Service Specification</a></li>
+        
+            <li><a href="#example-applications-for-androidiosandroid">Example Applications for Android/IOS/Android</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h1 id="bluetooth-led-service">Bluetooth LED Service<a class="headerlink" href="#bluetooth-led-service" title="Permanent link">&para;</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>This Bluetooth service is an optional part of the standard bluetooth profile for the micro:bit. It is a passive service, that can operate transparently in the
+background as your main program is running. It allows a connected Bluetooth master device such as a smartphone to read and write the status of the LEDs on the display. This includes reading and writing
+bitmap pattern values and sending text messages to be scrolled across the display. Scrolling speed may also be controlled over Bluetooth via a control point characteristic designed for this purpose.</p>
+<h2 id="enabling-the-service">Enabling the Service<a class="headerlink" href="#enabling-the-service" title="Permanent link">&para;</a></h2>
+<p>This service is disabled by default. To enable the service, simply create an instance of this class in your program, at any time after the uBit object has been initialised:</p>
+<pre><code class="cpp">    new MicroBitLEDService(*uBit.ble, uBit.display);
+</code></pre>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Using Bluetooth services is memory hungry. By default, some of the memory normally used by Nordic's Bluetooth protocol stack (known as a SoftDevice), is reclaimed by the micro:bit runtime as general purpose memory for your applications. if you enable more Bluetooth services, then you may need to provide more memory back to Soft Device to ensure proper operation. If after enabling this service your Bluetooth application cannot access the service reliably, you should consider increasing the value of MICROBIT_SD_GATT_TABLE_SIZE in your inc/MicroBitConfig.h. The more service you add, the larger this will need to be, up to the limit defined in MicroBitConfig.h.</p>
+</div>
+<h2 id="bluetooth-service-specification">Bluetooth Service Specification<a class="headerlink" href="#bluetooth-service-specification" title="Permanent link">&para;</a></h2>
+<p>Please see the <a href="https://lancaster-university.github.io/microbit-docs/resources/bluetooth/bluetooth_profile.html">micro:bit Bluetooth profile specification</a>.</p>
+<h2 id="example-applications-for-androidiosandroid">Example Applications for Android/IOS/Android<a class="headerlink" href="#example-applications-for-androidiosandroid" title="Permanent link">&para;</a></h2>
+<h3 id="general-procedures">General Procedures<a class="headerlink" href="#general-procedures" title="Permanent link">&para;</a></h3>
+<p>micro:bit has an LED display with 5 rows and 5 columns i.e. 25 LEDs in total. The Bluetooth LED service allows the entire grid to be addressed as a bitmap using the LED Matrix State characteristic which supports both read and write operations. </p>
+<p>The LED Matrix State characteristic consists of an array of 5 x utf8 octets, each representing one row of 5 LEDs.  </p>
+<p>Octet 0 represents the first row of LEDs i.e. the top row when the micro:bit is viewed with the edge connector at the bottom and USB connector at the top. </p>
+<p>Octet 1 represents the second row and so on.</p>
+<p>In each octet, bit 4 corresponds to the first LED in the row, bit 3 the second and so on. </p>
+<p>Bit values represent the state of the related LED: off (0) or on (1).</p>
+<p>So in summary, we have:</p>
+<pre><code>Octet 0, LED Row 1: bit4 bit3 bit2 bit1 bit0
+Octet 1, LED Row 2: bit4 bit3 bit2 bit1 bit0
+Octet 2, LED Row 3: bit4 bit3 bit2 bit1 bit0
+Octet 3, LED Row 4: bit4 bit3 bit2 bit1 bit0
+Octet 4, LED Row 5: bit4 bit3 bit2 bit1 bit0
+</code></pre>
+
+<p>Text strings can be sent to the micro:bit for display by writing to the LED Text characteristic and the speed with which it is scrolled can be controlled by setting a delay value in milliseconds by writing to the Scrolling Delay characteristic.</p>
+<p>See the profile page and profile reference documentation for data format and UUID details.</p>
+<h3 id="android">Android<a class="headerlink" href="#android" title="Permanent link">&para;</a></h3>
+<p><img src="../../resources/bluetooth/led_demo.png" alt="LED Demo"></p>
+<h4 id="android-bluetooth-apis">Android Bluetooth APIs<a class="headerlink" href="#android-bluetooth-apis" title="Permanent link">&para;</a></h4>
+<p>Android developers should make themselves familiar with the <a href="http://developer.android.com/guide/topics/connectivity/bluetooth-le.html">Android Bluetooth low energy APIs</a></p>
+<h4 id="microbit-ble-demo-android">microbit-ble-demo-android<a class="headerlink" href="#microbit-ble-demo-android" title="Permanent link">&para;</a></h4>
+<p>The open source microbit-ble-demo-android application contains a full demonstration of the micro:bit Bluetooth LED service. The main body of code for this demonstration can be found in ui.LEDsActivity.java except for the Bluetooth operations themselves which are in bluetooth.BleAdapterService which acts as a kind of higher level Bluetooth API for activities to use without needing to directly concern themselves too closely with the Android APIs themselves. In most cases, operations are asynchronous so that the activity code initiates a Bluetooth operation by calling one of the methods in bluetooth.BleAdapterService (e.g. readCharacteristic(....) ) and later receives a message containing the result of the operation from this object via a Handler object. The message is examined in the Handler code and acted upon.</p>
+<p>Key parts of the button demonstration in this application are explained next.</p>
+<h4 id="in-bluetoothbleadapterservice">In bluetooth.BleAdapterService<a class="headerlink" href="#in-bluetoothbleadapterservice" title="Permanent link">&para;</a></h4>
+<pre><code class="java">public static String LEDSERVICE_SERVICE_UUID = &quot;E95DD91D251D470AA062FA1922DFA9A8&quot;;
+public static String LEDMATRIXSTATE_CHARACTERISTIC_UUID = &quot;E95D7B77251D470AA062FA1922DFA9A8&quot;;
+public static String LEDTEXT_CHARACTERISTIC_UUID = &quot;E95D93EE251D470AA062FA1922DFA9A8&quot;;
+public static String SCROLLINGDELAY_CHARACTERISTIC_UUID = &quot;E95D0D2D251D470AA062FA1922DFA9A8&quot;;
+</code></pre>
+
+<h4 id="in-uiledsactivity">In ui.LEDsActivity<a class="headerlink" href="#in-uiledsactivity" title="Permanent link">&para;</a></h4>
+<pre><code class="java">private short scrolling_delay;
+//    Octet 0, LED Row 1: bit4 bit3 bit2 bit1 bit0
+//    Octet 1, LED Row 2: bit4 bit3 bit2 bit1 bit0
+//    Octet 2, LED Row 3: bit4 bit3 bit2 bit1 bit0
+//    Octet 3, LED Row 4: bit4 bit3 bit2 bit1 bit0
+//    Octet 4, LED Row 5: bit4 bit3 bit2 bit1 bit0
+private byte[] led_matrix_state;
+</code></pre>
+
+<pre><code class="java">// read the current LED matrix state so the application UI can be initialised to match the current micro:bit display state
+bluetooth_le_adapter.readCharacteristic(
+                    Utility.normaliseUUID(BleAdapterService.LEDSERVICE_SERVICE_UUID), 
+                    Utility.normaliseUUID(BleAdapterService.LEDMATRIXSTATE_CHARACTERISTIC_UUID))
+</code></pre>
+
+<pre><code class="java">// send a short text string from the application to the micro:bit
+public void onSendText(View view) {
+    EditText text = (EditText) LEDsActivity.this.findViewById(R.id.display_text);
+    try {
+        byte[] utf8_bytes = text.getText().toString().getBytes(&quot;UTF-8&quot;);
+        Log.d(Constants.TAG, &quot;UTF8 bytes: 0x&quot; + Utility.byteArrayAsHexString(utf8_bytes));
+        bluetooth_le_adapter.writeCharacteristic(
+                            Utility.normaliseUUID(BleAdapterService.LEDSERVICE_SERVICE_UUID), 
+                            Utility.normaliseUUID(BleAdapterService.LEDTEXT_CHARACTERISTIC_UUID), 
+                            utf8_bytes);
+    } catch (UnsupportedEncodingException e) {
+        showMsg(&quot;Unable to convert text to UTF8 bytes&quot;);
+    }
+}
+</code></pre>
+
+<pre><code class="java">// update the local state and UI in response to user interactions
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        Log.d(Constants.TAG, &quot;onTouch - &quot; + event.actionToString((event.getAction())));
+        if (led_matrix_state == null) {
+            Log.d(Constants.TAG, &quot;onTouch - LED state array has not yet been initialised so ignoring touch&quot;);
+            return true;
+        }
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            GridLayout grid = (GridLayout) LEDsActivity.this.findViewById(R.id.grid);
+            int count = grid.getChildCount();
+            int display_row = 0;
+            int led_in_row = 4;
+            for (int i = 0; i &lt; count; i++) {
+                View child = grid.getChildAt(i);
+                if (child == v) {
+                    Log.d(Constants.TAG,&quot;Touched row &quot;+display_row+&quot;, LED &quot;+led_in_row);
+                    if ((led_matrix_state[display_row] &amp; (1 &lt;&lt; led_in_row)) != 0) {
+                        child.setBackgroundColor(Color.parseColor(&quot;#C0C0C0&quot;));
+                        led_matrix_state[display_row] = (byte) (led_matrix_state[display_row] &amp; ~(1 &lt;&lt; led_in_row));
+                    } else {
+                        child.setBackgroundColor(Color.RED);
+                        led_matrix_state[display_row] = (byte) (led_matrix_state[display_row] | (1 &lt;&lt; led_in_row));
+                    }
+                    return true;
+                }
+                led_in_row = led_in_row - 1;
+                if (led_in_row &lt; 0) {
+                    led_in_row = 4;
+                    display_row++;
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+</code></pre>
+
+<pre><code class="java">// send new display state to micro:bit so it mirrors that shown on the application UI
+public void onSetDisplay(View view) {
+    bluetooth_le_adapter.writeCharacteristic(
+                        Utility.normaliseUUID(BleAdapterService.LEDSERVICE_SERVICE_UUID), 
+                        Utility.normaliseUUID(BleAdapterService.LEDMATRIXSTATE_CHARACTERISTIC_UUID), led_matrix_state);
+}
+</code></pre>
+
+<h4 id="video-demonstration-starts-at-200">Video Demonstration - starts at 2:00<a class="headerlink" href="#video-demonstration-starts-at-200" title="Permanent link">&para;</a></h4>
+<iframe src="https://player.vimeo.com/video/153078747" width="750" height="422" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>
+        </div>
+
+        <footer class="col-md-12">
+            
+            <center><a href="https://www.lancaster.ac.uk"><image style="width:auto;" height="61" src="../../img/lancs-logo.png"></image></a></center>
+            <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+        </footer>
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script>var base_url = '../..';</script>
+        <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
+        <script src="../../js/base.js"></script>
+        <!--<script src="../../archive/v2.0.0-rc3/js/base.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/js/bootstrap-3.0.3.min.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/js/highlight.pack.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/js/jquery-1.10.2.min.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/mkdocs/js/lunr-0.5.7.min.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/mkdocs/js/mustache.min.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/mkdocs/js/require.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/mkdocs/js/search.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/mkdocs/js/text.js"></script>-->
+        <!--<script src="../../resources/bluetooth/functions.js"></script>-->
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            From here you can search these documents. Enter
+                            your search terms below.
+                        </p>
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                            </div>
+                        </form>
+                        <div id="mkdocs-search-results"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+
+	<title>Eddystone Beacons - micro:bit runtime</title>
+
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link href="../../css/extra.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-76156484-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-custom navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            
+                <a class="navbar-brand" rel="home" href="#" title="micro:bit runtime">
+                    
+                    <!-- Logo author: Aluna Everitt (@AlunaEveritt on Twitter) --->
+                    
+                    <img style="max-width:200px; margin-top: -7px;" src="../.././img/logo[whiteruntime].png">
+                </a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">General <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../..">Introduction</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../concepts/">Concepts</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../advanced/">Advanced</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../online-toolchains/">Web-based Development</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../offline-toolchains/">Offline Development</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../device/">Hardware</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../help/">Help</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">uBit <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../ubit/">Overview</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/i2c/">i2c</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/storage/">storage</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/serial/">serial</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/messageBus/">messageBus</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/button/">buttons</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/display/">display</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/accelerometer/">accelerometer</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/compass/">compass</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/thermometer/">thermometer</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/io/">io</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/radio/">radio</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Data Types <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../data-types/image/">MicroBitImage</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../data-types/event/">MicroBitEvent</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../data-types/string/">ManagedString</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../data-types/packetbuffer/">PacketBuffer</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bluetooth <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../profile/">Profile</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../accelerometer-service/">AccelerometerService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../button-service/">ButtonService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../dfu-service/">DFUService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../event-service/">EventService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../iopin-service/">IOPinService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../led-service/">LEDService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../magnetometer-service/">MagnetometerService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../temperature-service/">TemperatureService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../uart-service/">UARTService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../ble-connection-events/">Connection Events</a>
+</li>
+
+                    
+                        
+<li class="active">
+    <a href="./">Eddystone Beacons</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Extras <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../extras/light-sensing/">MicroBitLightSensor</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../extras/spi/">SPI</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+
+            
+            
+
+            
+
+            
+            
+
+            
+
+            
+            
+
+            
+
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right hidden-md hidden-sm">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                <li >
+                    <a rel="next" href="../ble-connection-events/">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../../extras/light-sensing/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://github.com/lancaster-university/microbit-dal/">
+                        
+                            <i class="fa fa-github"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#eddystone">Eddystone</a></li>
+        
+            <li><a href="#introduction">Introduction</a></li>
+        
+            <li><a href="#eddystone_1">Eddystone</a></li>
+        
+            <li><a href="#microbit-eddystone-beacons">micro:bit Eddystone beacons</a></li>
+        
+            <li><a href="#examples">Examples</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h1 id="eddystone">Eddystone<a class="headerlink" href="#eddystone" title="Permanent link">&para;</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>Bluetooth beacons are used to indicate proximity to a place or object of interest. Beacons use Bluetooth advertising to broadcast a small amount of data, which can be received and acted upon by anyone in range with a suitable device and software, typically a smartphone and application.</p>
+<p>There are various beacon message formats, which define the way Bluetooth advertising packets are used as containers for beacon data. iBeacon is Apple's beacon message format. Eddystone comes from Google.</p>
+<h2 id="eddystone_1">Eddystone<a class="headerlink" href="#eddystone_1" title="Permanent link">&para;</a></h2>
+<p>The <a href="https://github.com/google/eddystone">Eddystone specification</a> defines four frame types at the time of writing. UID (unique ID), URL (Uniform Resource Locator), TLM (telemetry) and EID (Ephemeral ID). </p>
+<p>UID - this is simply an identifier which is mapped by an application receiving it, to something meaningful like a location</p>
+<p>URL - this is exactly what you'd expect. A URL, typically in compressed form, which points to something like a web site</p>
+<p>TLM - this frame type contains data about the beacon's operation such as its battery level or temperature.</p>
+<p>EID - this is the newest frame type and provides a way of using IDs which is secure such that only the operator of the beacons can make use of the encrypted, temporary IDs in these beacon messages.  </p>
+<h2 id="microbit-eddystone-beacons">micro:bit Eddystone beacons<a class="headerlink" href="#microbit-eddystone-beacons" title="Permanent link">&para;</a></h2>
+<p>micro:bit is able to use either of the UID or URL frame types. A simple API makes it very straightforward to turn a micro:bit into an Eddystone beacon although there are also some configuration requirements for the build process to take note of as well. </p>
+<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
+<p>The best way to explain how to use the two frame types is to look at examples. The code shown here comes from two full source code examples you'll find in the microbit-samples repository. </p>
+<h3 id="url-frame-type">URL Frame type<a class="headerlink" href="#url-frame-type" title="Permanent link">&para;</a></h3>
+<p>To set up a micro:bit so that it advertises with the Eddystone URL frame type, the <strong>eddystone_url</strong> flag in config.json must be set and the eddystone_uid flag must be unset. Beacons are usually connectionless so there's no need to have pairing and other security capabilities switched on either.</p>
+<pre><code>{
+    &quot;microbit-dal&quot;: {
+        &quot;bluetooth&quot;: {
+            &quot;enabled&quot;: 1,
+            &quot;pairing_mode&quot;: 0,
+            &quot;private_addressing&quot;: 0,
+            &quot;whitelist&quot;: 0,
+            &quot;advertising_timeout&quot;: 0,
+            &quot;tx_power&quot;: 6,
+            &quot;dfu_service&quot;: 0,
+            &quot;event_service&quot;: 0,
+            &quot;device_info_service&quot;: 0,
+            &quot;eddystone_url&quot;: 1,
+            &quot;eddystone_uid&quot;: 0
+        }
+    }
+}
+
+</code></pre>
+
+<h4 id="starting-advertising">Starting Advertising<a class="headerlink" href="#starting-advertising" title="Permanent link">&para;</a></h4>
+<p>In your source code, you'll need to define the URL you want to be broadcast and then call uBit.bleManager.advertiseEddystoneUrl with the URL as one of the arguments. </p>
+<p>For example, the following shows the use of a URL shortener that allows for a URL, of a longer length than of maximun of 17, to be sent by an Eddystone Beacon.
+In this case, http://www.bittysoftware.com/, is shortened to https://goo.gl/TlUTF7. It is important to understand that the maximum length of an URL is 17 but in the micro:bit implementation of the specification, the byte encoding of the specification is taken care of resulting in a shorter length of the URL sent by the beacon. In the example, this means that the URL is shortened further from 21 to 14 where the https:// is encoded as one byte and is placed in the URL prefix and the remaining 14 characters are placed in the available space of 17. It is left up to the reader to inspect the specification for other byte encoding.</p>
+<pre><code class="cpp">#include &quot;MicroBit.h&quot;
+
+MicroBit uBit;
+
+char URL[] = &quot;https://goo.gl/TlUTF7&quot;;
+const int8_t CALIBRATED_POWERS[] = {-49, -37, -33, -28, -25, -20, -15, -10};
+
+uint8_t advertising = 0;
+uint8_t tx_power_level = 6;
+
+void startAdvertising() {
+    uBit.bleManager.advertiseEddystoneUrl(URL, CALIBRATED_POWERS[tx_power_level-1], false);
+    uBit.bleManager.setTransmitPower(tx_power_level);
+    uBit.display.scroll(&quot;ADV&quot;);
+    advertising = 1;
+}
+
+</code></pre>
+
+<p>The second argument is a value for the calibrated power field of the Eddystone message. It is supposed to indicate the power level that you could expect to find the Bluetooth signal at if you measured it 0 metres from the beacon. Devices receiving this information in a Bluetooth advertising packet can use it, along with the signal strength measured at the receiver, to perform a calculation called a path loss calculation to figure out an estimate of how far away the beacon it is.</p>
+<p>The boolean argument, set to false here, indicates whether or not the micro:bit should accept connections. Sometimes you might like to have beacon behaviour but still want it to be possible to connect to the micro:bit so you can access one or more of the GATT services that the micro:bit has. In this situation, your config.json file may need to be adjusted to allow for the GATT and security capabilities you want and you will need to ensure your hex file contains the Bluetooth services you plan to use as well.</p>
+<h4 id="stopping-advertising">Stopping Advertising<a class="headerlink" href="#stopping-advertising" title="Permanent link">&para;</a></h4>
+<p>Stopping advertising is straightforward, as shown in this example:</p>
+<pre><code class="cpp">void stopAdvertising() {
+    uBit.bleManager.stopAdvertising();
+    uBit.display.scroll(&quot;OFF&quot;);
+    advertising = 0;
+}
+</code></pre>
+
+<h3 id="uid-frame-type">UID Frame type<a class="headerlink" href="#uid-frame-type" title="Permanent link">&para;</a></h3>
+<p>To set up a micro:bit so that it advertises with the Eddystone UID frame type, the <strong>eddystone_uid</strong> flag in config.json must be set and the eddystone_url flag must be unset. Beacons are usually connectionless so there's no need to have pairing and other security capabilities switched on either.</p>
+<pre><code>{
+    &quot;microbit-dal&quot;: {
+        &quot;bluetooth&quot;: {
+            &quot;enabled&quot;: 1,
+            &quot;pairing_mode&quot;: 0,
+            &quot;private_addressing&quot;: 0,
+            &quot;whitelist&quot;: 0,
+            &quot;advertising_timeout&quot;: 0,
+            &quot;tx_power&quot;: 6,
+            &quot;dfu_service&quot;: 0,
+            &quot;event_service&quot;: 0,
+            &quot;device_info_service&quot;: 0,
+            &quot;eddystone_url&quot;: 0,
+            &quot;eddystone_uid&quot;: 1
+        }
+    }
+}
+
+</code></pre>
+
+<h4 id="starting-advertising_1">Starting Advertising<a class="headerlink" href="#starting-advertising_1" title="Permanent link">&para;</a></h4>
+<p>In your source code, you'll need to define the UID you want to be broadcast in two parts, named the UID namespace and the UID instance. The <a href="https://github.com/google/eddystone/tree/master/eddystone-uid">Eddystone UID frame specification</a> gives guidance on how to choose values for your UIDs. In all cases however, the UID namespace must be 10 bytes long and the UID instance must be 6 bytes long.</p>
+<p>To start advertising a UID, call advertiseEddystoneUid as shown in this example:</p>
+<pre><code class="cpp">char UID_NAMESPACE[] = {0x0E,0x67,0x47,0x04,0x42,0xD0,0x14,0x06,0xD5,0x83}; // sha-1 hash of &quot;com.bittysoftware&quot; 
+char UID_INSTANCE[]  = {0x00 , 0x00, 0x00, 0x00, 0x00, 0x01};
+const int8_t CALIBRATED_POWERS[] = {-49, -37, -33, -28, -25, -20, -15, -10};
+
+uint8_t advertising = 0;
+uint8_t tx_power_level = 6;
+
+void startAdvertising() {
+    uBit.bleManager.advertiseEddystoneUid(UID_NAMESPACE, UID_INSTANCE, CALIBRATED_POWERS[tx_power_level-1], false);
+    uBit.bleManager.setTransmitPower(6);
+    uBit.display.scroll(&quot;ADV&quot;);
+    advertising = 1;
+}
+</code></pre>
+
+<p>Other arguments are as for the URL frame type described above.</p>
+<h4 id="stopping-advertising_1">Stopping Advertising<a class="headerlink" href="#stopping-advertising_1" title="Permanent link">&para;</a></h4>
+<p>Stopping advertising is accomplished with the same stopAdvertising() function shown above.</p>
+<h4 id="video-demonstrations">Video Demonstrations<a class="headerlink" href="#video-demonstrations" title="Permanent link">&para;</a></h4>
+<h5 id="uids">UIDs<a class="headerlink" href="#uids" title="Permanent link">&para;</a></h5>
+<iframe src="https://www.youtube.com/embed/mZlwxIOYxPE" width="750" height="422" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+<h5 id="urls">URLs<a class="headerlink" href="#urls" title="Permanent link">&para;</a></h5>
+<iframe allowfullscreen="" frameborder="0" height="422" mozallowfullscreen="" src="https://www.youtube.com/embed/39gf2s70-Fs" webkitallowfullscreen="" width="750"></iframe></div>
+        </div>
+
+        <footer class="col-md-12">
+            
+            <center><a href="https://www.lancaster.ac.uk"><image style="width:auto;" height="61" src="../../img/lancs-logo.png"></image></a></center>
+            <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+        </footer>
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script>var base_url = '../..';</script>
+        <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
+        <script src="../../js/base.js"></script>
+        <!--<script src="../../archive/v2.0.0-rc3/js/base.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/js/bootstrap-3.0.3.min.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/js/highlight.pack.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/js/jquery-1.10.2.min.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/mkdocs/js/lunr-0.5.7.min.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/mkdocs/js/mustache.min.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/mkdocs/js/require.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/mkdocs/js/search.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/mkdocs/js/text.js"></script>-->
+        <!--<script src="../../resources/bluetooth/functions.js"></script>-->
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            From here you can search these documents. Enter
+                            your search terms below.
+                        </p>
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                            </div>
+                        </form>
+                        <div id="mkdocs-search-results"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

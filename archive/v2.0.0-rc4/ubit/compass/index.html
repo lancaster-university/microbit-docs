@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+
+	<title>compass - micro:bit runtime</title>
+
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link href="../../css/extra.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-76156484-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-custom navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            
+                <a class="navbar-brand" rel="home" href="#" title="micro:bit runtime">
+                    
+                    <!-- Logo author: Aluna Everitt (@AlunaEveritt on Twitter) --->
+                    
+                    <img style="max-width:200px; margin-top: -7px;" src="../.././img/logo[whiteruntime].png">
+                </a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">General <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../..">Introduction</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../concepts/">Concepts</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../advanced/">Advanced</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../online-toolchains/">Web-based Development</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../offline-toolchains/">Offline Development</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../device/">Hardware</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../help/">Help</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">uBit <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../">Overview</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../i2c/">i2c</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../storage/">storage</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../serial/">serial</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../messageBus/">messageBus</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../button/">buttons</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../display/">display</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../accelerometer/">accelerometer</a>
+</li>
+
+                    
+                        
+<li class="active">
+    <a href="./">compass</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../thermometer/">thermometer</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../io/">io</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../radio/">radio</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Data Types <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../data-types/image/">MicroBitImage</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../data-types/event/">MicroBitEvent</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../data-types/string/">ManagedString</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../data-types/packetbuffer/">PacketBuffer</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bluetooth <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../ble/profile/">Profile</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/accelerometer-service/">AccelerometerService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/button-service/">ButtonService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/dfu-service/">DFUService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/event-service/">EventService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/iopin-service/">IOPinService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/led-service/">LEDService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/magnetometer-service/">MagnetometerService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/temperature-service/">TemperatureService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/uart-service/">UARTService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/ble-connection-events/">Connection Events</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/eddystone/">Eddystone Beacons</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Extras <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../extras/light-sensing/">MicroBitLightSensor</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../extras/spi/">SPI</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+
+            
+            
+
+            
+
+            
+            
+
+            
+
+            
+            
+
+            
+
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right hidden-md hidden-sm">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                <li >
+                    <a rel="next" href="../accelerometer/">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../thermometer/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://github.com/lancaster-university/microbit-dal/">
+                        
+                            <i class="fa fa-github"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#ubitcompass">uBit.compass</a></li>
+        
+            <li><a href="#overview">Overview</a></li>
+        
+            <li><a href="#message-bus-id">Message Bus ID</a></li>
+        
+            <li><a href="#message-bus-events">Message Bus Events</a></li>
+        
+            <li><a href="#api">API</a></li>
+        
+            <li><a href="#constructor">Constructor</a></li>
+        
+            <li><a href="#configure">configure</a></li>
+        
+            <li><a href="#setperiod">setPeriod</a></li>
+        
+            <li><a href="#getperiod">getPeriod</a></li>
+        
+            <li><a href="#heading">heading</a></li>
+        
+            <li><a href="#whoami">whoAmI</a></li>
+        
+            <li><a href="#getx">getX</a></li>
+        
+            <li><a href="#gety">getY</a></li>
+        
+            <li><a href="#getz">getZ</a></li>
+        
+            <li><a href="#getfieldstrength">getFieldStrength</a></li>
+        
+            <li><a href="#readtemperature">readTemperature</a></li>
+        
+            <li><a href="#calibrate">calibrate</a></li>
+        
+            <li><a href="#setcalibration">setCalibration</a></li>
+        
+            <li><a href="#getcalibration">getCalibration</a></li>
+        
+            <li><a href="#updatesample">updateSample</a></li>
+        
+            <li><a href="#iscalibrated">isCalibrated</a></li>
+        
+            <li><a href="#iscalibrating">isCalibrating</a></li>
+        
+            <li><a href="#clearcalibration">clearCalibration</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h1 id="ubitcompass">uBit.compass<a class="headerlink" href="#ubitcompass" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>Onboard the micro:bit is an electronic magnetometer. Like the <a href="../accelerometer/">accelerometer</a>, the<br />
+magnetometer is linked to the <a href="../i2c/">i2c</a> bus, which is used to access data
+on the magnetometer.</p>
+<p>The magnetometer provides information about the magnetic field where a micro:bit
+is situated, crucially providing an indication of where magnetic North is located.</p>
+<p>Raw magnetic field information alone is not enough to provide accurate
+compass headings. Therefore, the <a href="../accelerometer/">accelerometer</a> is used in
+conjunction with the magnetometer to reduce the inaccuracy of the magnetometer reading.</p>
+<p>The magnetometer is inaccurate because it considers all 3 planes: x, y and z.
+The heading North only exists in the horizontal planes (x and y), therefore we only
+need values in these planes. The accelerometer is used to filter out the vertical plane (z)
+to make our headings far more accurate. You can see this in action when calibrating the compass.</p>
+<p>After calibration has been performed, the end product is an e-compass!</p>
+<p>The micro:bit uses the NXP <a href="../../resources/datasheets/MAG3110.pdf">MAG3110</a>.</p>
+<h3 id="real-time-updates">Real time updates<a class="headerlink" href="#real-time-updates" title="Permanent link">&para;</a></h3>
+<p>When using the standard uBit presentation, the compass is continuously updated
+in the background using an idle thread (after it is first used), which is executed
+whenever the micro:bit has no other tasks to perform.</p>
+<p>If there is no scheduler running, the values are synchronously read on <code>get[X,Y,Z]()</code> and <code>heading()</code>
+calls. Additionally, if you would like to drive compass updates manually <code>updateSample()</code>
+can be used.</p>
+<h2 id="message-bus-id">Message Bus ID<a class="headerlink" href="#message-bus-id" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Constant</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MICROBIT_ID_COMPASS</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<h2 id="message-bus-events">Message Bus Events<a class="headerlink" href="#message-bus-events" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Constant</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MICROBIT_COMPASS_EVT_CAL_REQUIRED</td>
+<td>1 <strong>(DEPRECATED)</strong></td>
+</tr>
+<tr>
+<td>MICROBIT_COMPASS_EVT_CAL_START</td>
+<td>2 <strong>(DEPRECATED)</strong></td>
+</tr>
+<tr>
+<td>MICROBIT_COMPASS_EVT_CAL_END</td>
+<td>3 <strong>(DEPRECATED)</strong></td>
+</tr>
+<tr>
+<td>MICROBIT_COMPASS_EVT_DATA_UPDATE</td>
+<td>4</td>
+</tr>
+<tr>
+<td>MICROBIT_COMPASS_EVT_CONFIG_NEEDED</td>
+<td>5</td>
+</tr>
+<tr>
+<td>MICROBIT_COMPASS_EVT_CALIBRATE</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+<h2 id="api">API<a class="headerlink" href="#api" title="Permanent link">&para;</a></h2>
+<h2 id="constructor">Constructor<a class="headerlink" href="#constructor" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="microbitcompass-microbiti2c-_i2c-microbitaccelerometer-_accelerometer-microbitstorage-_storage">MicroBitCompass( <div style='color:#a71d5d; display:inline-block'>MicroBitI2C  &amp;</div> _i2c,  <div style='color:#a71d5d; display:inline-block'>MicroBitAccelerometer  &amp;</div> _accelerometer,  <div style='color:#a71d5d; display:inline-block'>MicroBitStorage  &amp;</div> _storage)<a class="headerlink" href="#microbitcompass-microbiti2c-_i2c-microbitaccelerometer-_accelerometer-microbitstorage-_storage" title="Permanent link">&para;</a></h4>
+<h5 id="description">Description<a class="headerlink" href="#description" title="Permanent link">&para;</a></h5>
+<p>Constructor. Create a software representation of an e-compass.  </p>
+<h5 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitI2C  &amp;</div> _i2c - an instance of i2c, which the compass is accessible from.</p>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitAccelerometer  &amp;</div> _accelerometer - an instance of the accelerometer, used for tilt compensation.</p>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitStorage  &amp;</div> _storage - an instance of  MicroBitStorage , used to persist calibration data across resets.</p>
+</blockquote>
+<h5 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> MicroBitI2C i2c(I2C_SDA0, I2C_SCL0); 
+
+ MicroBitAccelerometer accelerometer(i2c); 
+
+ MicroBitStorage storage; 
+
+ MicroBitCompass compass(i2c, accelerometer, storage); 
+</code></pre>
+
+<p><br/></p>
+<h4 id="microbitcompass-microbiti2c-_i2c-microbitaccelerometer-_accelerometer-microbitstorage-_storage-uint16_t-address">MicroBitCompass( <div style='color:#a71d5d; display:inline-block'>MicroBitI2C  &amp;</div> _i2c,  <div style='color:#a71d5d; display:inline-block'>MicroBitAccelerometer  &amp;</div> _accelerometer,  <div style='color:#a71d5d; display:inline-block'>MicroBitStorage  &amp;</div> _storage,  <div style='color:#a71d5d; display:inline-block'>uint16_t</div> address)<a class="headerlink" href="#microbitcompass-microbiti2c-_i2c-microbitaccelerometer-_accelerometer-microbitstorage-_storage-uint16_t-address" title="Permanent link">&para;</a></h4>
+<h5 id="description_1">Description<a class="headerlink" href="#description_1" title="Permanent link">&para;</a></h5>
+<p>Constructor. Create a software representation of an e-compass.  </p>
+<h5 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitI2C  &amp;</div> _i2c - an instance of i2c, which the compass is accessible from.</p>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitAccelerometer  &amp;</div> _accelerometer - an instance of the accelerometer, used for tilt compensation.</p>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitStorage  &amp;</div> _storage - an instance of  MicroBitStorage , used to persist calibration data across resets.</p>
+<p><div style='color:#a71d5d; display:inline-block'>uint16_t</div> address - the default address for the compass register on the i2c bus. Defaults to MAG3110_DEFAULT_ADDR.</p>
+</blockquote>
+<h5 id="example_1">Example<a class="headerlink" href="#example_1" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> MicroBitI2C i2c(I2C_SDA0, I2C_SCL0); 
+
+ MicroBitAccelerometer accelerometer(i2c); 
+
+ MicroBitStorage storage; 
+
+ MicroBitCompass compass(i2c, accelerometer, storage); 
+</code></pre>
+
+<p><br/></p>
+<h4 id="microbitcompass-microbiti2c-_i2c-microbitaccelerometer-_accelerometer-microbitstorage-_storage-uint16_t-address-uint16_t-id">MicroBitCompass( <div style='color:#a71d5d; display:inline-block'>MicroBitI2C  &amp;</div> _i2c,  <div style='color:#a71d5d; display:inline-block'>MicroBitAccelerometer  &amp;</div> _accelerometer,  <div style='color:#a71d5d; display:inline-block'>MicroBitStorage  &amp;</div> _storage,  <div style='color:#a71d5d; display:inline-block'>uint16_t</div> address,  <div style='color:#a71d5d; display:inline-block'>uint16_t</div> id)<a class="headerlink" href="#microbitcompass-microbiti2c-_i2c-microbitaccelerometer-_accelerometer-microbitstorage-_storage-uint16_t-address-uint16_t-id" title="Permanent link">&para;</a></h4>
+<h5 id="description_2">Description<a class="headerlink" href="#description_2" title="Permanent link">&para;</a></h5>
+<p>Constructor. Create a software representation of an e-compass.  </p>
+<h5 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitI2C  &amp;</div> _i2c - an instance of i2c, which the compass is accessible from.</p>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitAccelerometer  &amp;</div> _accelerometer - an instance of the accelerometer, used for tilt compensation.</p>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitStorage  &amp;</div> _storage - an instance of  MicroBitStorage , used to persist calibration data across resets.</p>
+<p><div style='color:#a71d5d; display:inline-block'>uint16_t</div> address - the default address for the compass register on the i2c bus. Defaults to MAG3110_DEFAULT_ADDR.</p>
+<p><div style='color:#a71d5d; display:inline-block'>uint16_t</div> id - the ID of the new  MicroBitCompass  object. Defaults to MAG3110_DEFAULT_ADDR.</p>
+</blockquote>
+<h5 id="example_2">Example<a class="headerlink" href="#example_2" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> MicroBitI2C i2c(I2C_SDA0, I2C_SCL0); 
+
+ MicroBitAccelerometer accelerometer(i2c); 
+
+ MicroBitStorage storage; 
+
+ MicroBitCompass compass(i2c, accelerometer, storage); 
+</code></pre>
+
+<p><br/></p>
+<h4 id="microbitcompass-microbiti2c-_i2c-microbitaccelerometer-_accelerometer">MicroBitCompass( <div style='color:#a71d5d; display:inline-block'>MicroBitI2C  &amp;</div> _i2c,  <div style='color:#a71d5d; display:inline-block'>MicroBitAccelerometer  &amp;</div> _accelerometer)<a class="headerlink" href="#microbitcompass-microbiti2c-_i2c-microbitaccelerometer-_accelerometer" title="Permanent link">&para;</a></h4>
+<h5 id="description_3">Description<a class="headerlink" href="#description_3" title="Permanent link">&para;</a></h5>
+<p>Constructor. Create a software representation of an e-compass.  </p>
+<h5 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitI2C  &amp;</div> _i2c - an instance of i2c, which the compass is accessible from.</p>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitAccelerometer  &amp;</div> _accelerometer - an instance of the accelerometer, used for tilt compensation.</p>
+</blockquote>
+<h5 id="example_3">Example<a class="headerlink" href="#example_3" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> MicroBitI2C i2c(I2C_SDA0, I2C_SCL0); 
+
+ MicroBitAccelerometer accelerometer(i2c); 
+
+ MicroBitCompass compass(i2c, accelerometer, storage); 
+</code></pre>
+
+<p><br/></p>
+<h4 id="microbitcompass-microbiti2c-_i2c-microbitaccelerometer-_accelerometer-uint16_t-address">MicroBitCompass( <div style='color:#a71d5d; display:inline-block'>MicroBitI2C  &amp;</div> _i2c,  <div style='color:#a71d5d; display:inline-block'>MicroBitAccelerometer  &amp;</div> _accelerometer,  <div style='color:#a71d5d; display:inline-block'>uint16_t</div> address)<a class="headerlink" href="#microbitcompass-microbiti2c-_i2c-microbitaccelerometer-_accelerometer-uint16_t-address" title="Permanent link">&para;</a></h4>
+<h5 id="description_4">Description<a class="headerlink" href="#description_4" title="Permanent link">&para;</a></h5>
+<p>Constructor. Create a software representation of an e-compass.  </p>
+<h5 id="parameters_4">Parameters<a class="headerlink" href="#parameters_4" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitI2C  &amp;</div> _i2c - an instance of i2c, which the compass is accessible from.</p>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitAccelerometer  &amp;</div> _accelerometer - an instance of the accelerometer, used for tilt compensation.</p>
+<p><div style='color:#a71d5d; display:inline-block'>uint16_t</div> address - the default address for the compass register on the i2c bus. Defaults to MAG3110_DEFAULT_ADDR.</p>
+</blockquote>
+<h5 id="example_4">Example<a class="headerlink" href="#example_4" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> MicroBitI2C i2c(I2C_SDA0, I2C_SCL0); 
+
+ MicroBitAccelerometer accelerometer(i2c); 
+
+ MicroBitCompass compass(i2c, accelerometer, storage); 
+</code></pre>
+
+<p><br/></p>
+<h4 id="microbitcompass-microbiti2c-_i2c-microbitaccelerometer-_accelerometer-uint16_t-address-uint16_t-id">MicroBitCompass( <div style='color:#a71d5d; display:inline-block'>MicroBitI2C  &amp;</div> _i2c,  <div style='color:#a71d5d; display:inline-block'>MicroBitAccelerometer  &amp;</div> _accelerometer,  <div style='color:#a71d5d; display:inline-block'>uint16_t</div> address,  <div style='color:#a71d5d; display:inline-block'>uint16_t</div> id)<a class="headerlink" href="#microbitcompass-microbiti2c-_i2c-microbitaccelerometer-_accelerometer-uint16_t-address-uint16_t-id" title="Permanent link">&para;</a></h4>
+<h5 id="description_5">Description<a class="headerlink" href="#description_5" title="Permanent link">&para;</a></h5>
+<p>Constructor. Create a software representation of an e-compass.  </p>
+<h5 id="parameters_5">Parameters<a class="headerlink" href="#parameters_5" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitI2C  &amp;</div> _i2c - an instance of i2c, which the compass is accessible from.</p>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitAccelerometer  &amp;</div> _accelerometer - an instance of the accelerometer, used for tilt compensation.</p>
+<p><div style='color:#a71d5d; display:inline-block'>uint16_t</div> address - the default address for the compass register on the i2c bus. Defaults to MAG3110_DEFAULT_ADDR.</p>
+<p><div style='color:#a71d5d; display:inline-block'>uint16_t</div> id - the ID of the new  MicroBitCompass  object. Defaults to MAG3110_DEFAULT_ADDR.</p>
+</blockquote>
+<h5 id="example_5">Example<a class="headerlink" href="#example_5" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> MicroBitI2C i2c(I2C_SDA0, I2C_SCL0); 
+
+ MicroBitAccelerometer accelerometer(i2c); 
+
+ MicroBitCompass compass(i2c, accelerometer, storage); 
+</code></pre>
+
+<p><br/></p>
+<h4 id="microbitcompass-microbiti2c-_i2c-microbitstorage-_storage">MicroBitCompass( <div style='color:#a71d5d; display:inline-block'>MicroBitI2C  &amp;</div> _i2c,  <div style='color:#a71d5d; display:inline-block'>MicroBitStorage  &amp;</div> _storage)<a class="headerlink" href="#microbitcompass-microbiti2c-_i2c-microbitstorage-_storage" title="Permanent link">&para;</a></h4>
+<h5 id="description_6">Description<a class="headerlink" href="#description_6" title="Permanent link">&para;</a></h5>
+<p>Constructor. Create a software representation of an e-compass.  </p>
+<h5 id="parameters_6">Parameters<a class="headerlink" href="#parameters_6" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitI2C  &amp;</div> _i2c - an instance of i2c, which the compass is accessible from.</p>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitStorage  &amp;</div> _storage - an instance of  MicroBitStorage , used to persist calibration data across resets.</p>
+</blockquote>
+<h5 id="example_6">Example<a class="headerlink" href="#example_6" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> MicroBitI2C i2c(I2C_SDA0, I2C_SCL0); 
+
+ MicroBitStorage storage; 
+
+ MicroBitCompass compass(i2c, storage); 
+</code></pre>
+
+<p><br/></p>
+<h4 id="microbitcompass-microbiti2c-_i2c-microbitstorage-_storage-uint16_t-address">MicroBitCompass( <div style='color:#a71d5d; display:inline-block'>MicroBitI2C  &amp;</div> _i2c,  <div style='color:#a71d5d; display:inline-block'>MicroBitStorage  &amp;</div> _storage,  <div style='color:#a71d5d; display:inline-block'>uint16_t</div> address)<a class="headerlink" href="#microbitcompass-microbiti2c-_i2c-microbitstorage-_storage-uint16_t-address" title="Permanent link">&para;</a></h4>
+<h5 id="description_7">Description<a class="headerlink" href="#description_7" title="Permanent link">&para;</a></h5>
+<p>Constructor. Create a software representation of an e-compass.  </p>
+<h5 id="parameters_7">Parameters<a class="headerlink" href="#parameters_7" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitI2C  &amp;</div> _i2c - an instance of i2c, which the compass is accessible from.</p>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitStorage  &amp;</div> _storage - an instance of  MicroBitStorage , used to persist calibration data across resets.</p>
+<p><div style='color:#a71d5d; display:inline-block'>uint16_t</div> address - the default address for the compass register on the i2c bus. Defaults to MAG3110_DEFAULT_ADDR.</p>
+</blockquote>
+<h5 id="example_7">Example<a class="headerlink" href="#example_7" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> MicroBitI2C i2c(I2C_SDA0, I2C_SCL0); 
+
+ MicroBitStorage storage; 
+
+ MicroBitCompass compass(i2c, storage); 
+</code></pre>
+
+<p><br/></p>
+<h4 id="microbitcompass-microbiti2c-_i2c-microbitstorage-_storage-uint16_t-address-uint16_t-id">MicroBitCompass( <div style='color:#a71d5d; display:inline-block'>MicroBitI2C  &amp;</div> _i2c,  <div style='color:#a71d5d; display:inline-block'>MicroBitStorage  &amp;</div> _storage,  <div style='color:#a71d5d; display:inline-block'>uint16_t</div> address,  <div style='color:#a71d5d; display:inline-block'>uint16_t</div> id)<a class="headerlink" href="#microbitcompass-microbiti2c-_i2c-microbitstorage-_storage-uint16_t-address-uint16_t-id" title="Permanent link">&para;</a></h4>
+<h5 id="description_8">Description<a class="headerlink" href="#description_8" title="Permanent link">&para;</a></h5>
+<p>Constructor. Create a software representation of an e-compass.  </p>
+<h5 id="parameters_8">Parameters<a class="headerlink" href="#parameters_8" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitI2C  &amp;</div> _i2c - an instance of i2c, which the compass is accessible from.</p>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitStorage  &amp;</div> _storage - an instance of  MicroBitStorage , used to persist calibration data across resets.</p>
+<p><div style='color:#a71d5d; display:inline-block'>uint16_t</div> address - the default address for the compass register on the i2c bus. Defaults to MAG3110_DEFAULT_ADDR.</p>
+<p><div style='color:#a71d5d; display:inline-block'>uint16_t</div> id - the ID of the new  MicroBitCompass  object. Defaults to MAG3110_DEFAULT_ADDR.</p>
+</blockquote>
+<h5 id="example_8">Example<a class="headerlink" href="#example_8" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> MicroBitI2C i2c(I2C_SDA0, I2C_SCL0); 
+
+ MicroBitStorage storage; 
+
+ MicroBitCompass compass(i2c, storage); 
+</code></pre>
+
+<p><br/></p>
+<h4 id="microbitcompass-microbiti2c-_i2c">MicroBitCompass( <div style='color:#a71d5d; display:inline-block'>MicroBitI2C  &amp;</div> _i2c)<a class="headerlink" href="#microbitcompass-microbiti2c-_i2c" title="Permanent link">&para;</a></h4>
+<h5 id="description_9">Description<a class="headerlink" href="#description_9" title="Permanent link">&para;</a></h5>
+<p>Constructor. Create a software representation of an e-compass.  </p>
+<h5 id="parameters_9">Parameters<a class="headerlink" href="#parameters_9" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitI2C  &amp;</div> _i2c - an instance of i2c, which the compass is accessible from.</p>
+</blockquote>
+<h5 id="example_9">Example<a class="headerlink" href="#example_9" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> MicroBitI2C i2c(I2C_SDA0, I2C_SCL0); 
+
+ MicroBitCompass compass(i2c); 
+</code></pre>
+
+<p><br/></p>
+<h4 id="microbitcompass-microbiti2c-_i2c-uint16_t-address">MicroBitCompass( <div style='color:#a71d5d; display:inline-block'>MicroBitI2C  &amp;</div> _i2c,  <div style='color:#a71d5d; display:inline-block'>uint16_t</div> address)<a class="headerlink" href="#microbitcompass-microbiti2c-_i2c-uint16_t-address" title="Permanent link">&para;</a></h4>
+<h5 id="description_10">Description<a class="headerlink" href="#description_10" title="Permanent link">&para;</a></h5>
+<p>Constructor. Create a software representation of an e-compass.  </p>
+<h5 id="parameters_10">Parameters<a class="headerlink" href="#parameters_10" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitI2C  &amp;</div> _i2c - an instance of i2c, which the compass is accessible from.</p>
+<p><div style='color:#a71d5d; display:inline-block'>uint16_t</div> address - the default address for the compass register on the i2c bus. Defaults to MAG3110_DEFAULT_ADDR.</p>
+</blockquote>
+<h5 id="example_10">Example<a class="headerlink" href="#example_10" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> MicroBitI2C i2c(I2C_SDA0, I2C_SCL0); 
+
+ MicroBitCompass compass(i2c); 
+</code></pre>
+
+<p><br/></p>
+<h4 id="microbitcompass-microbiti2c-_i2c-uint16_t-address-uint16_t-id">MicroBitCompass( <div style='color:#a71d5d; display:inline-block'>MicroBitI2C  &amp;</div> _i2c,  <div style='color:#a71d5d; display:inline-block'>uint16_t</div> address,  <div style='color:#a71d5d; display:inline-block'>uint16_t</div> id)<a class="headerlink" href="#microbitcompass-microbiti2c-_i2c-uint16_t-address-uint16_t-id" title="Permanent link">&para;</a></h4>
+<h5 id="description_11">Description<a class="headerlink" href="#description_11" title="Permanent link">&para;</a></h5>
+<p>Constructor. Create a software representation of an e-compass.  </p>
+<h5 id="parameters_11">Parameters<a class="headerlink" href="#parameters_11" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitI2C  &amp;</div> _i2c - an instance of i2c, which the compass is accessible from.</p>
+<p><div style='color:#a71d5d; display:inline-block'>uint16_t</div> address - the default address for the compass register on the i2c bus. Defaults to MAG3110_DEFAULT_ADDR.</p>
+<p><div style='color:#a71d5d; display:inline-block'>uint16_t</div> id - the ID of the new  MicroBitCompass  object. Defaults to MAG3110_DEFAULT_ADDR.</p>
+</blockquote>
+<h5 id="example_11">Example<a class="headerlink" href="#example_11" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> MicroBitI2C i2c(I2C_SDA0, I2C_SCL0); 
+
+ MicroBitCompass compass(i2c); 
+</code></pre>
+
+<h2 id="configure">configure<a class="headerlink" href="#configure" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-configure"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>configure</div>()<a class="headerlink" href="#int-configure" title="Permanent link">&para;</a></h4>
+<h5 id="description_12">Description<a class="headerlink" href="#description_12" title="Permanent link">&para;</a></h5>
+<p>Configures the compass for the sample rate defined in this object. The nearest values are chosen to those defined that are supported by the hardware. The instance variables are then updated to reflect reality.  </p>
+<h5 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h5>
+<p>MICROBIT_OK or MICROBIT_I2C_ERROR if the magnetometer could not be configured. </p>
+<h2 id="setperiod">setPeriod<a class="headerlink" href="#setperiod" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-setperiod-int-period"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>setPeriod</div>( <div style='color:#a71d5d; display:inline-block'>int</div> period)<a class="headerlink" href="#int-setperiod-int-period" title="Permanent link">&para;</a></h4>
+<h5 id="description_13">Description<a class="headerlink" href="#description_13" title="Permanent link">&para;</a></h5>
+<p>Attempts to set the sample rate of the compass to the specified value (in ms).  </p>
+<h5 id="parameters_12">Parameters<a class="headerlink" href="#parameters_12" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> period - the requested time between samples, in milliseconds.</p>
+</blockquote>
+<h5 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">&para;</a></h5>
+<p>MICROBIT_OK or MICROBIT_I2C_ERROR if the magnetometer could not be updated.</p>
+<h5 id="example_12">Example<a class="headerlink" href="#example_12" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> // sample rate is now 20 ms. 
+ compass.setPeriod(20); 
+</code></pre>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The requested rate may not be possible on the hardware. In this case, the nearest lower rate is chosen. </p>
+</div>
+<h2 id="getperiod">getPeriod<a class="headerlink" href="#getperiod" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-getperiod"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>getPeriod</div>()<a class="headerlink" href="#int-getperiod" title="Permanent link">&para;</a></h4>
+<h5 id="description_14">Description<a class="headerlink" href="#description_14" title="Permanent link">&para;</a></h5>
+<p>Reads the currently configured sample rate of the compass.  </p>
+<h5 id="returns_2">Returns<a class="headerlink" href="#returns_2" title="Permanent link">&para;</a></h5>
+<p>The time between samples, in milliseconds. </p>
+<h2 id="heading">heading<a class="headerlink" href="#heading" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-heading"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>heading</div>()<a class="headerlink" href="#int-heading" title="Permanent link">&para;</a></h4>
+<h5 id="description_15">Description<a class="headerlink" href="#description_15" title="Permanent link">&para;</a></h5>
+<p>Gets the current heading of the device, relative to magnetic north.  </p>
+<p>If the compass is not calibrated, it will raise the MICROBIT_COMPASS_EVT_CALIBRATE event.  </p>
+<p>Users wishing to implement their own calibration algorithms should listen for this event, using MESSAGE_BUS_LISTENER_IMMEDIATE model. This ensures that calibration is complete before the user program continues.  </p>
+<h5 id="returns_3">Returns<a class="headerlink" href="#returns_3" title="Permanent link">&para;</a></h5>
+<p>the current heading, in degrees. Or MICROBIT_CALIBRATION_IN_PROGRESS if the compass is calibrating.</p>
+<h5 id="example_13">Example<a class="headerlink" href="#example_13" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> compass.heading(); 
+</code></pre>
+
+<h2 id="whoami">whoAmI<a class="headerlink" href="#whoami" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-whoami"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>whoAmI</div>()<a class="headerlink" href="#int-whoami" title="Permanent link">&para;</a></h4>
+<h5 id="description_16">Description<a class="headerlink" href="#description_16" title="Permanent link">&para;</a></h5>
+<p>Attempts to read the 8 bit ID from the magnetometer, this can be used for validation purposes.  </p>
+<h5 id="returns_4">Returns<a class="headerlink" href="#returns_4" title="Permanent link">&para;</a></h5>
+<p>the 8 bit ID returned by the magnetometer, or MICROBIT_I2C_ERROR if the request fails.</p>
+<h5 id="example_14">Example<a class="headerlink" href="#example_14" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> compass.whoAmI(); 
+</code></pre>
+
+<h2 id="getx">getX<a class="headerlink" href="#getx" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-getx"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>getX</div>()<a class="headerlink" href="#int-getx" title="Permanent link">&para;</a></h4>
+<h5 id="description_17">Description<a class="headerlink" href="#description_17" title="Permanent link">&para;</a></h5>
+<p>Reads the value of the X axis from the latest update retrieved from the magnetometer.  </p>
+<h5 id="returns_5">Returns<a class="headerlink" href="#returns_5" title="Permanent link">&para;</a></h5>
+<p>The magnetic force measured in the X axis, in nano teslas.</p>
+<h5 id="example_15">Example<a class="headerlink" href="#example_15" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> compass.getX(); 
+</code></pre>
+
+<p><br/></p>
+<h4 id="int-getx-microbitcoordinatesystem-system"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>getX</div>( <div style='color:#a71d5d; display:inline-block'>MicroBitCoordinateSystem</div> system)<a class="headerlink" href="#int-getx-microbitcoordinatesystem-system" title="Permanent link">&para;</a></h4>
+<h5 id="description_18">Description<a class="headerlink" href="#description_18" title="Permanent link">&para;</a></h5>
+<p>Reads the value of the X axis from the latest update retrieved from the magnetometer.  </p>
+<h5 id="parameters_13">Parameters<a class="headerlink" href="#parameters_13" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitCoordinateSystem</div> system - The coordinate system to use. By default, a simple cartesian system is provided.</p>
+</blockquote>
+<h5 id="returns_6">Returns<a class="headerlink" href="#returns_6" title="Permanent link">&para;</a></h5>
+<p>The magnetic force measured in the X axis, in nano teslas.</p>
+<h5 id="example_16">Example<a class="headerlink" href="#example_16" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> compass.getX(); 
+</code></pre>
+
+<h2 id="gety">getY<a class="headerlink" href="#gety" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-gety"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>getY</div>()<a class="headerlink" href="#int-gety" title="Permanent link">&para;</a></h4>
+<h5 id="description_19">Description<a class="headerlink" href="#description_19" title="Permanent link">&para;</a></h5>
+<p>Reads the value of the Y axis from the latest update retrieved from the magnetometer.  </p>
+<h5 id="returns_7">Returns<a class="headerlink" href="#returns_7" title="Permanent link">&para;</a></h5>
+<p>The magnetic force measured in the Y axis, in nano teslas.</p>
+<h5 id="example_17">Example<a class="headerlink" href="#example_17" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> compass.getY(); 
+</code></pre>
+
+<p><br/></p>
+<h4 id="int-gety-microbitcoordinatesystem-system"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>getY</div>( <div style='color:#a71d5d; display:inline-block'>MicroBitCoordinateSystem</div> system)<a class="headerlink" href="#int-gety-microbitcoordinatesystem-system" title="Permanent link">&para;</a></h4>
+<h5 id="description_20">Description<a class="headerlink" href="#description_20" title="Permanent link">&para;</a></h5>
+<p>Reads the value of the Y axis from the latest update retrieved from the magnetometer.  </p>
+<h5 id="parameters_14">Parameters<a class="headerlink" href="#parameters_14" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitCoordinateSystem</div> system - The coordinate system to use. By default, a simple cartesian system is provided.</p>
+</blockquote>
+<h5 id="returns_8">Returns<a class="headerlink" href="#returns_8" title="Permanent link">&para;</a></h5>
+<p>The magnetic force measured in the Y axis, in nano teslas.</p>
+<h5 id="example_18">Example<a class="headerlink" href="#example_18" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> compass.getY(); 
+</code></pre>
+
+<h2 id="getz">getZ<a class="headerlink" href="#getz" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-getz"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>getZ</div>()<a class="headerlink" href="#int-getz" title="Permanent link">&para;</a></h4>
+<h5 id="description_21">Description<a class="headerlink" href="#description_21" title="Permanent link">&para;</a></h5>
+<p>Reads the value of the Z axis from the latest update retrieved from the magnetometer.  </p>
+<h5 id="returns_9">Returns<a class="headerlink" href="#returns_9" title="Permanent link">&para;</a></h5>
+<p>The magnetic force measured in the Z axis, in nano teslas.</p>
+<h5 id="example_19">Example<a class="headerlink" href="#example_19" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> compass.getZ(); 
+</code></pre>
+
+<p><br/></p>
+<h4 id="int-getz-microbitcoordinatesystem-system"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>getZ</div>( <div style='color:#a71d5d; display:inline-block'>MicroBitCoordinateSystem</div> system)<a class="headerlink" href="#int-getz-microbitcoordinatesystem-system" title="Permanent link">&para;</a></h4>
+<h5 id="description_22">Description<a class="headerlink" href="#description_22" title="Permanent link">&para;</a></h5>
+<p>Reads the value of the Z axis from the latest update retrieved from the magnetometer.  </p>
+<h5 id="parameters_15">Parameters<a class="headerlink" href="#parameters_15" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitCoordinateSystem</div> system - The coordinate system to use. By default, a simple cartesian system is provided.</p>
+</blockquote>
+<h5 id="returns_10">Returns<a class="headerlink" href="#returns_10" title="Permanent link">&para;</a></h5>
+<p>The magnetic force measured in the Z axis, in nano teslas.</p>
+<h5 id="example_20">Example<a class="headerlink" href="#example_20" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> compass.getZ(); 
+</code></pre>
+
+<h2 id="getfieldstrength">getFieldStrength<a class="headerlink" href="#getfieldstrength" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-getfieldstrength"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>getFieldStrength</div>()<a class="headerlink" href="#int-getfieldstrength" title="Permanent link">&para;</a></h4>
+<h5 id="description_23">Description<a class="headerlink" href="#description_23" title="Permanent link">&para;</a></h5>
+<p>Determines the overall magnetic field strength based on the latest update from the magnetometer.  </p>
+<h5 id="returns_11">Returns<a class="headerlink" href="#returns_11" title="Permanent link">&para;</a></h5>
+<p>The magnetic force measured across all axis, in nano teslas.</p>
+<h5 id="example_21">Example<a class="headerlink" href="#example_21" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> compass.getFieldStrength(); 
+</code></pre>
+
+<h2 id="readtemperature">readTemperature<a class="headerlink" href="#readtemperature" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-readtemperature"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>readTemperature</div>()<a class="headerlink" href="#int-readtemperature" title="Permanent link">&para;</a></h4>
+<h5 id="description_24">Description<a class="headerlink" href="#description_24" title="Permanent link">&para;</a></h5>
+<p>Reads the current die temperature of the compass.  </p>
+<h5 id="returns_12">Returns<a class="headerlink" href="#returns_12" title="Permanent link">&para;</a></h5>
+<p>the temperature in degrees celsius, or MICROBIT_I2C_ERROR if the temperature reading could not be retreived from the accelerometer. </p>
+<h2 id="calibrate">calibrate<a class="headerlink" href="#calibrate" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-calibrate"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>calibrate</div>()<a class="headerlink" href="#int-calibrate" title="Permanent link">&para;</a></h4>
+<h5 id="description_25">Description<a class="headerlink" href="#description_25" title="Permanent link">&para;</a></h5>
+<p>Perform a calibration of the compass.  </p>
+<p>This method will be called automatically if a user attempts to read a compass value when the compass is uncalibrated. It can also be called at any time by the user.  </p>
+<p>The method will only return once the compass has been calibrated.  </p>
+<h5 id="returns_13">Returns<a class="headerlink" href="#returns_13" title="Permanent link">&para;</a></h5>
+<p>MICROBIT_OK, MICROBIT_I2C_ERROR if the magnetometer could not be accessed, or MICROBIT_CALIBRATION_REQUIRED if the calibration algorithm failed to complete successfully.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>THIS MUST BE CALLED TO GAIN RELIABLE VALUES FROM THE COMPASS </p>
+</div>
+<h2 id="setcalibration">setCalibration<a class="headerlink" href="#setcalibration" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="void-setcalibration-compasssample-calibration"><div style='color:#a71d5d; display:inline-block'>void</div> <div style='color:#795da3; display:inline-block'>setCalibration</div>( <div style='color:#a71d5d; display:inline-block'>CompassSample</div> calibration)<a class="headerlink" href="#void-setcalibration-compasssample-calibration" title="Permanent link">&para;</a></h4>
+<h5 id="description_26">Description<a class="headerlink" href="#description_26" title="Permanent link">&para;</a></h5>
+<p>Configure the compass to use the calibration data that is supplied to this call.  </p>
+<p>Calibration data is comprised of the perceived zero offset of each axis of the compass.  </p>
+<p>After calibration this should now take into account trimming errors in the magnetometer, and any "hard iron" offsets on the device.  </p>
+<p>calibration </p>
+<p>A  CompassSample  containing the offsets for the x, y and z axis.   </p>
+<h5 id="parameters_16">Parameters<a class="headerlink" href="#parameters_16" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>CompassSample</div> calibration - A  CompassSample  containing the offsets for the x, y and z axis. </p>
+</blockquote>
+<h2 id="getcalibration">getCalibration<a class="headerlink" href="#getcalibration" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="compasssample-getcalibration"><div style='color:#a71d5d; display:inline-block'>CompassSample</div> <div style='color:#795da3; display:inline-block'>getCalibration</div>()<a class="headerlink" href="#compasssample-getcalibration" title="Permanent link">&para;</a></h4>
+<h5 id="description_27">Description<a class="headerlink" href="#description_27" title="Permanent link">&para;</a></h5>
+<p>Provides the calibration data currently in use by the compass.  </p>
+<p>More specifically, the x, y and z zero offsets of the compass.  </p>
+<h5 id="returns_14">Returns<a class="headerlink" href="#returns_14" title="Permanent link">&para;</a></h5>
+<p>calibration A  CompassSample  containing the offsets for the x, y and z axis. </p>
+<h2 id="updatesample">updateSample<a class="headerlink" href="#updatesample" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-updatesample"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>updateSample</div>()<a class="headerlink" href="#int-updatesample" title="Permanent link">&para;</a></h4>
+<h5 id="description_28">Description<a class="headerlink" href="#description_28" title="Permanent link">&para;</a></h5>
+<p>Updates the local sample, only if the compass indicates that data is stale.  </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Can be used to trigger manual updates, if the device is running without a scheduler. Also called internally by all get<a href="">X,Y,Z</a> member functions. </p>
+</div>
+<h2 id="iscalibrated">isCalibrated<a class="headerlink" href="#iscalibrated" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-iscalibrated"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>isCalibrated</div>()<a class="headerlink" href="#int-iscalibrated" title="Permanent link">&para;</a></h4>
+<h5 id="description_29">Description<a class="headerlink" href="#description_29" title="Permanent link">&para;</a></h5>
+<p>Returns 0 or 1. 1 indicates that the compass is calibrated, zero means the compass requires calibration.           </p>
+<h2 id="iscalibrating">isCalibrating<a class="headerlink" href="#iscalibrating" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-iscalibrating"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>isCalibrating</div>()<a class="headerlink" href="#int-iscalibrating" title="Permanent link">&para;</a></h4>
+<h5 id="description_30">Description<a class="headerlink" href="#description_30" title="Permanent link">&para;</a></h5>
+<p>Returns 0 or 1. 1 indicates that the compass is calibrating, zero means the compass is not currently calibrating.           </p>
+<h2 id="clearcalibration">clearCalibration<a class="headerlink" href="#clearcalibration" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="void-clearcalibration"><div style='color:#a71d5d; display:inline-block'>void</div> <div style='color:#795da3; display:inline-block'>clearCalibration</div>()<a class="headerlink" href="#void-clearcalibration" title="Permanent link">&para;</a></h4>
+<h5 id="description_31">Description<a class="headerlink" href="#description_31" title="Permanent link">&para;</a></h5>
+<p>Clears the calibration held in persistent storage, and sets the calibrated flag to zero.           </p>
+<hr /></div>
+        </div>
+
+        <footer class="col-md-12">
+            
+            <center><a href="https://www.lancaster.ac.uk"><image style="width:auto;" height="61" src="../../img/lancs-logo.png"></image></a></center>
+            <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+        </footer>
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script>var base_url = '../..';</script>
+        <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
+        <script src="../../js/base.js"></script>
+        <!--<script src="../../archive/v2.0.0-rc3/js/base.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/js/bootstrap-3.0.3.min.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/js/highlight.pack.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/js/jquery-1.10.2.min.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/mkdocs/js/lunr-0.5.7.min.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/mkdocs/js/mustache.min.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/mkdocs/js/require.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/mkdocs/js/search.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/mkdocs/js/text.js"></script>-->
+        <!--<script src="../../resources/bluetooth/functions.js"></script>-->
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            From here you can search these documents. Enter
+                            your search terms below.
+                        </p>
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                            </div>
+                        </form>
+                        <div id="mkdocs-search-results"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

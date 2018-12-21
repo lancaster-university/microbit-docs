@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+
+	<title>serial - micro:bit runtime</title>
+
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link href="../../css/extra.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-76156484-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-custom navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            
+                <a class="navbar-brand" rel="home" href="#" title="micro:bit runtime">
+                    
+                    <!-- Logo author: Aluna Everitt (@AlunaEveritt on Twitter) --->
+                    
+                    <img style="max-width:200px; margin-top: -7px;" src="../.././img/logo[whiteruntime].png">
+                </a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">General <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../..">Introduction</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../concepts/">Concepts</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../advanced/">Advanced</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../online-toolchains/">Web-based Development</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../offline-toolchains/">Offline Development</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../device/">Hardware</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../help/">Help</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">uBit <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../">Overview</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../i2c/">i2c</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../storage/">storage</a>
+</li>
+
+                    
+                        
+<li class="active">
+    <a href="./">serial</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../messageBus/">messageBus</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../button/">buttons</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../display/">display</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../accelerometer/">accelerometer</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../compass/">compass</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../thermometer/">thermometer</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../io/">io</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../radio/">radio</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Data Types <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../data-types/image/">MicroBitImage</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../data-types/event/">MicroBitEvent</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../data-types/string/">ManagedString</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../data-types/packetbuffer/">PacketBuffer</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bluetooth <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../ble/profile/">Profile</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/accelerometer-service/">AccelerometerService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/button-service/">ButtonService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/dfu-service/">DFUService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/event-service/">EventService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/iopin-service/">IOPinService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/led-service/">LEDService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/magnetometer-service/">MagnetometerService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/temperature-service/">TemperatureService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/uart-service/">UARTService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/ble-connection-events/">Connection Events</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/eddystone/">Eddystone Beacons</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Extras <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../extras/light-sensing/">MicroBitLightSensor</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../extras/spi/">SPI</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+
+            
+            
+
+            
+
+            
+            
+
+            
+
+            
+            
+
+            
+
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right hidden-md hidden-sm">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                <li >
+                    <a rel="next" href="../storage/">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../messageBus/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://github.com/lancaster-university/microbit-dal/">
+                        
+                            <i class="fa fa-github"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#ubitserial">uBit.serial</a></li>
+        
+            <li><a href="#overview">Overview</a></li>
+        
+            <li><a href="#message-bus-id">Message Bus ID</a></li>
+        
+            <li><a href="#message-bus-events">Message Bus Events</a></li>
+        
+            <li><a href="#notify-events">Notify Events</a></li>
+        
+            <li><a href="#api">API</a></li>
+        
+            <li><a href="#constructor">Constructor</a></li>
+        
+            <li><a href="#sendchar">sendChar</a></li>
+        
+            <li><a href="#send">send</a></li>
+        
+            <li><a href="#read">read</a></li>
+        
+            <li><a href="#readuntil">readUntil</a></li>
+        
+            <li><a href="#baud">baud</a></li>
+        
+            <li><a href="#redirect">redirect</a></li>
+        
+            <li><a href="#eventafter">eventAfter</a></li>
+        
+            <li><a href="#eventon">eventOn</a></li>
+        
+            <li><a href="#isreadable">isReadable</a></li>
+        
+            <li><a href="#iswriteable">isWriteable</a></li>
+        
+            <li><a href="#setrxbuffersize">setRxBufferSize</a></li>
+        
+            <li><a href="#settxbuffersize">setTxBufferSize</a></li>
+        
+            <li><a href="#getrxbuffersize">getRxBufferSize</a></li>
+        
+            <li><a href="#gettxbuffersize">getTxBufferSize</a></li>
+        
+            <li><a href="#clearrxbuffer">clearRxBuffer</a></li>
+        
+            <li><a href="#cleartxbuffer">clearTxBuffer</a></li>
+        
+            <li><a href="#rxbufferedsize">rxBufferedSize</a></li>
+        
+            <li><a href="#txbufferedsize">txBufferedSize</a></li>
+        
+            <li><a href="#rxinuse">rxInUse</a></li>
+        
+            <li><a href="#txinuse">txInUse</a></li>
+        
+            <li><a href="#detach">detach</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h1 id="ubitserial">uBit.serial<a class="headerlink" href="#ubitserial" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>Serial communication provides a simple way to exchange a series of bytes between one computer and another.  The runtime's implementation of serial is general purpose and supports a number of different modes. It has a circular buffer for both the reception and transmission of data, and provides notifications to the user through the MessageBus.</p>
+<p>By default, the baud rate for MicroBitSerial is <code>115200</code> and has very little overhead up until
+it is used to <code>send()</code> or <code>read()</code>, at which point buffers are allocated in order
+to accommodate incoming or outgoing data.</p>
+<p>MicroBitSerial inherits from mbeds' <a href="https://developer.mbed.org/users/mbed_official/code/mbed/docs/252557024ec3/classmbed_1_1RawSerial.html"><code>RawSerial</code></a>
+class, which exposes a lightweight version of <code>printf()</code> and incurs minimal overhead
+as MicroBitSerial's buffers will not be allocated.</p>
+<p>The MicroBitSerial class supports multithreaded operation, ensuring that only
+one fiber can access the Serial port at a time.</p>
+<p>The USB interface on the micro:bit is the <a href="https://www.mbed.com/en/development/hardware/prototyping-production/daplink/daplink-on-kl26z/#Updating_your_DAPLink_firmware">KL26Z</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>On Mac OSX and Linux Serial communication works out of the box, however on Windows an additional
+<strong><a href="https://developer.mbed.org/handbook/Windows-serial-configuration">driver</a></strong> is required.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The baud rate is shared across all instances of MicroBitSerial (this is enforced in hardware).</p>
+</div>
+<h3 id="serial-modes">Serial modes<a class="headerlink" href="#serial-modes" title="Permanent link">&para;</a></h3>
+<p>There are three modes of operation for all <code>send()</code> or <code>read()</code> calls:</p>
+<ul>
+<li><code>ASYNC</code> - Returns immediately after fetching any available data for a given call</li>
+<li><code>SYNC_SPINWAIT</code> - Synchronously access the serial port until the selected operation is complete.
+                    This mode will lock up the processor, and isn't recommended if multiple fibers are in use.</li>
+<li><code>SYNC_SLEEP</code> - Blocks the current fiber until the selected operation is complete. This mode cooperates with the
+                 Fiber scheduler, and should be used in a multi-fiber program.</li>
+</ul>
+<h3 id="serial-debug">Serial debug<a class="headerlink" href="#serial-debug" title="Permanent link">&para;</a></h3>
+<p>In MicroBitConfig.h, the configuration option <code>MICROBIT_DEBUG</code> can be used to activate serial debugging
+for many of the components in the runtime.</p>
+<h2 id="message-bus-id">Message Bus ID<a class="headerlink" href="#message-bus-id" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Constant</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MICROBIT_ID_SERIAL</td>
+<td>32</td>
+</tr>
+</tbody>
+</table>
+<h2 id="message-bus-events">Message Bus Events<a class="headerlink" href="#message-bus-events" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Constant</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MICROBIT_SERIAL_EVT_DELIM_MATCH</td>
+<td>1</td>
+</tr>
+<tr>
+<td>MICROBIT_SERIAL_EVT_HEAD_MATCH</td>
+<td>2</td>
+</tr>
+<tr>
+<td>MICROBIT_SERIAL_EVT_RX_FULL</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<h2 id="notify-events">Notify Events<a class="headerlink" href="#notify-events" title="Permanent link">&para;</a></h2>
+<p>These events use the notification channel <code>MICROBIT_ID_NOTIFY</code>, which provides
+general purpose synchronisation.</p>
+<table>
+<thead>
+<tr>
+<th>Constant</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MICROBIT_SERIAL_EVT_TX_EMPTY</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h2 id="api">API<a class="headerlink" href="#api" title="Permanent link">&para;</a></h2>
+<h2 id="constructor">Constructor<a class="headerlink" href="#constructor" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="microbitserial-pinname-tx-pinname-rx">MicroBitSerial( <div style='color:#a71d5d; display:inline-block'>PinName</div> tx,  <div style='color:#a71d5d; display:inline-block'>PinName</div> rx)<a class="headerlink" href="#microbitserial-pinname-tx-pinname-rx" title="Permanent link">&para;</a></h4>
+<h5 id="description">Description<a class="headerlink" href="#description" title="Permanent link">&para;</a></h5>
+<p>Constructor. Create an instance of  MicroBitSerial   </p>
+<h5 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>PinName</div> tx - the Pin to be used for transmission</p>
+<p><div style='color:#a71d5d; display:inline-block'>PinName</div> rx - the Pin to be used for receiving data</p>
+</blockquote>
+<h5 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> MicroBitSerial serial(USBTX, USBRX); 
+</code></pre>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>the default baud rate is 115200. More API details can be found: -https://github.com/mbedmicro/mbed/blob/master/libraries/mbed/api/SerialBase.h -https://github.com/mbedmicro/mbed/blob/master/libraries/mbed/api/RawSerial.h</p>
+</div>
+<p><br/></p>
+<h4 id="microbitserial-pinname-tx-pinname-rx-uint8_t-rxbuffersize">MicroBitSerial( <div style='color:#a71d5d; display:inline-block'>PinName</div> tx,  <div style='color:#a71d5d; display:inline-block'>PinName</div> rx,  <div style='color:#a71d5d; display:inline-block'>uint8_t</div> rxBufferSize)<a class="headerlink" href="#microbitserial-pinname-tx-pinname-rx-uint8_t-rxbuffersize" title="Permanent link">&para;</a></h4>
+<h5 id="description_1">Description<a class="headerlink" href="#description_1" title="Permanent link">&para;</a></h5>
+<p>Constructor. Create an instance of  MicroBitSerial   </p>
+<h5 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>PinName</div> tx - the Pin to be used for transmission</p>
+<p><div style='color:#a71d5d; display:inline-block'>PinName</div> rx - the Pin to be used for receiving data</p>
+<p><div style='color:#a71d5d; display:inline-block'>uint8_t</div> rxBufferSize - the size of the buffer to be used for receiving bytes</p>
+</blockquote>
+<h5 id="example_1">Example<a class="headerlink" href="#example_1" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> MicroBitSerial serial(USBTX, USBRX); 
+</code></pre>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>the default baud rate is 115200. More API details can be found: -https://github.com/mbedmicro/mbed/blob/master/libraries/mbed/api/SerialBase.h -https://github.com/mbedmicro/mbed/blob/master/libraries/mbed/api/RawSerial.h</p>
+</div>
+<p><br/></p>
+<h4 id="microbitserial-pinname-tx-pinname-rx-uint8_t-rxbuffersize-uint8_t-txbuffersize">MicroBitSerial( <div style='color:#a71d5d; display:inline-block'>PinName</div> tx,  <div style='color:#a71d5d; display:inline-block'>PinName</div> rx,  <div style='color:#a71d5d; display:inline-block'>uint8_t</div> rxBufferSize,  <div style='color:#a71d5d; display:inline-block'>uint8_t</div> txBufferSize)<a class="headerlink" href="#microbitserial-pinname-tx-pinname-rx-uint8_t-rxbuffersize-uint8_t-txbuffersize" title="Permanent link">&para;</a></h4>
+<h5 id="description_2">Description<a class="headerlink" href="#description_2" title="Permanent link">&para;</a></h5>
+<p>Constructor. Create an instance of  MicroBitSerial   </p>
+<h5 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>PinName</div> tx - the Pin to be used for transmission</p>
+<p><div style='color:#a71d5d; display:inline-block'>PinName</div> rx - the Pin to be used for receiving data</p>
+<p><div style='color:#a71d5d; display:inline-block'>uint8_t</div> rxBufferSize - the size of the buffer to be used for receiving bytes</p>
+<p><div style='color:#a71d5d; display:inline-block'>uint8_t</div> txBufferSize - the size of the buffer to be used for transmitting bytes</p>
+</blockquote>
+<h5 id="example_2">Example<a class="headerlink" href="#example_2" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> MicroBitSerial serial(USBTX, USBRX); 
+</code></pre>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>the default baud rate is 115200. More API details can be found: -https://github.com/mbedmicro/mbed/blob/master/libraries/mbed/api/SerialBase.h -https://github.com/mbedmicro/mbed/blob/master/libraries/mbed/api/RawSerial.h</p>
+</div>
+<h2 id="sendchar">sendChar<a class="headerlink" href="#sendchar" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-sendchar-char-c"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>sendChar</div>( <div style='color:#a71d5d; display:inline-block'>char</div> c)<a class="headerlink" href="#int-sendchar-char-c" title="Permanent link">&para;</a></h4>
+<h5 id="description_3">Description<a class="headerlink" href="#description_3" title="Permanent link">&para;</a></h5>
+<p>Sends a single character over the serial line.  </p>
+<p>c </p>
+<p>the character to send  </p>
+<p>mode </p>
+<p>the selected mode, one of: ASYNC, SYNC_SPINWAIT, SYNC_SLEEP. Each mode gives a different behaviour:  ASYNC - the character is copied into the txBuff and returns immediately.</p>
+<p>SYNC_SPINWAIT - the character is copied into the txBuff and this method
+                will spin (lock up the processor) until the character has
+                been sent.</p>
+<p>SYNC_SLEEP - the character is copied into the txBuff and the fiber sleeps
+             until the character has been sent. This allows other fibers
+             to continue execution.</p>
+<p>Defaults to SYNC_SLEEP.  </p>
+<h5 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>char</div> c - the character to send</p>
+</blockquote>
+<h5 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h5>
+<p>the number of bytes written, or MICROBIT_SERIAL_IN_USE if another fiber is using the serial instance for transmission. 
+<br/></p>
+<h4 id="int-sendchar-char-c-microbitserialmode-mode"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>sendChar</div>( <div style='color:#a71d5d; display:inline-block'>char</div> c,  <div style='color:#a71d5d; display:inline-block'>MicroBitSerialMode</div> mode)<a class="headerlink" href="#int-sendchar-char-c-microbitserialmode-mode" title="Permanent link">&para;</a></h4>
+<h5 id="description_4">Description<a class="headerlink" href="#description_4" title="Permanent link">&para;</a></h5>
+<p>Sends a single character over the serial line.  </p>
+<p>c </p>
+<p>the character to send  </p>
+<p>mode </p>
+<p>the selected mode, one of: ASYNC, SYNC_SPINWAIT, SYNC_SLEEP. Each mode gives a different behaviour:  ASYNC - the character is copied into the txBuff and returns immediately.</p>
+<p>SYNC_SPINWAIT - the character is copied into the txBuff and this method
+                will spin (lock up the processor) until the character has
+                been sent.</p>
+<p>SYNC_SLEEP - the character is copied into the txBuff and the fiber sleeps
+             until the character has been sent. This allows other fibers
+             to continue execution.</p>
+<p>Defaults to SYNC_SLEEP.  </p>
+<h5 id="parameters_4">Parameters<a class="headerlink" href="#parameters_4" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>char</div> c - the character to send</p>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitSerialMode</div> mode - the selected mode, one of: ASYNC, SYNC_SPINWAIT, SYNC_SLEEP. Each mode gives a different behaviour:  ASYNC - the character is copied into the txBuff and returns immediately.</p>
+</blockquote>
+<p>SYNC_SPINWAIT - the character is copied into the txBuff and this method
+                will spin (lock up the processor) until the character has
+                been sent.</p>
+<p>SYNC_SLEEP - the character is copied into the txBuff and the fiber sleeps
+             until the character has been sent. This allows other fibers
+             to continue execution.</p>
+<h5 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">&para;</a></h5>
+<p>the number of bytes written, or MICROBIT_SERIAL_IN_USE if another fiber is using the serial instance for transmission. </p>
+<h2 id="send">send<a class="headerlink" href="#send" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-send-managedstring-s"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>send</div>( <div style='color:#a71d5d; display:inline-block'>ManagedString</div> s)<a class="headerlink" href="#int-send-managedstring-s" title="Permanent link">&para;</a></h4>
+<h5 id="description_5">Description<a class="headerlink" href="#description_5" title="Permanent link">&para;</a></h5>
+<p>Sends a  ManagedString  over the serial line.  </p>
+<p>s </p>
+<p>the string to send  </p>
+<p>mode </p>
+<p>the selected mode, one of: ASYNC, SYNC_SPINWAIT, SYNC_SLEEP. Each mode gives a different behaviour:  ASYNC - bytes are copied into the txBuff and returns immediately.</p>
+<p>SYNC_SPINWAIT - bytes are copied into the txBuff and this method
+                will spin (lock up the processor) until all bytes
+                have been sent.</p>
+<p>SYNC_SLEEP - bytes are copied into the txBuff and the fiber sleeps
+             until all bytes have been sent. This allows other fibers
+             to continue execution.</p>
+<p>Defaults to SYNC_SLEEP.  </p>
+<h5 id="parameters_5">Parameters<a class="headerlink" href="#parameters_5" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>ManagedString</div> s - the string to send</p>
+</blockquote>
+<h5 id="returns_2">Returns<a class="headerlink" href="#returns_2" title="Permanent link">&para;</a></h5>
+<p>the number of bytes written, MICROBIT_SERIAL_IN_USE if another fiber is using the serial instance for transmission, MICROBIT_INVALID_PARAMETER if buffer is invalid, or the given bufferLen is &lt;= 0. 
+<br/></p>
+<h4 id="int-send-managedstring-s-microbitserialmode-mode"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>send</div>( <div style='color:#a71d5d; display:inline-block'>ManagedString</div> s,  <div style='color:#a71d5d; display:inline-block'>MicroBitSerialMode</div> mode)<a class="headerlink" href="#int-send-managedstring-s-microbitserialmode-mode" title="Permanent link">&para;</a></h4>
+<h5 id="description_6">Description<a class="headerlink" href="#description_6" title="Permanent link">&para;</a></h5>
+<p>Sends a  ManagedString  over the serial line.  </p>
+<p>s </p>
+<p>the string to send  </p>
+<p>mode </p>
+<p>the selected mode, one of: ASYNC, SYNC_SPINWAIT, SYNC_SLEEP. Each mode gives a different behaviour:  ASYNC - bytes are copied into the txBuff and returns immediately.</p>
+<p>SYNC_SPINWAIT - bytes are copied into the txBuff and this method
+                will spin (lock up the processor) until all bytes
+                have been sent.</p>
+<p>SYNC_SLEEP - bytes are copied into the txBuff and the fiber sleeps
+             until all bytes have been sent. This allows other fibers
+             to continue execution.</p>
+<p>Defaults to SYNC_SLEEP.  </p>
+<h5 id="parameters_6">Parameters<a class="headerlink" href="#parameters_6" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>ManagedString</div> s - the string to send</p>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitSerialMode</div> mode - the selected mode, one of: ASYNC, SYNC_SPINWAIT, SYNC_SLEEP. Each mode gives a different behaviour:  ASYNC - bytes are copied into the txBuff and returns immediately.</p>
+</blockquote>
+<p>SYNC_SPINWAIT - bytes are copied into the txBuff and this method
+                will spin (lock up the processor) until all bytes
+                have been sent.</p>
+<p>SYNC_SLEEP - bytes are copied into the txBuff and the fiber sleeps
+             until all bytes have been sent. This allows other fibers
+             to continue execution.</p>
+<h5 id="returns_3">Returns<a class="headerlink" href="#returns_3" title="Permanent link">&para;</a></h5>
+<p>the number of bytes written, MICROBIT_SERIAL_IN_USE if another fiber is using the serial instance for transmission, MICROBIT_INVALID_PARAMETER if buffer is invalid, or the given bufferLen is &lt;= 0. 
+<br/></p>
+<h4 id="int-send-uint8_t-42-buffer-int-bufferlen"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>send</div>( <div style='color:#a71d5d; display:inline-block'>uint8_t *</div> buffer,  <div style='color:#a71d5d; display:inline-block'>int</div> bufferLen)<a class="headerlink" href="#int-send-uint8_t-42-buffer-int-bufferlen" title="Permanent link">&para;</a></h4>
+<h5 id="description_7">Description<a class="headerlink" href="#description_7" title="Permanent link">&para;</a></h5>
+<p>Sends a buffer of known length over the serial line.  </p>
+<p>buffer </p>
+<p>a pointer to the first character of the buffer  </p>
+<p>len </p>
+<p>the number of bytes that are safely available to read.  </p>
+<p>mode </p>
+<p>the selected mode, one of: ASYNC, SYNC_SPINWAIT, SYNC_SLEEP. Each mode gives a different behaviour:  ASYNC - bytes are copied into the txBuff and returns immediately.</p>
+<p>SYNC_SPINWAIT - bytes are copied into the txBuff and this method
+                will spin (lock up the processor) until all bytes
+                have been sent.</p>
+<p>SYNC_SLEEP - bytes are copied into the txBuff and the fiber sleeps
+             until all bytes have been sent. This allows other fibers
+             to continue execution.</p>
+<p>Defaults to SYNC_SLEEP.  </p>
+<h5 id="parameters_7">Parameters<a class="headerlink" href="#parameters_7" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>uint8_t *</div> buffer - a pointer to the first character of the buffer</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> bufferLen - a pointer to the first character of the buffer</p>
+</blockquote>
+<h5 id="returns_4">Returns<a class="headerlink" href="#returns_4" title="Permanent link">&para;</a></h5>
+<p>the number of bytes written, MICROBIT_SERIAL_IN_USE if another fiber is using the serial instance for transmission, MICROBIT_INVALID_PARAMETER if buffer is invalid, or the given bufferLen is &lt;= 0. 
+<br/></p>
+<h4 id="int-send-uint8_t-42-buffer-int-bufferlen-microbitserialmode-mode"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>send</div>( <div style='color:#a71d5d; display:inline-block'>uint8_t *</div> buffer,  <div style='color:#a71d5d; display:inline-block'>int</div> bufferLen,  <div style='color:#a71d5d; display:inline-block'>MicroBitSerialMode</div> mode)<a class="headerlink" href="#int-send-uint8_t-42-buffer-int-bufferlen-microbitserialmode-mode" title="Permanent link">&para;</a></h4>
+<h5 id="description_8">Description<a class="headerlink" href="#description_8" title="Permanent link">&para;</a></h5>
+<p>Sends a buffer of known length over the serial line.  </p>
+<p>buffer </p>
+<p>a pointer to the first character of the buffer  </p>
+<p>len </p>
+<p>the number of bytes that are safely available to read.  </p>
+<p>mode </p>
+<p>the selected mode, one of: ASYNC, SYNC_SPINWAIT, SYNC_SLEEP. Each mode gives a different behaviour:  ASYNC - bytes are copied into the txBuff and returns immediately.</p>
+<p>SYNC_SPINWAIT - bytes are copied into the txBuff and this method
+                will spin (lock up the processor) until all bytes
+                have been sent.</p>
+<p>SYNC_SLEEP - bytes are copied into the txBuff and the fiber sleeps
+             until all bytes have been sent. This allows other fibers
+             to continue execution.</p>
+<p>Defaults to SYNC_SLEEP.  </p>
+<h5 id="parameters_8">Parameters<a class="headerlink" href="#parameters_8" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>uint8_t *</div> buffer - a pointer to the first character of the buffer</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> bufferLen - a pointer to the first character of the buffer</p>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitSerialMode</div> mode - the selected mode, one of: ASYNC, SYNC_SPINWAIT, SYNC_SLEEP. Each mode gives a different behaviour:  ASYNC - bytes are copied into the txBuff and returns immediately.</p>
+</blockquote>
+<p>SYNC_SPINWAIT - bytes are copied into the txBuff and this method
+                will spin (lock up the processor) until all bytes
+                have been sent.</p>
+<p>SYNC_SLEEP - bytes are copied into the txBuff and the fiber sleeps
+             until all bytes have been sent. This allows other fibers
+             to continue execution.</p>
+<h5 id="returns_5">Returns<a class="headerlink" href="#returns_5" title="Permanent link">&para;</a></h5>
+<p>the number of bytes written, MICROBIT_SERIAL_IN_USE if another fiber is using the serial instance for transmission, MICROBIT_INVALID_PARAMETER if buffer is invalid, or the given bufferLen is &lt;= 0. </p>
+<h2 id="read">read<a class="headerlink" href="#read" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-read"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>read</div>()<a class="headerlink" href="#int-read" title="Permanent link">&para;</a></h4>
+<h5 id="description_9">Description<a class="headerlink" href="#description_9" title="Permanent link">&para;</a></h5>
+<p>Reads a single character from the rxBuff  </p>
+<p>mode </p>
+<p>the selected mode, one of: ASYNC, SYNC_SPINWAIT, SYNC_SLEEP. Each mode gives a different behaviour:  ASYNC - A character is read from the rxBuff if available, if there
+        are no characters to be read, a value of MICROBIT_NO_DATA is returned immediately.</p>
+<p>SYNC_SPINWAIT - A character is read from the rxBuff if available, if there
+                are no characters to be read, this method will spin
+                (lock up the processor) until a character is available.</p>
+<p>SYNC_SLEEP - A character is read from the rxBuff if available, if there
+             are no characters to be read, the calling fiber sleeps
+             until there is a character available.</p>
+<p>Defaults to SYNC_SLEEP.  </p>
+<h5 id="returns_6">Returns<a class="headerlink" href="#returns_6" title="Permanent link">&para;</a></h5>
+<p>a character, MICROBIT_SERIAL_IN_USE if another fiber is using the serial instance for reception, MICROBIT_NO_RESOURCES if buffer allocation did not complete successfully, or MICROBIT_NO_DATA if the rx buffer is empty and the mode given is ASYNC. 
+<br/></p>
+<h4 id="int-read-microbitserialmode-mode"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>read</div>( <div style='color:#a71d5d; display:inline-block'>MicroBitSerialMode</div> mode)<a class="headerlink" href="#int-read-microbitserialmode-mode" title="Permanent link">&para;</a></h4>
+<h5 id="description_10">Description<a class="headerlink" href="#description_10" title="Permanent link">&para;</a></h5>
+<p>Reads a single character from the rxBuff  </p>
+<p>mode </p>
+<p>the selected mode, one of: ASYNC, SYNC_SPINWAIT, SYNC_SLEEP. Each mode gives a different behaviour:  ASYNC - A character is read from the rxBuff if available, if there
+        are no characters to be read, a value of MICROBIT_NO_DATA is returned immediately.</p>
+<p>SYNC_SPINWAIT - A character is read from the rxBuff if available, if there
+                are no characters to be read, this method will spin
+                (lock up the processor) until a character is available.</p>
+<p>SYNC_SLEEP - A character is read from the rxBuff if available, if there
+             are no characters to be read, the calling fiber sleeps
+             until there is a character available.</p>
+<p>Defaults to SYNC_SLEEP.  </p>
+<h5 id="parameters_9">Parameters<a class="headerlink" href="#parameters_9" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitSerialMode</div> mode - the selected mode, one of: ASYNC, SYNC_SPINWAIT, SYNC_SLEEP. Each mode gives a different behaviour:  ASYNC - A character is read from the rxBuff if available, if there
+        are no characters to be read, a value of MICROBIT_NO_DATA is returned immediately.</p>
+</blockquote>
+<p>SYNC_SPINWAIT - A character is read from the rxBuff if available, if there
+                are no characters to be read, this method will spin
+                (lock up the processor) until a character is available.</p>
+<p>SYNC_SLEEP - A character is read from the rxBuff if available, if there
+             are no characters to be read, the calling fiber sleeps
+             until there is a character available.</p>
+<h5 id="returns_7">Returns<a class="headerlink" href="#returns_7" title="Permanent link">&para;</a></h5>
+<p>a character, MICROBIT_SERIAL_IN_USE if another fiber is using the serial instance for reception, MICROBIT_NO_RESOURCES if buffer allocation did not complete successfully, or MICROBIT_NO_DATA if the rx buffer is empty and the mode given is ASYNC. 
+<br/></p>
+<h4 id="managedstring-read-int-size"><div style='color:#a71d5d; display:inline-block'>ManagedString</div> <div style='color:#795da3; display:inline-block'>read</div>( <div style='color:#a71d5d; display:inline-block'>int</div> size)<a class="headerlink" href="#managedstring-read-int-size" title="Permanent link">&para;</a></h4>
+<h5 id="description_11">Description<a class="headerlink" href="#description_11" title="Permanent link">&para;</a></h5>
+<p>Reads multiple characters from the rxBuff and returns them as a  ManagedString   </p>
+<p>size </p>
+<p>the number of characters to read.  </p>
+<p>mode </p>
+<p>the selected mode, one of: ASYNC, SYNC_SPINWAIT, SYNC_SLEEP. Each mode gives a different behaviour:  ASYNC - If the desired number of characters are available, this will return
+        a ManagedString with the expected size. Otherwise, it will read however
+        many characters there are available.</p>
+<p>SYNC_SPINWAIT - If the desired number of characters are available, this will return
+                a ManagedString with the expected size. Otherwise, this method will spin
+                (lock up the processor) until the desired number of characters have been read.</p>
+<p>SYNC_SLEEP - If the desired number of characters are available, this will return
+             a ManagedString with the expected size. Otherwise, the calling fiber sleeps
+             until the desired number of characters have been read.</p>
+<p>Defaults to SYNC_SLEEP.  </p>
+<h5 id="parameters_10">Parameters<a class="headerlink" href="#parameters_10" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> size - the number of characters to read.</p>
+</blockquote>
+<h5 id="returns_8">Returns<a class="headerlink" href="#returns_8" title="Permanent link">&para;</a></h5>
+<p>A  ManagedString , or an empty  ManagedString  if an error was encountered during the read. 
+<br/></p>
+<h4 id="managedstring-read-int-size-microbitserialmode-mode"><div style='color:#a71d5d; display:inline-block'>ManagedString</div> <div style='color:#795da3; display:inline-block'>read</div>( <div style='color:#a71d5d; display:inline-block'>int</div> size,  <div style='color:#a71d5d; display:inline-block'>MicroBitSerialMode</div> mode)<a class="headerlink" href="#managedstring-read-int-size-microbitserialmode-mode" title="Permanent link">&para;</a></h4>
+<h5 id="description_12">Description<a class="headerlink" href="#description_12" title="Permanent link">&para;</a></h5>
+<p>Reads multiple characters from the rxBuff and returns them as a  ManagedString   </p>
+<p>size </p>
+<p>the number of characters to read.  </p>
+<p>mode </p>
+<p>the selected mode, one of: ASYNC, SYNC_SPINWAIT, SYNC_SLEEP. Each mode gives a different behaviour:  ASYNC - If the desired number of characters are available, this will return
+        a ManagedString with the expected size. Otherwise, it will read however
+        many characters there are available.</p>
+<p>SYNC_SPINWAIT - If the desired number of characters are available, this will return
+                a ManagedString with the expected size. Otherwise, this method will spin
+                (lock up the processor) until the desired number of characters have been read.</p>
+<p>SYNC_SLEEP - If the desired number of characters are available, this will return
+             a ManagedString with the expected size. Otherwise, the calling fiber sleeps
+             until the desired number of characters have been read.</p>
+<p>Defaults to SYNC_SLEEP.  </p>
+<h5 id="parameters_11">Parameters<a class="headerlink" href="#parameters_11" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> size - the number of characters to read.</p>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitSerialMode</div> mode - the selected mode, one of: ASYNC, SYNC_SPINWAIT, SYNC_SLEEP. Each mode gives a different behaviour:  ASYNC - If the desired number of characters are available, this will return
+        a ManagedString with the expected size. Otherwise, it will read however
+        many characters there are available.</p>
+</blockquote>
+<p>SYNC_SPINWAIT - If the desired number of characters are available, this will return
+                a ManagedString with the expected size. Otherwise, this method will spin
+                (lock up the processor) until the desired number of characters have been read.</p>
+<p>SYNC_SLEEP - If the desired number of characters are available, this will return
+             a ManagedString with the expected size. Otherwise, the calling fiber sleeps
+             until the desired number of characters have been read.</p>
+<h5 id="returns_9">Returns<a class="headerlink" href="#returns_9" title="Permanent link">&para;</a></h5>
+<p>A  ManagedString , or an empty  ManagedString  if an error was encountered during the read. 
+<br/></p>
+<h4 id="int-read-uint8_t-42-buffer-int-bufferlen"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>read</div>( <div style='color:#a71d5d; display:inline-block'>uint8_t *</div> buffer,  <div style='color:#a71d5d; display:inline-block'>int</div> bufferLen)<a class="headerlink" href="#int-read-uint8_t-42-buffer-int-bufferlen" title="Permanent link">&para;</a></h4>
+<h5 id="description_13">Description<a class="headerlink" href="#description_13" title="Permanent link">&para;</a></h5>
+<p>Reads multiple characters from the rxBuff and fills a user buffer.  </p>
+<p>buffer </p>
+<p>a pointer to a user allocated buffer.  </p>
+<p>bufferLen </p>
+<p>the amount of data that can be safely stored  </p>
+<p>mode </p>
+<p>the selected mode, one of: ASYNC, SYNC_SPINWAIT, SYNC_SLEEP. Each mode gives a different behaviour:  ASYNC - If the desired number of characters are available, this will fill
+        the given buffer. Otherwise, it will fill the buffer with however
+        many characters there are available.</p>
+<p>SYNC_SPINWAIT - If the desired number of characters are available, this will fill
+                the given buffer. Otherwise, this method will spin (lock up the processor)
+                and fill the buffer until the desired number of characters have been read.</p>
+<p>SYNC_SLEEP - If the desired number of characters are available, this will fill
+             the given buffer. Otherwise, the calling fiber sleeps
+             until the desired number of characters have been read.</p>
+<p>Defaults to SYNC_SLEEP.  </p>
+<h5 id="parameters_12">Parameters<a class="headerlink" href="#parameters_12" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>uint8_t *</div> buffer - a pointer to a user allocated buffer.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> bufferLen - the amount of data that can be safely stored</p>
+</blockquote>
+<h5 id="returns_10">Returns<a class="headerlink" href="#returns_10" title="Permanent link">&para;</a></h5>
+<p>the number of characters read, or MICROBIT_SERIAL_IN_USE if another fiber is using the instance for receiving. 
+<br/></p>
+<h4 id="int-read-uint8_t-42-buffer-int-bufferlen-microbitserialmode-mode"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>read</div>( <div style='color:#a71d5d; display:inline-block'>uint8_t *</div> buffer,  <div style='color:#a71d5d; display:inline-block'>int</div> bufferLen,  <div style='color:#a71d5d; display:inline-block'>MicroBitSerialMode</div> mode)<a class="headerlink" href="#int-read-uint8_t-42-buffer-int-bufferlen-microbitserialmode-mode" title="Permanent link">&para;</a></h4>
+<h5 id="description_14">Description<a class="headerlink" href="#description_14" title="Permanent link">&para;</a></h5>
+<p>Reads multiple characters from the rxBuff and fills a user buffer.  </p>
+<p>buffer </p>
+<p>a pointer to a user allocated buffer.  </p>
+<p>bufferLen </p>
+<p>the amount of data that can be safely stored  </p>
+<p>mode </p>
+<p>the selected mode, one of: ASYNC, SYNC_SPINWAIT, SYNC_SLEEP. Each mode gives a different behaviour:  ASYNC - If the desired number of characters are available, this will fill
+        the given buffer. Otherwise, it will fill the buffer with however
+        many characters there are available.</p>
+<p>SYNC_SPINWAIT - If the desired number of characters are available, this will fill
+                the given buffer. Otherwise, this method will spin (lock up the processor)
+                and fill the buffer until the desired number of characters have been read.</p>
+<p>SYNC_SLEEP - If the desired number of characters are available, this will fill
+             the given buffer. Otherwise, the calling fiber sleeps
+             until the desired number of characters have been read.</p>
+<p>Defaults to SYNC_SLEEP.  </p>
+<h5 id="parameters_13">Parameters<a class="headerlink" href="#parameters_13" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>uint8_t *</div> buffer - a pointer to a user allocated buffer.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> bufferLen - the amount of data that can be safely stored</p>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitSerialMode</div> mode - the selected mode, one of: ASYNC, SYNC_SPINWAIT, SYNC_SLEEP. Each mode gives a different behaviour:  ASYNC - If the desired number of characters are available, this will fill
+        the given buffer. Otherwise, it will fill the buffer with however
+        many characters there are available.</p>
+</blockquote>
+<p>SYNC_SPINWAIT - If the desired number of characters are available, this will fill
+                the given buffer. Otherwise, this method will spin (lock up the processor)
+                and fill the buffer until the desired number of characters have been read.</p>
+<p>SYNC_SLEEP - If the desired number of characters are available, this will fill
+             the given buffer. Otherwise, the calling fiber sleeps
+             until the desired number of characters have been read.</p>
+<h5 id="returns_11">Returns<a class="headerlink" href="#returns_11" title="Permanent link">&para;</a></h5>
+<p>the number of characters read, or MICROBIT_SERIAL_IN_USE if another fiber is using the instance for receiving. </p>
+<h2 id="readuntil">readUntil<a class="headerlink" href="#readuntil" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="managedstring-readuntil-managedstring-delimeters"><div style='color:#a71d5d; display:inline-block'>ManagedString</div> <div style='color:#795da3; display:inline-block'>readUntil</div>( <div style='color:#a71d5d; display:inline-block'>ManagedString</div> delimeters)<a class="headerlink" href="#managedstring-readuntil-managedstring-delimeters" title="Permanent link">&para;</a></h4>
+<h5 id="description_15">Description<a class="headerlink" href="#description_15" title="Permanent link">&para;</a></h5>
+<p>Reads until one of the delimeters matches a character in the rxBuff  </p>
+<p>delimeters </p>
+<p>a  ManagedString  containing a sequence of delimeter characters e.g.  ManagedString ("\r\n")  </p>
+<p>mode </p>
+<p>the selected mode, one of: ASYNC, SYNC_SPINWAIT, SYNC_SLEEP. Each mode gives a different behaviour:  ASYNC - If one of the delimeters matches a character already in the rxBuff
+        this method will return a ManagedString up to the delimeter.
+        Otherwise, it will return an Empty ManagedString.</p>
+<p>SYNC_SPINWAIT - If one of the delimeters matches a character already in the rxBuff
+                this method will return a ManagedString up to the delimeter.
+                Otherwise, this method will spin (lock up the processor) until a
+                received character matches one of the delimeters.</p>
+<p>SYNC_SLEEP - If one of the delimeters matches a character already in the rxBuff
+             this method will return a ManagedString up to the delimeter.
+             Otherwise, the calling fiber sleeps until a character matching one
+             of the delimeters is seen.</p>
+<p>Defaults to SYNC_SLEEP.  </p>
+<h5 id="parameters_14">Parameters<a class="headerlink" href="#parameters_14" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>ManagedString</div> delimeters - a  ManagedString  containing a sequence of delimeter characters e.g.  ManagedString ("\r\n")</p>
+</blockquote>
+<h5 id="returns_12">Returns<a class="headerlink" href="#returns_12" title="Permanent link">&para;</a></h5>
+<p>A  ManagedString  containing the characters up to a delimeter, or an Empty  ManagedString , if another fiber is currently using this instance for reception.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>delimeters are matched on a per byte basis. </p>
+</div>
+<p><br/></p>
+<h4 id="managedstring-readuntil-managedstring-delimeters-microbitserialmode-mode"><div style='color:#a71d5d; display:inline-block'>ManagedString</div> <div style='color:#795da3; display:inline-block'>readUntil</div>( <div style='color:#a71d5d; display:inline-block'>ManagedString</div> delimeters,  <div style='color:#a71d5d; display:inline-block'>MicroBitSerialMode</div> mode)<a class="headerlink" href="#managedstring-readuntil-managedstring-delimeters-microbitserialmode-mode" title="Permanent link">&para;</a></h4>
+<h5 id="description_16">Description<a class="headerlink" href="#description_16" title="Permanent link">&para;</a></h5>
+<p>Reads until one of the delimeters matches a character in the rxBuff  </p>
+<p>delimeters </p>
+<p>a  ManagedString  containing a sequence of delimeter characters e.g.  ManagedString ("\r\n")  </p>
+<p>mode </p>
+<p>the selected mode, one of: ASYNC, SYNC_SPINWAIT, SYNC_SLEEP. Each mode gives a different behaviour:  ASYNC - If one of the delimeters matches a character already in the rxBuff
+        this method will return a ManagedString up to the delimeter.
+        Otherwise, it will return an Empty ManagedString.</p>
+<p>SYNC_SPINWAIT - If one of the delimeters matches a character already in the rxBuff
+                this method will return a ManagedString up to the delimeter.
+                Otherwise, this method will spin (lock up the processor) until a
+                received character matches one of the delimeters.</p>
+<p>SYNC_SLEEP - If one of the delimeters matches a character already in the rxBuff
+             this method will return a ManagedString up to the delimeter.
+             Otherwise, the calling fiber sleeps until a character matching one
+             of the delimeters is seen.</p>
+<p>Defaults to SYNC_SLEEP.  </p>
+<h5 id="parameters_15">Parameters<a class="headerlink" href="#parameters_15" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>ManagedString</div> delimeters - a  ManagedString  containing a sequence of delimeter characters e.g.  ManagedString ("\r\n")</p>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitSerialMode</div> mode - the selected mode, one of: ASYNC, SYNC_SPINWAIT, SYNC_SLEEP. Each mode gives a different behaviour:  ASYNC - If one of the delimeters matches a character already in the rxBuff
+        this method will return a ManagedString up to the delimeter.
+        Otherwise, it will return an Empty ManagedString.</p>
+</blockquote>
+<p>SYNC_SPINWAIT - If one of the delimeters matches a character already in the rxBuff
+                this method will return a ManagedString up to the delimeter.
+                Otherwise, this method will spin (lock up the processor) until a
+                received character matches one of the delimeters.</p>
+<p>SYNC_SLEEP - If one of the delimeters matches a character already in the rxBuff
+             this method will return a ManagedString up to the delimeter.
+             Otherwise, the calling fiber sleeps until a character matching one
+             of the delimeters is seen.</p>
+<h5 id="returns_13">Returns<a class="headerlink" href="#returns_13" title="Permanent link">&para;</a></h5>
+<p>A  ManagedString  containing the characters up to a delimeter, or an Empty  ManagedString , if another fiber is currently using this instance for reception.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>delimeters are matched on a per byte basis. </p>
+</div>
+<h2 id="baud">baud<a class="headerlink" href="#baud" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="void-baud-int-baudrate"><div style='color:#a71d5d; display:inline-block'>void</div> <div style='color:#795da3; display:inline-block'>baud</div>( <div style='color:#a71d5d; display:inline-block'>int</div> baudrate)<a class="headerlink" href="#void-baud-int-baudrate" title="Permanent link">&para;</a></h4>
+<h5 id="description_17">Description<a class="headerlink" href="#description_17" title="Permanent link">&para;</a></h5>
+<p>A wrapper around the inherited method "baud" so we can trap the baud rate as it changes and restore it if  redirect()  is called.  </p>
+<h5 id="parameters_16">Parameters<a class="headerlink" href="#parameters_16" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> baudrate - the new baudrate. See: 
+ https://github.com/mbedmicro/mbed/blob/master/libraries/mbed/targets/hal/TARGET_NORDIC/TARGET_MCU_NRF51822/serial_api.c  for permitted baud rates. </p>
+</blockquote>
+<h5 id="returns_14">Returns<a class="headerlink" href="#returns_14" title="Permanent link">&para;</a></h5>
+<p>MICROBIT_INVALID_PARAMETER if baud rate is less than 0, otherwise MICROBIT_OK.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>the underlying implementation chooses the first allowable rate at or above that requested. </p>
+</div>
+<h2 id="redirect">redirect<a class="headerlink" href="#redirect" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-redirect-pinname-tx-pinname-rx"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>redirect</div>( <div style='color:#a71d5d; display:inline-block'>PinName</div> tx,  <div style='color:#a71d5d; display:inline-block'>PinName</div> rx)<a class="headerlink" href="#int-redirect-pinname-tx-pinname-rx" title="Permanent link">&para;</a></h4>
+<h5 id="description_18">Description<a class="headerlink" href="#description_18" title="Permanent link">&para;</a></h5>
+<p>A way of dynamically configuring the serial instance to use pins other than USBTX and USBRX.  </p>
+<h5 id="parameters_17">Parameters<a class="headerlink" href="#parameters_17" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>PinName</div> tx - the new transmission pin.</p>
+<p><div style='color:#a71d5d; display:inline-block'>PinName</div> rx - the new reception pin.</p>
+</blockquote>
+<h5 id="returns_15">Returns<a class="headerlink" href="#returns_15" title="Permanent link">&para;</a></h5>
+<p>MICROBIT_SERIAL_IN_USE if another fiber is currently transmitting or receiving, otherwise MICROBIT_OK. </p>
+<h2 id="eventafter">eventAfter<a class="headerlink" href="#eventafter" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-eventafter-int-len"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>eventAfter</div>( <div style='color:#a71d5d; display:inline-block'>int</div> len)<a class="headerlink" href="#int-eventafter-int-len" title="Permanent link">&para;</a></h4>
+<h5 id="description_19">Description<a class="headerlink" href="#description_19" title="Permanent link">&para;</a></h5>
+<p>Configures an event to be fired after "len" characters.  </p>
+<p>Will generate an event with the ID: MICROBIT_ID_SERIAL and the value MICROBIT_SERIAL_EVT_HEAD_MATCH.  </p>
+<h5 id="parameters_18">Parameters<a class="headerlink" href="#parameters_18" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> len - the number of characters to wait before triggering the event.</p>
+</blockquote>
+<h5 id="returns_16">Returns<a class="headerlink" href="#returns_16" title="Permanent link">&para;</a></h5>
+<p>MICROBIT_INVALID_PARAMETER if the mode given is SYNC_SPINWAIT, otherwise MICROBIT_OK. 
+<br/></p>
+<h4 id="int-eventafter-int-len-microbitserialmode-mode"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>eventAfter</div>( <div style='color:#a71d5d; display:inline-block'>int</div> len,  <div style='color:#a71d5d; display:inline-block'>MicroBitSerialMode</div> mode)<a class="headerlink" href="#int-eventafter-int-len-microbitserialmode-mode" title="Permanent link">&para;</a></h4>
+<h5 id="description_20">Description<a class="headerlink" href="#description_20" title="Permanent link">&para;</a></h5>
+<p>Configures an event to be fired after "len" characters.  </p>
+<p>Will generate an event with the ID: MICROBIT_ID_SERIAL and the value MICROBIT_SERIAL_EVT_HEAD_MATCH.  </p>
+<h5 id="parameters_19">Parameters<a class="headerlink" href="#parameters_19" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> len - the number of characters to wait before triggering the event.</p>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitSerialMode</div> mode - the selected mode, one of: ASYNC, SYNC_SPINWAIT, SYNC_SLEEP. Each mode gives a different behaviour:  ASYNC - Will configure the event and return immediately.</p>
+</blockquote>
+<p>SYNC_SPINWAIT - will return MICROBIT_INVALID_PARAMETER</p>
+<p>SYNC_SLEEP - Will configure the event and block the current fiber until the
+             event is received.</p>
+<h5 id="returns_17">Returns<a class="headerlink" href="#returns_17" title="Permanent link">&para;</a></h5>
+<p>MICROBIT_INVALID_PARAMETER if the mode given is SYNC_SPINWAIT, otherwise MICROBIT_OK. </p>
+<h2 id="eventon">eventOn<a class="headerlink" href="#eventon" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-eventon-managedstring-delimeters"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>eventOn</div>( <div style='color:#a71d5d; display:inline-block'>ManagedString</div> delimeters)<a class="headerlink" href="#int-eventon-managedstring-delimeters" title="Permanent link">&para;</a></h4>
+<h5 id="description_21">Description<a class="headerlink" href="#description_21" title="Permanent link">&para;</a></h5>
+<p>Configures an event to be fired on a match with one of the delimeters.  </p>
+<p>Will generate an event with the ID: MICROBIT_ID_SERIAL and the value MICROBIT_SERIAL_EVT_DELIM_MATCH.  </p>
+<h5 id="parameters_20">Parameters<a class="headerlink" href="#parameters_20" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>ManagedString</div> delimeters - the characters to match received characters against e.g.  ManagedString ("\n")</p>
+</blockquote>
+<h5 id="returns_18">Returns<a class="headerlink" href="#returns_18" title="Permanent link">&para;</a></h5>
+<p>MICROBIT_INVALID_PARAMETER if the mode given is SYNC_SPINWAIT, otherwise MICROBIT_OK.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>delimeters are matched on a per byte basis. </p>
+</div>
+<p><br/></p>
+<h4 id="int-eventon-managedstring-delimeters-microbitserialmode-mode"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>eventOn</div>( <div style='color:#a71d5d; display:inline-block'>ManagedString</div> delimeters,  <div style='color:#a71d5d; display:inline-block'>MicroBitSerialMode</div> mode)<a class="headerlink" href="#int-eventon-managedstring-delimeters-microbitserialmode-mode" title="Permanent link">&para;</a></h4>
+<h5 id="description_22">Description<a class="headerlink" href="#description_22" title="Permanent link">&para;</a></h5>
+<p>Configures an event to be fired on a match with one of the delimeters.  </p>
+<p>Will generate an event with the ID: MICROBIT_ID_SERIAL and the value MICROBIT_SERIAL_EVT_DELIM_MATCH.  </p>
+<h5 id="parameters_21">Parameters<a class="headerlink" href="#parameters_21" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>ManagedString</div> delimeters - the characters to match received characters against e.g.  ManagedString ("\n")</p>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitSerialMode</div> mode - the selected mode, one of: ASYNC, SYNC_SPINWAIT, SYNC_SLEEP. Each mode gives a different behaviour:  ASYNC - Will configure the event and return immediately.</p>
+</blockquote>
+<p>SYNC_SPINWAIT - will return MICROBIT_INVALID_PARAMETER</p>
+<p>SYNC_SLEEP - Will configure the event and block the current fiber until the
+             event is received.</p>
+<h5 id="returns_19">Returns<a class="headerlink" href="#returns_19" title="Permanent link">&para;</a></h5>
+<p>MICROBIT_INVALID_PARAMETER if the mode given is SYNC_SPINWAIT, otherwise MICROBIT_OK.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>delimeters are matched on a per byte basis. </p>
+</div>
+<h2 id="isreadable">isReadable<a class="headerlink" href="#isreadable" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-isreadable"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>isReadable</div>()<a class="headerlink" href="#int-isreadable" title="Permanent link">&para;</a></h4>
+<h5 id="description_23">Description<a class="headerlink" href="#description_23" title="Permanent link">&para;</a></h5>
+<p>Determines whether there is any data waiting in our Rx buffer.  </p>
+<h5 id="returns_20">Returns<a class="headerlink" href="#returns_20" title="Permanent link">&para;</a></h5>
+<p>1 if we have space, 0 if we do not.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We do not wrap the super's readable() method as we don't want to interfere with communities that use manual calls to serial.readable(). </p>
+</div>
+<h2 id="iswriteable">isWriteable<a class="headerlink" href="#iswriteable" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-iswriteable"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>isWriteable</div>()<a class="headerlink" href="#int-iswriteable" title="Permanent link">&para;</a></h4>
+<h5 id="description_24">Description<a class="headerlink" href="#description_24" title="Permanent link">&para;</a></h5>
+<p>Determines if we have space in our txBuff.  </p>
+<h5 id="returns_21">Returns<a class="headerlink" href="#returns_21" title="Permanent link">&para;</a></h5>
+<p>1 if we have space, 0 if we do not.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We do not wrap the super's writeable() method as we don't want to interfere with communities that use manual calls to serial.writeable(). </p>
+</div>
+<h2 id="setrxbuffersize">setRxBufferSize<a class="headerlink" href="#setrxbuffersize" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-setrxbuffersize-uint8_t-size"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>setRxBufferSize</div>( <div style='color:#a71d5d; display:inline-block'>uint8_t</div> size)<a class="headerlink" href="#int-setrxbuffersize-uint8_t-size" title="Permanent link">&para;</a></h4>
+<h5 id="description_25">Description<a class="headerlink" href="#description_25" title="Permanent link">&para;</a></h5>
+<p>Reconfigures the size of our rxBuff  </p>
+<h5 id="parameters_22">Parameters<a class="headerlink" href="#parameters_22" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>uint8_t</div> size - the new size for our rxBuff</p>
+</blockquote>
+<h5 id="returns_22">Returns<a class="headerlink" href="#returns_22" title="Permanent link">&para;</a></h5>
+<p>MICROBIT_SERIAL_IN_USE if another fiber is currently using this instance for reception, otherwise MICROBIT_OK. </p>
+<h2 id="settxbuffersize">setTxBufferSize<a class="headerlink" href="#settxbuffersize" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-settxbuffersize-uint8_t-size"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>setTxBufferSize</div>( <div style='color:#a71d5d; display:inline-block'>uint8_t</div> size)<a class="headerlink" href="#int-settxbuffersize-uint8_t-size" title="Permanent link">&para;</a></h4>
+<h5 id="description_26">Description<a class="headerlink" href="#description_26" title="Permanent link">&para;</a></h5>
+<p>Reconfigures the size of our txBuff  </p>
+<h5 id="parameters_23">Parameters<a class="headerlink" href="#parameters_23" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>uint8_t</div> size - the new size for our txBuff</p>
+</blockquote>
+<h5 id="returns_23">Returns<a class="headerlink" href="#returns_23" title="Permanent link">&para;</a></h5>
+<p>MICROBIT_SERIAL_IN_USE if another fiber is currently using this instance for transmission, otherwise MICROBIT_OK. </p>
+<h2 id="getrxbuffersize">getRxBufferSize<a class="headerlink" href="#getrxbuffersize" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-getrxbuffersize"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>getRxBufferSize</div>()<a class="headerlink" href="#int-getrxbuffersize" title="Permanent link">&para;</a></h4>
+<h5 id="description_27">Description<a class="headerlink" href="#description_27" title="Permanent link">&para;</a></h5>
+<p>The size of our rx buffer in bytes.  </p>
+<h5 id="returns_24">Returns<a class="headerlink" href="#returns_24" title="Permanent link">&para;</a></h5>
+<p>the current size of rxBuff in bytes </p>
+<h2 id="gettxbuffersize">getTxBufferSize<a class="headerlink" href="#gettxbuffersize" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-gettxbuffersize"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>getTxBufferSize</div>()<a class="headerlink" href="#int-gettxbuffersize" title="Permanent link">&para;</a></h4>
+<h5 id="description_28">Description<a class="headerlink" href="#description_28" title="Permanent link">&para;</a></h5>
+<p>The size of our tx buffer in bytes.  </p>
+<h5 id="returns_25">Returns<a class="headerlink" href="#returns_25" title="Permanent link">&para;</a></h5>
+<p>the current size of txBuff in bytes </p>
+<h2 id="clearrxbuffer">clearRxBuffer<a class="headerlink" href="#clearrxbuffer" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-clearrxbuffer"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>clearRxBuffer</div>()<a class="headerlink" href="#int-clearrxbuffer" title="Permanent link">&para;</a></h4>
+<h5 id="description_29">Description<a class="headerlink" href="#description_29" title="Permanent link">&para;</a></h5>
+<p>Sets the tail to match the head of our circular buffer for reception, effectively clearing the reception buffer.  </p>
+<h5 id="returns_26">Returns<a class="headerlink" href="#returns_26" title="Permanent link">&para;</a></h5>
+<p>MICROBIT_SERIAL_IN_USE if another fiber is currently using this instance for reception, otherwise MICROBIT_OK. </p>
+<h2 id="cleartxbuffer">clearTxBuffer<a class="headerlink" href="#cleartxbuffer" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-cleartxbuffer"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>clearTxBuffer</div>()<a class="headerlink" href="#int-cleartxbuffer" title="Permanent link">&para;</a></h4>
+<h5 id="description_30">Description<a class="headerlink" href="#description_30" title="Permanent link">&para;</a></h5>
+<p>Sets the tail to match the head of our circular buffer for transmission, effectively clearing the transmission buffer.  </p>
+<h5 id="returns_27">Returns<a class="headerlink" href="#returns_27" title="Permanent link">&para;</a></h5>
+<p>MICROBIT_SERIAL_IN_USE if another fiber is currently using this instance for transmission, otherwise MICROBIT_OK. </p>
+<h2 id="rxbufferedsize">rxBufferedSize<a class="headerlink" href="#rxbufferedsize" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-rxbufferedsize"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>rxBufferedSize</div>()<a class="headerlink" href="#int-rxbufferedsize" title="Permanent link">&para;</a></h4>
+<h5 id="description_31">Description<a class="headerlink" href="#description_31" title="Permanent link">&para;</a></h5>
+<p>The number of bytes currently stored in our rx buffer waiting to be digested, by the user.  </p>
+<h5 id="returns_28">Returns<a class="headerlink" href="#returns_28" title="Permanent link">&para;</a></h5>
+<p>The currently buffered number of bytes in our rxBuff. </p>
+<h2 id="txbufferedsize">txBufferedSize<a class="headerlink" href="#txbufferedsize" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-txbufferedsize"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>txBufferedSize</div>()<a class="headerlink" href="#int-txbufferedsize" title="Permanent link">&para;</a></h4>
+<h5 id="description_32">Description<a class="headerlink" href="#description_32" title="Permanent link">&para;</a></h5>
+<p>The number of bytes currently stored in our tx buffer waiting to be transmitted by the hardware.  </p>
+<h5 id="returns_29">Returns<a class="headerlink" href="#returns_29" title="Permanent link">&para;</a></h5>
+<p>The currently buffered number of bytes in our txBuff. </p>
+<h2 id="rxinuse">rxInUse<a class="headerlink" href="#rxinuse" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-rxinuse"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>rxInUse</div>()<a class="headerlink" href="#int-rxinuse" title="Permanent link">&para;</a></h4>
+<h5 id="description_33">Description<a class="headerlink" href="#description_33" title="Permanent link">&para;</a></h5>
+<p>Determines if the serial bus is currently in use by another fiber for reception.  </p>
+<h5 id="returns_30">Returns<a class="headerlink" href="#returns_30" title="Permanent link">&para;</a></h5>
+<p>The state of our mutex lock for reception.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only one fiber can call read at a time </p>
+</div>
+<h2 id="txinuse">txInUse<a class="headerlink" href="#txinuse" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-txinuse"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>txInUse</div>()<a class="headerlink" href="#int-txinuse" title="Permanent link">&para;</a></h4>
+<h5 id="description_34">Description<a class="headerlink" href="#description_34" title="Permanent link">&para;</a></h5>
+<p>Determines if the serial bus is currently in use by another fiber for transmission.  </p>
+<h5 id="returns_31">Returns<a class="headerlink" href="#returns_31" title="Permanent link">&para;</a></h5>
+<p>The state of our mutex lock for transmition.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only one fiber can call send at a time </p>
+</div>
+<h2 id="detach">detach<a class="headerlink" href="#detach" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="void-detach-serialirqtype-interupttype"><div style='color:#a71d5d; display:inline-block'>void</div> <div style='color:#795da3; display:inline-block'>detach</div>( <div style='color:#a71d5d; display:inline-block'>Serial::IrqType</div> interuptType)<a class="headerlink" href="#void-detach-serialirqtype-interupttype" title="Permanent link">&para;</a></h4>
+<h5 id="description_35">Description<a class="headerlink" href="#description_35" title="Permanent link">&para;</a></h5>
+<p>Detaches a previously configured interrupt  </p>
+<p>interruptType </p>
+<p>one of Serial::RxIrq or Serial::TxIrq   </p>
+<h5 id="parameters_24">Parameters<a class="headerlink" href="#parameters_24" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>Serial::IrqType</div> interuptType</p>
+</blockquote>
+<hr /></div>
+        </div>
+
+        <footer class="col-md-12">
+            
+            <center><a href="https://www.lancaster.ac.uk"><image style="width:auto;" height="61" src="../../img/lancs-logo.png"></image></a></center>
+            <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+        </footer>
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script>var base_url = '../..';</script>
+        <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
+        <script src="../../js/base.js"></script>
+        <!--<script src="../../archive/v2.0.0-rc3/js/base.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/js/bootstrap-3.0.3.min.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/js/highlight.pack.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/js/jquery-1.10.2.min.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/mkdocs/js/lunr-0.5.7.min.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/mkdocs/js/mustache.min.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/mkdocs/js/require.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/mkdocs/js/search.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/mkdocs/js/text.js"></script>-->
+        <!--<script src="../../resources/bluetooth/functions.js"></script>-->
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            From here you can search these documents. Enter
+                            your search terms below.
+                        </p>
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                            </div>
+                        </form>
+                        <div id="mkdocs-search-results"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

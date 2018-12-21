@@ -1,0 +1,1441 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+
+	<title>display - micro:bit runtime</title>
+
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link href="../../css/extra.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-76156484-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-custom navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            
+                <a class="navbar-brand" rel="home" href="#" title="micro:bit runtime">
+                    
+                    <!-- Logo author: Aluna Everitt (@AlunaEveritt on Twitter) --->
+                    
+                    <img style="max-width:200px; margin-top: -7px;" src="../.././img/logo[whiteruntime].png">
+                </a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">General <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../..">Introduction</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../concepts/">Concepts</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../advanced/">Advanced</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../online-toolchains/">Online Development</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../offline-toolchains/">Offline Development</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../device/">Hardware</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../help/">Help</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">uBit <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../">Overview</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../i2c/">i2c</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../storage/">storage</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../serial/">serial</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../messageBus/">messageBus</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../button/">buttons</a>
+</li>
+
+                    
+                        
+<li class="active">
+    <a href="./">display</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../accelerometer/">accelerometer</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../compass/">compass</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../thermometer/">thermometer</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../io/">io</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../radio/">radio</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Data Types <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../data-types/image/">MicroBitImage</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../data-types/event/">MicroBitEvent</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../data-types/string/">ManagedString</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../data-types/packetbuffer/">PacketBuffer</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bluetooth <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../ble/profile/">Profile</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/accelerometer-service/">AccelerometerService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/button-service/">ButtonService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/dfu-service/">DFUService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/event-service/">EventService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/iopin-service/">IOPinService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/led-service/">LEDService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/magnetometer-service/">MagnetometerService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/temperature-service/">TemperatureService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/uart-service/">UARTService</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Extras <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../extras/light-sensing/">MicroBitLightSensor</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../extras/spi/">SPI</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+
+            
+            
+
+            
+
+            
+            
+
+            
+
+            
+            
+
+            
+
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right hidden-md hidden-sm">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                <li >
+                    <a rel="next" href="../button/">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../accelerometer/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://github.com/lancaster-university/microbit-dal/">
+                        
+                            <i class="fa fa-github"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#ubitdisplay">uBit.display</a></li>
+        
+            <li><a href="#overview">Overview</a></li>
+        
+            <li><a href="#capabilities">Capabilities</a></li>
+        
+            <li><a href="#using-the-display">Using the Display</a></li>
+        
+            <li><a href="#message-bus-id">Message Bus ID</a></li>
+        
+            <li><a href="#message-bus-events">Message Bus Events</a></li>
+        
+            <li><a href="#notify-events">Notify Events</a></li>
+        
+            <li><a href="#api">API</a></li>
+        
+            <li><a href="#constructor">Constructor</a></li>
+        
+            <li><a href="#stopanimation">stopAnimation</a></li>
+        
+            <li><a href="#printcharasync">printCharAsync</a></li>
+        
+            <li><a href="#printasync">printAsync</a></li>
+        
+            <li><a href="#printchar">printChar</a></li>
+        
+            <li><a href="#print">print</a></li>
+        
+            <li><a href="#scrollasync">scrollAsync</a></li>
+        
+            <li><a href="#scroll">scroll</a></li>
+        
+            <li><a href="#animateasync">animateAsync</a></li>
+        
+            <li><a href="#animate">animate</a></li>
+        
+            <li><a href="#setbrightness">setBrightness</a></li>
+        
+            <li><a href="#setdisplaymode">setDisplayMode</a></li>
+        
+            <li><a href="#getdisplaymode">getDisplayMode</a></li>
+        
+            <li><a href="#getbrightness">getBrightness</a></li>
+        
+            <li><a href="#rotateto">rotateTo</a></li>
+        
+            <li><a href="#enable">enable</a></li>
+        
+            <li><a href="#disable">disable</a></li>
+        
+            <li><a href="#clear">clear</a></li>
+        
+            <li><a href="#setfont">setFont</a></li>
+        
+            <li><a href="#getfont">getFont</a></li>
+        
+            <li><a href="#screenshot">screenShot</a></li>
+        
+            <li><a href="#readlightlevel">readLightLevel</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h1 id="ubitdisplay">uBit.display<a class="headerlink" href="#ubitdisplay" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>The MicroBitDisplay class is a general purpose device driver for controlling LED matrix displays.
+LED matrix displays are simple, inexpensive devices that use a single LED as a display pixel. They therefore
+tend to be of relatively low resolution, but often provide visually attractive displays due to the high coherence and brightness
+of the LEDs.</p>
+<p>LEDs in matrix displays are connected to general purpose I/O (GPIO) pins on CPU. Although they <em>could</em> be connected such that each
+LED has its own GPIO pin, this is not usually the case, as the scarce resource of GPIO pins would soon be used up.  For example,
+on the micro:bit, the LED matix has 25 LEDs. If this required 25 GPIO pins, then there would be none left for anything else!</p>
+<p>Instead, these LEDs are controlled by 12 GPIO pins. Three of those pins provide power to LEDs, the other
+nine provide a route to ground. The pins that source power are called <strong>rows</strong>. The pins that sink power are called <strong>columns</strong>.
+The following diagram shows how the 5x5 grid is connected into 3 logical 'rows' and 9 'columns':</p>
+<p><img alt="light-sensing info graphic" src="../../resources/light-sensing.png" />
+<center><em>Where the format is: <strong>ROW</strong>.<strong>COLUMN</strong></em></center></p>
+<p>So, if we wanted to light up the middle LED, we would need to put a HIGH voltage (logic 1) on row 2, and a LOW voltage (logic 0) on column 3. Notice that when row 2 is
+HIGH, we the value we write to the 9 column pins affect all of the LEDs 2.1 to 2.7, without affecting any of the LEDS on row 1 or row 3. Sharing GPIO pins in this way is known as multiplexing.
+Moreover, if we scan throuh the different rows fast enough - faster than the eye can see - then we can provide the illusion of all the LEDS being on at the same time! This is a technique
+known as <em>persistance of vision</em>... and was also the same basis of the very first TV sets (although that did not use LEDs!).</p>
+<h2 id="capabilities">Capabilities<a class="headerlink" href="#capabilities" title="Permanent link">&para;</a></h2>
+<p>The MicroBitDisplay class provides a driver for a general purpose matrix display, and also several high level features that make creating animations and visual effects on the
+micro:bit LED display easy and fun! This class lets you:</p>
+<ul>
+<li>Control the LED matrix on the micro:bit.</li>
+<li>Use an optimised typeface (font) so you can show upper and lower case letters, numbers of symbols on the display.</li>
+<li>Set Display wide or <em>per-pixel</em> brightness control up to 256 levels per pixel.</li>
+<li>Create, move, paste and animate images.</li>
+<li>Scroll and print images and text.</li>
+<li>Access the screen buffer directly, so you can manipulate individual pixels.</li>
+</ul>
+<h2 id="using-the-display">Using the Display<a class="headerlink" href="#using-the-display" title="Permanent link">&para;</a></h2>
+<p>When using the uBit object, the display is automatically set up, and ready for you to use. Use any or all of the functions listed in the API section below to create effects on the
+LED display. Here are a few examples to get you started though!</p>
+<h3 id="scrolling-text">Scrolling Text<a class="headerlink" href="#scrolling-text" title="Permanent link">&para;</a></h3>
+<p>Simply use the scroll function to specify the message you want to scroll, and sit back and watch the result. The message you provide will be scrolled, pixel by pixel across the display from right to left.
+If you take a look at the documentation for the scroll function in the API below, you will notice that you can also specify the speed of the scroll as an optional final parameter. The lower the delay, the
+faster your text will scroll across the screen.</p>
+<pre><code class="cpp">uBit.display.scroll(&quot;HELLO!&quot;);
+uBit.display.scroll(&quot;HELLO!&quot;, 100);
+</code></pre>
+
+<p>Notice that you can also scroll numbers (either constants of variables):</p>
+<pre><code class="cpp">int c = 42;
+uBit.display.scroll(c);
+</code></pre>
+
+<h3 id="printing-text">Printing Text<a class="headerlink" href="#printing-text" title="Permanent link">&para;</a></h3>
+<p>Sometimes it is better to show the letters/numbers in turn on the screen rather than scrolling them. If you want to do this, the 'print' function has exactly the same parameters as 'scroll', but
+with this behaviour.  e.g.</p>
+<pre><code class="cpp">uBit.display.print(&quot;HELLO!&quot;);
+uBit.display.print(&quot;HELLO!&quot;, 100);
+uBit.display.print(42);
+</code></pre>
+
+<p>Do notice that print behaves slightly differently if you provide a single character or numeric digit though. if you do this, the value you provide will stay on the screen until you explicitly
+change the screen. If you ask the runtime to print a string with two or more characters, then each will appear in turn, then disappear. e.g. try this and you will find it stays on the screen:</p>
+<pre><code class="cpp">uBit.display.print(7);
+</code></pre>
+
+<h3 id="showing-images">Showing Images<a class="headerlink" href="#showing-images" title="Permanent link">&para;</a></h3>
+<p>It is also possible to print and scroll bitmap images on the display. Images are represented in the runtime by using a <a href="../../data-types/image/">MicroBitImage</a>. These can easily be created, just as
+you create any variable. Once created, you can then provide them as a parameter to the scroll and print functions. Unlike the text based animation functions, you can also specify exactly
+where in the screen you would like the image to appear - and you can even treat pixel values of zero as transparent if you like!
+See the <a href="../../data-types/image/">MicroBitImage page</a> for more details on images, but here are a few simple examples:</p>
+<pre><code class="cpp">// show your smiley on the screen...
+MicroBitImage smiley(&quot;0,255,0,255, 0\n0,255,0,255,0\n0,0,0,0,0\n255,0,0,0,255\n0,255,255,255,0\n&quot;);
+uBit.display.print(smiley);
+</code></pre>
+
+<pre><code class="cpp">// make your smiley peep up from the bottom of the screen...
+MicroBitImage smiley(&quot;0,255,0,255, 0\n0,255,0,255,0\n0,0,0,0,0\n255,0,0,0,255\n0,255,255,255,0\n&quot;);
+for (int y=4; y &gt;= 0; y--)
+{
+    uBit.display.image.paste(smiley,0,y);
+    uBit.sleep(500);
+}
+</code></pre>
+
+<pre><code class="cpp">// scroll your smiley across the screen...
+MicroBitImage smiley(&quot;0,255,0,255, 0\n0,255,0,255,0\n0,0,0,0,0\n255,0,0,0,255\n0,255,255,255,0\n&quot;);
+uBit.display.scroll(smiley);
+</code></pre>
+
+<h3 id="running-in-the-background">Running in the Background...<a class="headerlink" href="#running-in-the-background" title="Permanent link">&para;</a></h3>
+<p>By now you have probably noticed that the scroll, print and animate functions all wait for the effect requested to finishes before returning. This is by design, to allow you to easily synchronise your programs.
+However, sometimes you want to launch an effect, and let it run in the background while your program does something else. For this, you can use the <em>Async</em> variations of the scroll, print and animate functions.
+These all have identical parameters and capabilities, but will return immediately. Try some of the examples above with their Async equivalents to understand this different behaviour.  For example:</p>
+<pre><code class="cpp">// scroll your smiley across the screen, without waiting for it to finish...
+MicroBitImage smiley(&quot;0,255,0,255, 0\n0,255,0,255,0\n0,0,0,0,0\n255,0,0,0,255\n0,255,255,255,0\n&quot;);
+uBit.display.scrollAsync(smiley);
+</code></pre>
+
+<h3 id="changing-display-mode">Changing Display Mode<a class="headerlink" href="#changing-display-mode" title="Permanent link">&para;</a></h3>
+<p>The MicroBitDisplay class supports either on/off LED display, or displays where each pixel has an individual brightness value between 0 and 255. The former costs much less processor time and battery power to
+operate, so it is the default. The latter does provide more useful effects though, so you can change between these modes by using the  'setDiplayMode' function. Valid values are:</p>
+<table>
+<thead>
+<tr>
+<th>Display mode</th>
+<th>Brief Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DISPLAY_MODE_BLACK_AND_WHITE</td>
+<td>Each pixel can be just on or off. The brightness of all pixels is controlled by the setBrightness function.</td>
+</tr>
+<tr>
+<td>DISPLAY_MODE_BLACK_AND_WHITE_LIGHT_SENSE</td>
+<td>Each pixel can be just on or off, and the display driver will also sense the ambient brightness from the LEDs.</td>
+</tr>
+<tr>
+<td>DISPLAY_MODE_GREYSCALE</td>
+<td>Each pixel can independently have 256 levels of brightness.</td>
+</tr>
+</tbody>
+</table>
+<p>for example:</p>
+<pre><code class="cpp">// show a smiley with bright eyes!
+MicroBitImage smiley(&quot;0,255,0,255, 0\n0,255,0,255,0\n0,0,0,0,0\n32,0,0,0,32\n0,32,32,32,0\n&quot;);
+uBit.display.setDisplayMode(DISPLAY_MODE_GREYSCALE);
+uBit.display.print(smiley);
+</code></pre>
+
+<h3 id="accessing-the-display-buffer">Accessing the Display Buffer<a class="headerlink" href="#accessing-the-display-buffer" title="Permanent link">&para;</a></h3>
+<p>The memory buffer that is used to drive the LEDs is itself a <a href="../../data-types/image/">MicroBitImage</a>. This means that you can also access and call any of the functions listed in the <a href="../../data-types/image/">MicroBitImage API documentation</a>
+directly on the display buffer. Examples here include setPixelValue, as illustrated below, but read the above documentation link for full details.</p>
+<pre><code class="cpp">// set a single pixel by co-ordinate
+uBit.display.image.setPixelValue(2,2,255);
+</code></pre>
+
+<h3 id="other-useful-functions">Other Useful Functions<a class="headerlink" href="#other-useful-functions" title="Permanent link">&para;</a></h3>
+<ul>
+<li>'clear' will clear the screen immediately.</li>
+<li>'stopAnimation' will terminate any on-going print, scroll or animate functions.</li>
+<li>'setBrightness' lets you set the overall maximum brightness of the display, as a value between 1 and 255.</li>
+<li>'enable' and 'disable' turn on and off the display. When disabled, you can reuse many if the GPIO pins. See the <a href="../io/">MicroBitIO</a> class for more information.</li>
+<li>'rotateTo' even lets you specify the orientation of the display - in case you need to use your micro:bit the wrong way up. :-)</li>
+<li>'readLightLevel' runs the LEDs backwards as photodiodes and tells you how bright your room is... see <a href="../../extras/light-sensing/">Light Sensing</a> for more info!</li>
+</ul>
+<h2 id="message-bus-id">Message Bus ID<a class="headerlink" href="#message-bus-id" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Constant</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MICROBIT_ID_DISPLAY</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+<h2 id="message-bus-events">Message Bus Events<a class="headerlink" href="#message-bus-events" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Constant</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MICROBIT_DISPLAY_EVT_ANIMATION_COMPLETE</td>
+<td>1</td>
+</tr>
+<tr>
+<td>MICROBIT_DISPLAY_EVT_LIGHT_SENSE</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h2 id="notify-events">Notify Events<a class="headerlink" href="#notify-events" title="Permanent link">&para;</a></h2>
+<p>These events use the notification channel <code>MICROBIT_ID_NOTIFY</code>, which provides
+general purpose synchronisation.</p>
+<table>
+<thead>
+<tr>
+<th>Constant</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MICROBIT_DISPLAY_EVT_FREE</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="api">API<a class="headerlink" href="#api" title="Permanent link">&para;</a></h2>
+<h2 id="constructor">Constructor<a class="headerlink" href="#constructor" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="microbitdisplay">MicroBitDisplay()<a class="headerlink" href="#microbitdisplay" title="Permanent link">&para;</a></h4>
+<h5 id="description">Description<a class="headerlink" href="#description" title="Permanent link">&para;</a></h5>
+<p>Constructor.  </p>
+<p>Create a software representation the micro:bit's 5x5 LED matrix. The display is initially blank.  </p>
+<h5 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> MicroBitDisplay display; 
+</code></pre>
+
+<p><br/></p>
+<h4 id="microbitdisplay-uint16_t-id">MicroBitDisplay( <div style='color:#a71d5d; display:inline-block'>uint16_t</div> id)<a class="headerlink" href="#microbitdisplay-uint16_t-id" title="Permanent link">&para;</a></h4>
+<h5 id="description_1">Description<a class="headerlink" href="#description_1" title="Permanent link">&para;</a></h5>
+<p>Constructor.  </p>
+<p>Create a software representation the micro:bit's 5x5 LED matrix. The display is initially blank.  </p>
+<h5 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>uint16_t</div> id - The id the display should use when sending events on the MessageBus. Defaults to MICROBIT_ID_DISPLAY.</p>
+</blockquote>
+<h5 id="example_1">Example<a class="headerlink" href="#example_1" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> MicroBitDisplay display; 
+</code></pre>
+
+<p><br/></p>
+<h4 id="microbitdisplay-uint16_t-id-const-matrixmap-map">MicroBitDisplay( <div style='color:#a71d5d; display:inline-block'>uint16_t</div> id,  <div style='color:#a71d5d; display:inline-block'>const  MatrixMap  &amp;</div> map)<a class="headerlink" href="#microbitdisplay-uint16_t-id-const-matrixmap-map" title="Permanent link">&para;</a></h4>
+<h5 id="description_2">Description<a class="headerlink" href="#description_2" title="Permanent link">&para;</a></h5>
+<p>Constructor.  </p>
+<p>Create a software representation the micro:bit's 5x5 LED matrix. The display is initially blank.  </p>
+<h5 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>uint16_t</div> id - The id the display should use when sending events on the MessageBus. Defaults to MICROBIT_ID_DISPLAY.</p>
+<p><div style='color:#a71d5d; display:inline-block'>const  MatrixMap  &amp;</div> map - The mapping information that relates pin inputs/outputs to physical screen coordinates. Defaults to microbitMatrixMap, defined in  MicroBitMatrixMaps.h .</p>
+</blockquote>
+<h5 id="example_2">Example<a class="headerlink" href="#example_2" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> MicroBitDisplay display; 
+</code></pre>
+
+<h2 id="stopanimation">stopAnimation<a class="headerlink" href="#stopanimation" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="void-stopanimation"><div style='color:#a71d5d; display:inline-block'>void</div> <div style='color:#795da3; display:inline-block'>stopAnimation</div>()<a class="headerlink" href="#void-stopanimation" title="Permanent link">&para;</a></h4>
+<h5 id="description_3">Description<a class="headerlink" href="#description_3" title="Permanent link">&para;</a></h5>
+<p>Stops any currently running animation, and any that are waiting to be displayed.           </p>
+<h2 id="printcharasync">printCharAsync<a class="headerlink" href="#printcharasync" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-printcharasync-char-c"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>printCharAsync</div>( <div style='color:#a71d5d; display:inline-block'>char</div> c)<a class="headerlink" href="#int-printcharasync-char-c" title="Permanent link">&para;</a></h4>
+<h5 id="description_4">Description<a class="headerlink" href="#description_4" title="Permanent link">&para;</a></h5>
+<p>Prints the given character to the display, if it is not in use.  </p>
+<h5 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>char</div> c - The character to display.</p>
+</blockquote>
+<h5 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h5>
+<p>MICROBIT_OK, MICROBIT_BUSY is the screen is in use, or MICROBIT_INVALID_PARAMETER.</p>
+<h5 id="example_3">Example<a class="headerlink" href="#example_3" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> display.printAsync('p'); 
+ display.printAsync('p',100); 
+</code></pre>
+
+<p><br/></p>
+<h4 id="int-printcharasync-char-c-int-delay"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>printCharAsync</div>( <div style='color:#a71d5d; display:inline-block'>char</div> c,  <div style='color:#a71d5d; display:inline-block'>int</div> delay)<a class="headerlink" href="#int-printcharasync-char-c-int-delay" title="Permanent link">&para;</a></h4>
+<h5 id="description_5">Description<a class="headerlink" href="#description_5" title="Permanent link">&para;</a></h5>
+<p>Prints the given character to the display, if it is not in use.  </p>
+<h5 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>char</div> c - The character to display.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> delay - Optional parameter - the time for which to show the character. Zero displays the character forever, or until the Displays next use.</p>
+</blockquote>
+<h5 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">&para;</a></h5>
+<p>MICROBIT_OK, MICROBIT_BUSY is the screen is in use, or MICROBIT_INVALID_PARAMETER.</p>
+<h5 id="example_4">Example<a class="headerlink" href="#example_4" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> display.printAsync('p'); 
+ display.printAsync('p',100); 
+</code></pre>
+
+<h2 id="printasync">printAsync<a class="headerlink" href="#printasync" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-printasync-managedstring-s"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>printAsync</div>( <div style='color:#a71d5d; display:inline-block'>ManagedString</div> s)<a class="headerlink" href="#int-printasync-managedstring-s" title="Permanent link">&para;</a></h4>
+<h5 id="description_6">Description<a class="headerlink" href="#description_6" title="Permanent link">&para;</a></h5>
+<p>Prints the given  ManagedString  to the display, one character at a time. Returns immediately, and executes the animation asynchronously.  </p>
+<h5 id="parameters_4">Parameters<a class="headerlink" href="#parameters_4" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>ManagedString</div> s - The string to display.</p>
+</blockquote>
+<h5 id="returns_2">Returns<a class="headerlink" href="#returns_2" title="Permanent link">&para;</a></h5>
+<p>MICROBIT_OK, or MICROBIT_INVALID_PARAMETER.</p>
+<h5 id="example_5">Example<a class="headerlink" href="#example_5" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> display.printAsync(&quot;abc123&quot;,400); 
+</code></pre>
+
+<p><br/></p>
+<h4 id="int-printasync-managedstring-s-int-delay"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>printAsync</div>( <div style='color:#a71d5d; display:inline-block'>ManagedString</div> s,  <div style='color:#a71d5d; display:inline-block'>int</div> delay)<a class="headerlink" href="#int-printasync-managedstring-s-int-delay" title="Permanent link">&para;</a></h4>
+<h5 id="description_7">Description<a class="headerlink" href="#description_7" title="Permanent link">&para;</a></h5>
+<p>Prints the given  ManagedString  to the display, one character at a time. Returns immediately, and executes the animation asynchronously.  </p>
+<h5 id="parameters_5">Parameters<a class="headerlink" href="#parameters_5" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>ManagedString</div> s - The string to display.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> delay - The time to delay between characters, in milliseconds. Must be &gt; 0. Defaults to: MICROBIT_DEFAULT_PRINT_SPEED.</p>
+</blockquote>
+<h5 id="returns_3">Returns<a class="headerlink" href="#returns_3" title="Permanent link">&para;</a></h5>
+<p>MICROBIT_OK, or MICROBIT_INVALID_PARAMETER.</p>
+<h5 id="example_6">Example<a class="headerlink" href="#example_6" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> display.printAsync(&quot;abc123&quot;,400); 
+</code></pre>
+
+<p><br/></p>
+<h4 id="int-printasync-microbitimage-i"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>printAsync</div>( <div style='color:#a71d5d; display:inline-block'>MicroBitImage</div> i)<a class="headerlink" href="#int-printasync-microbitimage-i" title="Permanent link">&para;</a></h4>
+<h5 id="description_8">Description<a class="headerlink" href="#description_8" title="Permanent link">&para;</a></h5>
+<p>Prints the given image to the display, if the display is not in use. Returns immediately, and executes the animation asynchronously.  </p>
+<h5 id="parameters_6">Parameters<a class="headerlink" href="#parameters_6" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitImage</div> i - The image to display.</p>
+</blockquote>
+<h5 id="example_7">Example<a class="headerlink" href="#example_7" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> MicrobitImage i(&quot;1,1,1,1,1\n1,1,1,1,1\n&quot;); 
+ display.print(i,400); 
+</code></pre>
+
+<p><br/></p>
+<h4 id="int-printasync-microbitimage-i-int-x"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>printAsync</div>( <div style='color:#a71d5d; display:inline-block'>MicroBitImage</div> i,  <div style='color:#a71d5d; display:inline-block'>int</div> x)<a class="headerlink" href="#int-printasync-microbitimage-i-int-x" title="Permanent link">&para;</a></h4>
+<h5 id="description_9">Description<a class="headerlink" href="#description_9" title="Permanent link">&para;</a></h5>
+<p>Prints the given image to the display, if the display is not in use. Returns immediately, and executes the animation asynchronously.  </p>
+<h5 id="parameters_7">Parameters<a class="headerlink" href="#parameters_7" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitImage</div> i - The image to display.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> x - The horizontal position on the screen to display the image. Defaults to 0.</p>
+</blockquote>
+<h5 id="example_8">Example<a class="headerlink" href="#example_8" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> MicrobitImage i(&quot;1,1,1,1,1\n1,1,1,1,1\n&quot;); 
+ display.print(i,400); 
+</code></pre>
+
+<p><br/></p>
+<h4 id="int-printasync-microbitimage-i-int-x-int-y"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>printAsync</div>( <div style='color:#a71d5d; display:inline-block'>MicroBitImage</div> i,  <div style='color:#a71d5d; display:inline-block'>int</div> x,  <div style='color:#a71d5d; display:inline-block'>int</div> y)<a class="headerlink" href="#int-printasync-microbitimage-i-int-x-int-y" title="Permanent link">&para;</a></h4>
+<h5 id="description_10">Description<a class="headerlink" href="#description_10" title="Permanent link">&para;</a></h5>
+<p>Prints the given image to the display, if the display is not in use. Returns immediately, and executes the animation asynchronously.  </p>
+<h5 id="parameters_8">Parameters<a class="headerlink" href="#parameters_8" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitImage</div> i - The image to display.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> x - The horizontal position on the screen to display the image. Defaults to 0.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> y - The vertical position on the screen to display the image. Defaults to 0.</p>
+</blockquote>
+<h5 id="example_9">Example<a class="headerlink" href="#example_9" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> MicrobitImage i(&quot;1,1,1,1,1\n1,1,1,1,1\n&quot;); 
+ display.print(i,400); 
+</code></pre>
+
+<p><br/></p>
+<h4 id="int-printasync-microbitimage-i-int-x-int-y-int-alpha"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>printAsync</div>( <div style='color:#a71d5d; display:inline-block'>MicroBitImage</div> i,  <div style='color:#a71d5d; display:inline-block'>int</div> x,  <div style='color:#a71d5d; display:inline-block'>int</div> y,  <div style='color:#a71d5d; display:inline-block'>int</div> alpha)<a class="headerlink" href="#int-printasync-microbitimage-i-int-x-int-y-int-alpha" title="Permanent link">&para;</a></h4>
+<h5 id="description_11">Description<a class="headerlink" href="#description_11" title="Permanent link">&para;</a></h5>
+<p>Prints the given image to the display, if the display is not in use. Returns immediately, and executes the animation asynchronously.  </p>
+<h5 id="parameters_9">Parameters<a class="headerlink" href="#parameters_9" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitImage</div> i - The image to display.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> x - The horizontal position on the screen to display the image. Defaults to 0.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> y - The vertical position on the screen to display the image. Defaults to 0.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> alpha - Treats the brightness level '0' as transparent. Defaults to 0.</p>
+</blockquote>
+<h5 id="example_10">Example<a class="headerlink" href="#example_10" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> MicrobitImage i(&quot;1,1,1,1,1\n1,1,1,1,1\n&quot;); 
+ display.print(i,400); 
+</code></pre>
+
+<p><br/></p>
+<h4 id="int-printasync-microbitimage-i-int-x-int-y-int-alpha-int-delay"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>printAsync</div>( <div style='color:#a71d5d; display:inline-block'>MicroBitImage</div> i,  <div style='color:#a71d5d; display:inline-block'>int</div> x,  <div style='color:#a71d5d; display:inline-block'>int</div> y,  <div style='color:#a71d5d; display:inline-block'>int</div> alpha,  <div style='color:#a71d5d; display:inline-block'>int</div> delay)<a class="headerlink" href="#int-printasync-microbitimage-i-int-x-int-y-int-alpha-int-delay" title="Permanent link">&para;</a></h4>
+<h5 id="description_12">Description<a class="headerlink" href="#description_12" title="Permanent link">&para;</a></h5>
+<p>Prints the given image to the display, if the display is not in use. Returns immediately, and executes the animation asynchronously.  </p>
+<h5 id="parameters_10">Parameters<a class="headerlink" href="#parameters_10" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitImage</div> i - The image to display.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> x - The horizontal position on the screen to display the image. Defaults to 0.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> y - The vertical position on the screen to display the image. Defaults to 0.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> alpha - Treats the brightness level '0' as transparent. Defaults to 0.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> delay - The time to delay between characters, in milliseconds. Defaults to 0.</p>
+</blockquote>
+<h5 id="example_11">Example<a class="headerlink" href="#example_11" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> MicrobitImage i(&quot;1,1,1,1,1\n1,1,1,1,1\n&quot;); 
+ display.print(i,400); 
+</code></pre>
+
+<h2 id="printchar">printChar<a class="headerlink" href="#printchar" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-printchar-char-c"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>printChar</div>( <div style='color:#a71d5d; display:inline-block'>char</div> c)<a class="headerlink" href="#int-printchar-char-c" title="Permanent link">&para;</a></h4>
+<h5 id="description_13">Description<a class="headerlink" href="#description_13" title="Permanent link">&para;</a></h5>
+<p>Prints the given character to the display.  </p>
+<h5 id="parameters_11">Parameters<a class="headerlink" href="#parameters_11" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>char</div> c - The character to display.</p>
+</blockquote>
+<h5 id="returns_4">Returns<a class="headerlink" href="#returns_4" title="Permanent link">&para;</a></h5>
+<p>MICROBIT_OK, MICROBIT_CANCELLED or MICROBIT_INVALID_PARAMETER.</p>
+<h5 id="example_12">Example<a class="headerlink" href="#example_12" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> display.printAsync('p'); 
+ display.printAsync('p',100); 
+</code></pre>
+
+<p><br/></p>
+<h4 id="int-printchar-char-c-int-delay"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>printChar</div>( <div style='color:#a71d5d; display:inline-block'>char</div> c,  <div style='color:#a71d5d; display:inline-block'>int</div> delay)<a class="headerlink" href="#int-printchar-char-c-int-delay" title="Permanent link">&para;</a></h4>
+<h5 id="description_14">Description<a class="headerlink" href="#description_14" title="Permanent link">&para;</a></h5>
+<p>Prints the given character to the display.  </p>
+<h5 id="parameters_12">Parameters<a class="headerlink" href="#parameters_12" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>char</div> c - The character to display.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> delay - Optional parameter - the time for which to show the character. Zero displays the character forever, or until the Displays next use.</p>
+</blockquote>
+<h5 id="returns_5">Returns<a class="headerlink" href="#returns_5" title="Permanent link">&para;</a></h5>
+<p>MICROBIT_OK, MICROBIT_CANCELLED or MICROBIT_INVALID_PARAMETER.</p>
+<h5 id="example_13">Example<a class="headerlink" href="#example_13" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> display.printAsync('p'); 
+ display.printAsync('p',100); 
+</code></pre>
+
+<h2 id="print">print<a class="headerlink" href="#print" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-print-managedstring-s"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>print</div>( <div style='color:#a71d5d; display:inline-block'>ManagedString</div> s)<a class="headerlink" href="#int-print-managedstring-s" title="Permanent link">&para;</a></h4>
+<h5 id="description_15">Description<a class="headerlink" href="#description_15" title="Permanent link">&para;</a></h5>
+<p>Prints the given string to the display, one character at a time.  </p>
+<p>Blocks the calling thread until all the text has been displayed.  </p>
+<h5 id="parameters_13">Parameters<a class="headerlink" href="#parameters_13" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>ManagedString</div> s - The string to display.</p>
+</blockquote>
+<h5 id="returns_6">Returns<a class="headerlink" href="#returns_6" title="Permanent link">&para;</a></h5>
+<p>MICROBIT_OK, MICROBIT_CANCELLED or MICROBIT_INVALID_PARAMETER.</p>
+<h5 id="example_14">Example<a class="headerlink" href="#example_14" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> display.print(&quot;abc123&quot;,400); 
+</code></pre>
+
+<p><br/></p>
+<h4 id="int-print-managedstring-s-int-delay"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>print</div>( <div style='color:#a71d5d; display:inline-block'>ManagedString</div> s,  <div style='color:#a71d5d; display:inline-block'>int</div> delay)<a class="headerlink" href="#int-print-managedstring-s-int-delay" title="Permanent link">&para;</a></h4>
+<h5 id="description_16">Description<a class="headerlink" href="#description_16" title="Permanent link">&para;</a></h5>
+<p>Prints the given string to the display, one character at a time.  </p>
+<p>Blocks the calling thread until all the text has been displayed.  </p>
+<h5 id="parameters_14">Parameters<a class="headerlink" href="#parameters_14" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>ManagedString</div> s - The string to display.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> delay - The time to delay between characters, in milliseconds. Defaults to: MICROBIT_DEFAULT_PRINT_SPEED.</p>
+</blockquote>
+<h5 id="returns_7">Returns<a class="headerlink" href="#returns_7" title="Permanent link">&para;</a></h5>
+<p>MICROBIT_OK, MICROBIT_CANCELLED or MICROBIT_INVALID_PARAMETER.</p>
+<h5 id="example_15">Example<a class="headerlink" href="#example_15" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> display.print(&quot;abc123&quot;,400); 
+</code></pre>
+
+<p><br/></p>
+<h4 id="int-print-microbitimage-i"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>print</div>( <div style='color:#a71d5d; display:inline-block'>MicroBitImage</div> i)<a class="headerlink" href="#int-print-microbitimage-i" title="Permanent link">&para;</a></h4>
+<h5 id="description_17">Description<a class="headerlink" href="#description_17" title="Permanent link">&para;</a></h5>
+<p>Prints the given image to the display. Blocks the calling thread until all the image has been displayed.  </p>
+<h5 id="parameters_15">Parameters<a class="headerlink" href="#parameters_15" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitImage</div> i - The image to display.</p>
+</blockquote>
+<h5 id="returns_8">Returns<a class="headerlink" href="#returns_8" title="Permanent link">&para;</a></h5>
+<p>MICROBIT_OK, MICROBIT_BUSY if the display is already in use, or MICROBIT_INVALID_PARAMETER.</p>
+<h5 id="example_16">Example<a class="headerlink" href="#example_16" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> MicrobitImage i(&quot;1,1,1,1,1\n1,1,1,1,1\n&quot;); 
+ display.print(i,400); 
+</code></pre>
+
+<p><br/></p>
+<h4 id="int-print-microbitimage-i-int-x"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>print</div>( <div style='color:#a71d5d; display:inline-block'>MicroBitImage</div> i,  <div style='color:#a71d5d; display:inline-block'>int</div> x)<a class="headerlink" href="#int-print-microbitimage-i-int-x" title="Permanent link">&para;</a></h4>
+<h5 id="description_18">Description<a class="headerlink" href="#description_18" title="Permanent link">&para;</a></h5>
+<p>Prints the given image to the display. Blocks the calling thread until all the image has been displayed.  </p>
+<h5 id="parameters_16">Parameters<a class="headerlink" href="#parameters_16" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitImage</div> i - The image to display.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> x - The horizontal position on the screen to display the image. Defaults to 0.</p>
+</blockquote>
+<h5 id="returns_9">Returns<a class="headerlink" href="#returns_9" title="Permanent link">&para;</a></h5>
+<p>MICROBIT_OK, MICROBIT_BUSY if the display is already in use, or MICROBIT_INVALID_PARAMETER.</p>
+<h5 id="example_17">Example<a class="headerlink" href="#example_17" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> MicrobitImage i(&quot;1,1,1,1,1\n1,1,1,1,1\n&quot;); 
+ display.print(i,400); 
+</code></pre>
+
+<p><br/></p>
+<h4 id="int-print-microbitimage-i-int-x-int-y"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>print</div>( <div style='color:#a71d5d; display:inline-block'>MicroBitImage</div> i,  <div style='color:#a71d5d; display:inline-block'>int</div> x,  <div style='color:#a71d5d; display:inline-block'>int</div> y)<a class="headerlink" href="#int-print-microbitimage-i-int-x-int-y" title="Permanent link">&para;</a></h4>
+<h5 id="description_19">Description<a class="headerlink" href="#description_19" title="Permanent link">&para;</a></h5>
+<p>Prints the given image to the display. Blocks the calling thread until all the image has been displayed.  </p>
+<h5 id="parameters_17">Parameters<a class="headerlink" href="#parameters_17" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitImage</div> i - The image to display.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> x - The horizontal position on the screen to display the image. Defaults to 0.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> y - The vertical position on the screen to display the image. Defaults to 0.</p>
+</blockquote>
+<h5 id="returns_10">Returns<a class="headerlink" href="#returns_10" title="Permanent link">&para;</a></h5>
+<p>MICROBIT_OK, MICROBIT_BUSY if the display is already in use, or MICROBIT_INVALID_PARAMETER.</p>
+<h5 id="example_18">Example<a class="headerlink" href="#example_18" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> MicrobitImage i(&quot;1,1,1,1,1\n1,1,1,1,1\n&quot;); 
+ display.print(i,400); 
+</code></pre>
+
+<p><br/></p>
+<h4 id="int-print-microbitimage-i-int-x-int-y-int-alpha"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>print</div>( <div style='color:#a71d5d; display:inline-block'>MicroBitImage</div> i,  <div style='color:#a71d5d; display:inline-block'>int</div> x,  <div style='color:#a71d5d; display:inline-block'>int</div> y,  <div style='color:#a71d5d; display:inline-block'>int</div> alpha)<a class="headerlink" href="#int-print-microbitimage-i-int-x-int-y-int-alpha" title="Permanent link">&para;</a></h4>
+<h5 id="description_20">Description<a class="headerlink" href="#description_20" title="Permanent link">&para;</a></h5>
+<p>Prints the given image to the display. Blocks the calling thread until all the image has been displayed.  </p>
+<h5 id="parameters_18">Parameters<a class="headerlink" href="#parameters_18" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitImage</div> i - The image to display.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> x - The horizontal position on the screen to display the image. Defaults to 0.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> y - The vertical position on the screen to display the image. Defaults to 0.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> alpha - Treats the brightness level '0' as transparent. Defaults to 0.</p>
+</blockquote>
+<h5 id="returns_11">Returns<a class="headerlink" href="#returns_11" title="Permanent link">&para;</a></h5>
+<p>MICROBIT_OK, MICROBIT_BUSY if the display is already in use, or MICROBIT_INVALID_PARAMETER.</p>
+<h5 id="example_19">Example<a class="headerlink" href="#example_19" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> MicrobitImage i(&quot;1,1,1,1,1\n1,1,1,1,1\n&quot;); 
+ display.print(i,400); 
+</code></pre>
+
+<p><br/></p>
+<h4 id="int-print-microbitimage-i-int-x-int-y-int-alpha-int-delay"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>print</div>( <div style='color:#a71d5d; display:inline-block'>MicroBitImage</div> i,  <div style='color:#a71d5d; display:inline-block'>int</div> x,  <div style='color:#a71d5d; display:inline-block'>int</div> y,  <div style='color:#a71d5d; display:inline-block'>int</div> alpha,  <div style='color:#a71d5d; display:inline-block'>int</div> delay)<a class="headerlink" href="#int-print-microbitimage-i-int-x-int-y-int-alpha-int-delay" title="Permanent link">&para;</a></h4>
+<h5 id="description_21">Description<a class="headerlink" href="#description_21" title="Permanent link">&para;</a></h5>
+<p>Prints the given image to the display. Blocks the calling thread until all the image has been displayed.  </p>
+<h5 id="parameters_19">Parameters<a class="headerlink" href="#parameters_19" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitImage</div> i - The image to display.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> x - The horizontal position on the screen to display the image. Defaults to 0.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> y - The vertical position on the screen to display the image. Defaults to 0.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> alpha - Treats the brightness level '0' as transparent. Defaults to 0.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> delay - The time to display the image for, or zero to show the image forever. Defaults to 0.</p>
+</blockquote>
+<h5 id="returns_12">Returns<a class="headerlink" href="#returns_12" title="Permanent link">&para;</a></h5>
+<p>MICROBIT_OK, MICROBIT_BUSY if the display is already in use, or MICROBIT_INVALID_PARAMETER.</p>
+<h5 id="example_20">Example<a class="headerlink" href="#example_20" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> MicrobitImage i(&quot;1,1,1,1,1\n1,1,1,1,1\n&quot;); 
+ display.print(i,400); 
+</code></pre>
+
+<h2 id="scrollasync">scrollAsync<a class="headerlink" href="#scrollasync" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-scrollasync-managedstring-s"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>scrollAsync</div>( <div style='color:#a71d5d; display:inline-block'>ManagedString</div> s)<a class="headerlink" href="#int-scrollasync-managedstring-s" title="Permanent link">&para;</a></h4>
+<h5 id="description_22">Description<a class="headerlink" href="#description_22" title="Permanent link">&para;</a></h5>
+<p>Scrolls the given string to the display, from right to left. Returns immediately, and executes the animation asynchronously.  </p>
+<h5 id="parameters_20">Parameters<a class="headerlink" href="#parameters_20" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>ManagedString</div> s - The string to display.</p>
+</blockquote>
+<h5 id="returns_13">Returns<a class="headerlink" href="#returns_13" title="Permanent link">&para;</a></h5>
+<p>MICROBIT_OK, MICROBIT_BUSY if the display is already in use, or MICROBIT_INVALID_PARAMETER.</p>
+<h5 id="example_21">Example<a class="headerlink" href="#example_21" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> display.scrollAsync(&quot;abc123&quot;,100); 
+</code></pre>
+
+<p><br/></p>
+<h4 id="int-scrollasync-managedstring-s-int-delay"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>scrollAsync</div>( <div style='color:#a71d5d; display:inline-block'>ManagedString</div> s,  <div style='color:#a71d5d; display:inline-block'>int</div> delay)<a class="headerlink" href="#int-scrollasync-managedstring-s-int-delay" title="Permanent link">&para;</a></h4>
+<h5 id="description_23">Description<a class="headerlink" href="#description_23" title="Permanent link">&para;</a></h5>
+<p>Scrolls the given string to the display, from right to left. Returns immediately, and executes the animation asynchronously.  </p>
+<h5 id="parameters_21">Parameters<a class="headerlink" href="#parameters_21" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>ManagedString</div> s - The string to display.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> delay - The time to delay between characters, in milliseconds. Defaults to: MICROBIT_DEFAULT_SCROLL_SPEED.</p>
+</blockquote>
+<h5 id="returns_14">Returns<a class="headerlink" href="#returns_14" title="Permanent link">&para;</a></h5>
+<p>MICROBIT_OK, MICROBIT_BUSY if the display is already in use, or MICROBIT_INVALID_PARAMETER.</p>
+<h5 id="example_22">Example<a class="headerlink" href="#example_22" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> display.scrollAsync(&quot;abc123&quot;,100); 
+</code></pre>
+
+<p><br/></p>
+<h4 id="int-scrollasync-microbitimage-image"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>scrollAsync</div>( <div style='color:#a71d5d; display:inline-block'>MicroBitImage</div> image)<a class="headerlink" href="#int-scrollasync-microbitimage-image" title="Permanent link">&para;</a></h4>
+<h5 id="description_24">Description<a class="headerlink" href="#description_24" title="Permanent link">&para;</a></h5>
+<p>Scrolls the given image across the display, from right to left. Returns immediately, and executes the animation asynchronously.  </p>
+<h5 id="parameters_22">Parameters<a class="headerlink" href="#parameters_22" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitImage</div> image - The image to display.</p>
+</blockquote>
+<h5 id="returns_15">Returns<a class="headerlink" href="#returns_15" title="Permanent link">&para;</a></h5>
+<p>MICROBIT_OK, MICROBIT_BUSY if the display is already in use, or MICROBIT_INVALID_PARAMETER.</p>
+<h5 id="example_23">Example<a class="headerlink" href="#example_23" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> MicrobitImage i(&quot;1,1,1,1,1\n1,1,1,1,1\n&quot;); 
+ display.scrollAsync(i,100,1); 
+</code></pre>
+
+<p><br/></p>
+<h4 id="int-scrollasync-microbitimage-image-int-delay"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>scrollAsync</div>( <div style='color:#a71d5d; display:inline-block'>MicroBitImage</div> image,  <div style='color:#a71d5d; display:inline-block'>int</div> delay)<a class="headerlink" href="#int-scrollasync-microbitimage-image-int-delay" title="Permanent link">&para;</a></h4>
+<h5 id="description_25">Description<a class="headerlink" href="#description_25" title="Permanent link">&para;</a></h5>
+<p>Scrolls the given image across the display, from right to left. Returns immediately, and executes the animation asynchronously.  </p>
+<h5 id="parameters_23">Parameters<a class="headerlink" href="#parameters_23" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitImage</div> image - The image to display.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> delay - The time between updates, in milliseconds. Defaults to: MICROBIT_DEFAULT_SCROLL_SPEED.</p>
+</blockquote>
+<h5 id="returns_16">Returns<a class="headerlink" href="#returns_16" title="Permanent link">&para;</a></h5>
+<p>MICROBIT_OK, MICROBIT_BUSY if the display is already in use, or MICROBIT_INVALID_PARAMETER.</p>
+<h5 id="example_24">Example<a class="headerlink" href="#example_24" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> MicrobitImage i(&quot;1,1,1,1,1\n1,1,1,1,1\n&quot;); 
+ display.scrollAsync(i,100,1); 
+</code></pre>
+
+<p><br/></p>
+<h4 id="int-scrollasync-microbitimage-image-int-delay-int-stride"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>scrollAsync</div>( <div style='color:#a71d5d; display:inline-block'>MicroBitImage</div> image,  <div style='color:#a71d5d; display:inline-block'>int</div> delay,  <div style='color:#a71d5d; display:inline-block'>int</div> stride)<a class="headerlink" href="#int-scrollasync-microbitimage-image-int-delay-int-stride" title="Permanent link">&para;</a></h4>
+<h5 id="description_26">Description<a class="headerlink" href="#description_26" title="Permanent link">&para;</a></h5>
+<p>Scrolls the given image across the display, from right to left. Returns immediately, and executes the animation asynchronously.  </p>
+<h5 id="parameters_24">Parameters<a class="headerlink" href="#parameters_24" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitImage</div> image - The image to display.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> delay - The time between updates, in milliseconds. Defaults to: MICROBIT_DEFAULT_SCROLL_SPEED.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> stride - The number of pixels to shift by in each update. Defaults to MICROBIT_DEFAULT_SCROLL_STRIDE.</p>
+</blockquote>
+<h5 id="returns_17">Returns<a class="headerlink" href="#returns_17" title="Permanent link">&para;</a></h5>
+<p>MICROBIT_OK, MICROBIT_BUSY if the display is already in use, or MICROBIT_INVALID_PARAMETER.</p>
+<h5 id="example_25">Example<a class="headerlink" href="#example_25" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> MicrobitImage i(&quot;1,1,1,1,1\n1,1,1,1,1\n&quot;); 
+ display.scrollAsync(i,100,1); 
+</code></pre>
+
+<h2 id="scroll">scroll<a class="headerlink" href="#scroll" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-scroll-managedstring-s"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>scroll</div>( <div style='color:#a71d5d; display:inline-block'>ManagedString</div> s)<a class="headerlink" href="#int-scroll-managedstring-s" title="Permanent link">&para;</a></h4>
+<h5 id="description_27">Description<a class="headerlink" href="#description_27" title="Permanent link">&para;</a></h5>
+<p>Scrolls the given string across the display, from right to left. Blocks the calling thread until all text has been displayed.  </p>
+<h5 id="parameters_25">Parameters<a class="headerlink" href="#parameters_25" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>ManagedString</div> s - The string to display.</p>
+</blockquote>
+<h5 id="returns_18">Returns<a class="headerlink" href="#returns_18" title="Permanent link">&para;</a></h5>
+<p>MICROBIT_OK, MICROBIT_CANCELLED or MICROBIT_INVALID_PARAMETER.</p>
+<h5 id="example_26">Example<a class="headerlink" href="#example_26" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> display.scroll(&quot;abc123&quot;,100); 
+</code></pre>
+
+<p><br/></p>
+<h4 id="int-scroll-managedstring-s-int-delay"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>scroll</div>( <div style='color:#a71d5d; display:inline-block'>ManagedString</div> s,  <div style='color:#a71d5d; display:inline-block'>int</div> delay)<a class="headerlink" href="#int-scroll-managedstring-s-int-delay" title="Permanent link">&para;</a></h4>
+<h5 id="description_28">Description<a class="headerlink" href="#description_28" title="Permanent link">&para;</a></h5>
+<p>Scrolls the given string across the display, from right to left. Blocks the calling thread until all text has been displayed.  </p>
+<h5 id="parameters_26">Parameters<a class="headerlink" href="#parameters_26" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>ManagedString</div> s - The string to display.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> delay - The time to delay between characters, in milliseconds. Defaults to: MICROBIT_DEFAULT_SCROLL_SPEED.</p>
+</blockquote>
+<h5 id="returns_19">Returns<a class="headerlink" href="#returns_19" title="Permanent link">&para;</a></h5>
+<p>MICROBIT_OK, MICROBIT_CANCELLED or MICROBIT_INVALID_PARAMETER.</p>
+<h5 id="example_27">Example<a class="headerlink" href="#example_27" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> display.scroll(&quot;abc123&quot;,100); 
+</code></pre>
+
+<p><br/></p>
+<h4 id="int-scroll-microbitimage-image"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>scroll</div>( <div style='color:#a71d5d; display:inline-block'>MicroBitImage</div> image)<a class="headerlink" href="#int-scroll-microbitimage-image" title="Permanent link">&para;</a></h4>
+<h5 id="description_29">Description<a class="headerlink" href="#description_29" title="Permanent link">&para;</a></h5>
+<p>Scrolls the given image across the display, from right to left. Blocks the calling thread until all the text has been displayed.  </p>
+<h5 id="parameters_27">Parameters<a class="headerlink" href="#parameters_27" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitImage</div> image - The image to display.</p>
+</blockquote>
+<h5 id="returns_20">Returns<a class="headerlink" href="#returns_20" title="Permanent link">&para;</a></h5>
+<p>MICROBIT_OK, MICROBIT_CANCELLED or MICROBIT_INVALID_PARAMETER.</p>
+<h5 id="example_28">Example<a class="headerlink" href="#example_28" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> MicrobitImage i(&quot;1,1,1,1,1\n1,1,1,1,1\n&quot;); 
+ display.scroll(i,100,1); 
+</code></pre>
+
+<p><br/></p>
+<h4 id="int-scroll-microbitimage-image-int-delay"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>scroll</div>( <div style='color:#a71d5d; display:inline-block'>MicroBitImage</div> image,  <div style='color:#a71d5d; display:inline-block'>int</div> delay)<a class="headerlink" href="#int-scroll-microbitimage-image-int-delay" title="Permanent link">&para;</a></h4>
+<h5 id="description_30">Description<a class="headerlink" href="#description_30" title="Permanent link">&para;</a></h5>
+<p>Scrolls the given image across the display, from right to left. Blocks the calling thread until all the text has been displayed.  </p>
+<h5 id="parameters_28">Parameters<a class="headerlink" href="#parameters_28" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitImage</div> image - The image to display.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> delay - The time between updates, in milliseconds. Defaults to: MICROBIT_DEFAULT_SCROLL_SPEED.</p>
+</blockquote>
+<h5 id="returns_21">Returns<a class="headerlink" href="#returns_21" title="Permanent link">&para;</a></h5>
+<p>MICROBIT_OK, MICROBIT_CANCELLED or MICROBIT_INVALID_PARAMETER.</p>
+<h5 id="example_29">Example<a class="headerlink" href="#example_29" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> MicrobitImage i(&quot;1,1,1,1,1\n1,1,1,1,1\n&quot;); 
+ display.scroll(i,100,1); 
+</code></pre>
+
+<p><br/></p>
+<h4 id="int-scroll-microbitimage-image-int-delay-int-stride"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>scroll</div>( <div style='color:#a71d5d; display:inline-block'>MicroBitImage</div> image,  <div style='color:#a71d5d; display:inline-block'>int</div> delay,  <div style='color:#a71d5d; display:inline-block'>int</div> stride)<a class="headerlink" href="#int-scroll-microbitimage-image-int-delay-int-stride" title="Permanent link">&para;</a></h4>
+<h5 id="description_31">Description<a class="headerlink" href="#description_31" title="Permanent link">&para;</a></h5>
+<p>Scrolls the given image across the display, from right to left. Blocks the calling thread until all the text has been displayed.  </p>
+<h5 id="parameters_29">Parameters<a class="headerlink" href="#parameters_29" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitImage</div> image - The image to display.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> delay - The time between updates, in milliseconds. Defaults to: MICROBIT_DEFAULT_SCROLL_SPEED.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> stride - The number of pixels to shift by in each update. Defaults to MICROBIT_DEFAULT_SCROLL_STRIDE.</p>
+</blockquote>
+<h5 id="returns_22">Returns<a class="headerlink" href="#returns_22" title="Permanent link">&para;</a></h5>
+<p>MICROBIT_OK, MICROBIT_CANCELLED or MICROBIT_INVALID_PARAMETER.</p>
+<h5 id="example_30">Example<a class="headerlink" href="#example_30" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> MicrobitImage i(&quot;1,1,1,1,1\n1,1,1,1,1\n&quot;); 
+ display.scroll(i,100,1); 
+</code></pre>
+
+<h2 id="animateasync">animateAsync<a class="headerlink" href="#animateasync" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-animateasync-microbitimage-image-int-delay-int-stride"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>animateAsync</div>( <div style='color:#a71d5d; display:inline-block'>MicroBitImage</div> image,  <div style='color:#a71d5d; display:inline-block'>int</div> delay,  <div style='color:#a71d5d; display:inline-block'>int</div> stride)<a class="headerlink" href="#int-animateasync-microbitimage-image-int-delay-int-stride" title="Permanent link">&para;</a></h4>
+<h5 id="description_32">Description<a class="headerlink" href="#description_32" title="Permanent link">&para;</a></h5>
+<p>"Animates" the current image across the display with a given stride, finishing on the last frame of the animation. Returns immediately.  </p>
+<h5 id="parameters_30">Parameters<a class="headerlink" href="#parameters_30" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitImage</div> image - The image to display.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> delay - The time to delay between each update of the display, in milliseconds.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> stride - The number of pixels to shift by in each update.</p>
+</blockquote>
+<h5 id="returns_23">Returns<a class="headerlink" href="#returns_23" title="Permanent link">&para;</a></h5>
+<p>MICROBIT_OK, MICROBIT_BUSY if the screen is in use, or MICROBIT_INVALID_PARAMETER.</p>
+<h5 id="example_31">Example<a class="headerlink" href="#example_31" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> const int heart_w = 10; 
+ const int heart_h = 5; 
+ const uint8_t heart[] = { 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, }; 
+
+ MicroBitImage i(heart_w,heart_h,heart); 
+ display.animateAsync(i,100,5); 
+</code></pre>
+
+<p><br/></p>
+<h4 id="int-animateasync-microbitimage-image-int-delay-int-stride-int-startingposition"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>animateAsync</div>( <div style='color:#a71d5d; display:inline-block'>MicroBitImage</div> image,  <div style='color:#a71d5d; display:inline-block'>int</div> delay,  <div style='color:#a71d5d; display:inline-block'>int</div> stride,  <div style='color:#a71d5d; display:inline-block'>int</div> startingPosition)<a class="headerlink" href="#int-animateasync-microbitimage-image-int-delay-int-stride-int-startingposition" title="Permanent link">&para;</a></h4>
+<h5 id="description_33">Description<a class="headerlink" href="#description_33" title="Permanent link">&para;</a></h5>
+<p>"Animates" the current image across the display with a given stride, finishing on the last frame of the animation. Returns immediately.  </p>
+<h5 id="parameters_31">Parameters<a class="headerlink" href="#parameters_31" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitImage</div> image - The image to display.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> delay - The time to delay between each update of the display, in milliseconds.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> stride - The number of pixels to shift by in each update.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> startingPosition - the starting position on the display for the animation to begin at. Defaults to MICROBIT_DISPLAY_ANIMATE_DEFAULT_POS.</p>
+</blockquote>
+<h5 id="returns_24">Returns<a class="headerlink" href="#returns_24" title="Permanent link">&para;</a></h5>
+<p>MICROBIT_OK, MICROBIT_BUSY if the screen is in use, or MICROBIT_INVALID_PARAMETER.</p>
+<h5 id="example_32">Example<a class="headerlink" href="#example_32" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> const int heart_w = 10; 
+ const int heart_h = 5; 
+ const uint8_t heart[] = { 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, }; 
+
+ MicroBitImage i(heart_w,heart_h,heart); 
+ display.animateAsync(i,100,5); 
+</code></pre>
+
+<p><br/></p>
+<h4 id="int-animateasync-microbitimage-image-int-delay-int-stride-int-startingposition-int-autoclear"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>animateAsync</div>( <div style='color:#a71d5d; display:inline-block'>MicroBitImage</div> image,  <div style='color:#a71d5d; display:inline-block'>int</div> delay,  <div style='color:#a71d5d; display:inline-block'>int</div> stride,  <div style='color:#a71d5d; display:inline-block'>int</div> startingPosition,  <div style='color:#a71d5d; display:inline-block'>int</div> autoClear)<a class="headerlink" href="#int-animateasync-microbitimage-image-int-delay-int-stride-int-startingposition-int-autoclear" title="Permanent link">&para;</a></h4>
+<h5 id="description_34">Description<a class="headerlink" href="#description_34" title="Permanent link">&para;</a></h5>
+<p>"Animates" the current image across the display with a given stride, finishing on the last frame of the animation. Returns immediately.  </p>
+<h5 id="parameters_32">Parameters<a class="headerlink" href="#parameters_32" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitImage</div> image - The image to display.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> delay - The time to delay between each update of the display, in milliseconds.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> stride - The number of pixels to shift by in each update.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> startingPosition - the starting position on the display for the animation to begin at. Defaults to MICROBIT_DISPLAY_ANIMATE_DEFAULT_POS.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> autoClear - defines whether or not the display is automatically cleared once the animation is complete. By default, the display is cleared. Set this parameter to zero to disable the autoClear operation.</p>
+</blockquote>
+<h5 id="returns_25">Returns<a class="headerlink" href="#returns_25" title="Permanent link">&para;</a></h5>
+<p>MICROBIT_OK, MICROBIT_BUSY if the screen is in use, or MICROBIT_INVALID_PARAMETER.</p>
+<h5 id="example_33">Example<a class="headerlink" href="#example_33" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> const int heart_w = 10; 
+ const int heart_h = 5; 
+ const uint8_t heart[] = { 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, }; 
+
+ MicroBitImage i(heart_w,heart_h,heart); 
+ display.animateAsync(i,100,5); 
+</code></pre>
+
+<h2 id="animate">animate<a class="headerlink" href="#animate" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-animate-microbitimage-image-int-delay-int-stride"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>animate</div>( <div style='color:#a71d5d; display:inline-block'>MicroBitImage</div> image,  <div style='color:#a71d5d; display:inline-block'>int</div> delay,  <div style='color:#a71d5d; display:inline-block'>int</div> stride)<a class="headerlink" href="#int-animate-microbitimage-image-int-delay-int-stride" title="Permanent link">&para;</a></h4>
+<h5 id="description_35">Description<a class="headerlink" href="#description_35" title="Permanent link">&para;</a></h5>
+<p>"Animates" the current image across the display with a given stride, finishing on the last frame of the animation. Blocks the calling thread until the animation is complete.  </p>
+<h5 id="parameters_33">Parameters<a class="headerlink" href="#parameters_33" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitImage</div> image</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> delay - The time to delay between each update of the display, in milliseconds.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> stride - The number of pixels to shift by in each update.</p>
+</blockquote>
+<h5 id="returns_26">Returns<a class="headerlink" href="#returns_26" title="Permanent link">&para;</a></h5>
+<p>MICROBIT_OK, MICROBIT_CANCELLED or MICROBIT_INVALID_PARAMETER.</p>
+<h5 id="example_34">Example<a class="headerlink" href="#example_34" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> const int heart_w = 10; 
+ const int heart_h = 5; 
+ const uint8_t heart[] = { 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, }; 
+
+ MicroBitImage i(heart_w,heart_h,heart); 
+ display.animate(i,100,5); 
+</code></pre>
+
+<p><br/></p>
+<h4 id="int-animate-microbitimage-image-int-delay-int-stride-int-startingposition"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>animate</div>( <div style='color:#a71d5d; display:inline-block'>MicroBitImage</div> image,  <div style='color:#a71d5d; display:inline-block'>int</div> delay,  <div style='color:#a71d5d; display:inline-block'>int</div> stride,  <div style='color:#a71d5d; display:inline-block'>int</div> startingPosition)<a class="headerlink" href="#int-animate-microbitimage-image-int-delay-int-stride-int-startingposition" title="Permanent link">&para;</a></h4>
+<h5 id="description_36">Description<a class="headerlink" href="#description_36" title="Permanent link">&para;</a></h5>
+<p>"Animates" the current image across the display with a given stride, finishing on the last frame of the animation. Blocks the calling thread until the animation is complete.  </p>
+<h5 id="parameters_34">Parameters<a class="headerlink" href="#parameters_34" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitImage</div> image</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> delay - The time to delay between each update of the display, in milliseconds.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> stride - The number of pixels to shift by in each update.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> startingPosition - the starting position on the display for the animation to begin at. Defaults to MICROBIT_DISPLAY_ANIMATE_DEFAULT_POS.</p>
+</blockquote>
+<h5 id="returns_27">Returns<a class="headerlink" href="#returns_27" title="Permanent link">&para;</a></h5>
+<p>MICROBIT_OK, MICROBIT_CANCELLED or MICROBIT_INVALID_PARAMETER.</p>
+<h5 id="example_35">Example<a class="headerlink" href="#example_35" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> const int heart_w = 10; 
+ const int heart_h = 5; 
+ const uint8_t heart[] = { 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, }; 
+
+ MicroBitImage i(heart_w,heart_h,heart); 
+ display.animate(i,100,5); 
+</code></pre>
+
+<p><br/></p>
+<h4 id="int-animate-microbitimage-image-int-delay-int-stride-int-startingposition-int-autoclear"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>animate</div>( <div style='color:#a71d5d; display:inline-block'>MicroBitImage</div> image,  <div style='color:#a71d5d; display:inline-block'>int</div> delay,  <div style='color:#a71d5d; display:inline-block'>int</div> stride,  <div style='color:#a71d5d; display:inline-block'>int</div> startingPosition,  <div style='color:#a71d5d; display:inline-block'>int</div> autoClear)<a class="headerlink" href="#int-animate-microbitimage-image-int-delay-int-stride-int-startingposition-int-autoclear" title="Permanent link">&para;</a></h4>
+<h5 id="description_37">Description<a class="headerlink" href="#description_37" title="Permanent link">&para;</a></h5>
+<p>"Animates" the current image across the display with a given stride, finishing on the last frame of the animation. Blocks the calling thread until the animation is complete.  </p>
+<h5 id="parameters_35">Parameters<a class="headerlink" href="#parameters_35" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitImage</div> image</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> delay - The time to delay between each update of the display, in milliseconds.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> stride - The number of pixels to shift by in each update.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> startingPosition - the starting position on the display for the animation to begin at. Defaults to MICROBIT_DISPLAY_ANIMATE_DEFAULT_POS.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> autoClear - defines whether or not the display is automatically cleared once the animation is complete. By default, the display is cleared. Set this parameter to zero to disable the autoClear operation.</p>
+</blockquote>
+<h5 id="returns_28">Returns<a class="headerlink" href="#returns_28" title="Permanent link">&para;</a></h5>
+<p>MICROBIT_OK, MICROBIT_CANCELLED or MICROBIT_INVALID_PARAMETER.</p>
+<h5 id="example_36">Example<a class="headerlink" href="#example_36" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> const int heart_w = 10; 
+ const int heart_h = 5; 
+ const uint8_t heart[] = { 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, }; 
+
+ MicroBitImage i(heart_w,heart_h,heart); 
+ display.animate(i,100,5); 
+</code></pre>
+
+<h2 id="setbrightness">setBrightness<a class="headerlink" href="#setbrightness" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-setbrightness-int-b"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>setBrightness</div>( <div style='color:#a71d5d; display:inline-block'>int</div> b)<a class="headerlink" href="#int-setbrightness-int-b" title="Permanent link">&para;</a></h4>
+<h5 id="description_38">Description<a class="headerlink" href="#description_38" title="Permanent link">&para;</a></h5>
+<p>Configures the brightness of the display.  </p>
+<h5 id="parameters_36">Parameters<a class="headerlink" href="#parameters_36" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> b - The brightness to set the brightness to, in the range 0 - 255.</p>
+</blockquote>
+<h5 id="returns_29">Returns<a class="headerlink" href="#returns_29" title="Permanent link">&para;</a></h5>
+<p>MICROBIT_OK, or MICROBIT_INVALID_PARAMETER</p>
+<h5 id="example_37">Example<a class="headerlink" href="#example_37" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> display.setBrightness(255); //max brightness 
+</code></pre>
+
+<h2 id="setdisplaymode">setDisplayMode<a class="headerlink" href="#setdisplaymode" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="void-setdisplaymode-displaymode-mode"><div style='color:#a71d5d; display:inline-block'>void</div> <div style='color:#795da3; display:inline-block'>setDisplayMode</div>( <div style='color:#a71d5d; display:inline-block'>DisplayMode</div> mode)<a class="headerlink" href="#void-setdisplaymode-displaymode-mode" title="Permanent link">&para;</a></h4>
+<h5 id="description_39">Description<a class="headerlink" href="#description_39" title="Permanent link">&para;</a></h5>
+<p>Configures the mode of the display.  </p>
+<h5 id="parameters_37">Parameters<a class="headerlink" href="#parameters_37" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>DisplayMode</div> mode - The mode to swap the display into. One of: DISPLAY_MODE_GREYSCALE, DISPLAY_MODE_BLACK_AND_WHITE, DISPLAY_MODE_BLACK_AND_WHITE_LIGHT_SENSE</p>
+</blockquote>
+<h5 id="example_38">Example<a class="headerlink" href="#example_38" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> display.setDisplayMode(DISPLAY_MODE_GREYSCALE); //per pixel brightness 
+</code></pre>
+
+<h2 id="getdisplaymode">getDisplayMode<a class="headerlink" href="#getdisplaymode" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-getdisplaymode"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>getDisplayMode</div>()<a class="headerlink" href="#int-getdisplaymode" title="Permanent link">&para;</a></h4>
+<h5 id="description_40">Description<a class="headerlink" href="#description_40" title="Permanent link">&para;</a></h5>
+<p>Retrieves the mode of the display.  </p>
+<h5 id="returns_30">Returns<a class="headerlink" href="#returns_30" title="Permanent link">&para;</a></h5>
+<p>the current mode of the display </p>
+<h2 id="getbrightness">getBrightness<a class="headerlink" href="#getbrightness" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-getbrightness"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>getBrightness</div>()<a class="headerlink" href="#int-getbrightness" title="Permanent link">&para;</a></h4>
+<h5 id="description_41">Description<a class="headerlink" href="#description_41" title="Permanent link">&para;</a></h5>
+<p>Fetches the current brightness of this display.  </p>
+<h5 id="returns_31">Returns<a class="headerlink" href="#returns_31" title="Permanent link">&para;</a></h5>
+<p>the brightness of this display, in the range 0..255.</p>
+<h5 id="example_39">Example<a class="headerlink" href="#example_39" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> display.getBrightness(); //the current brightness 
+</code></pre>
+
+<h2 id="rotateto">rotateTo<a class="headerlink" href="#rotateto" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="void-rotateto-displayrotation-position"><div style='color:#a71d5d; display:inline-block'>void</div> <div style='color:#795da3; display:inline-block'>rotateTo</div>( <div style='color:#a71d5d; display:inline-block'>DisplayRotation</div> position)<a class="headerlink" href="#void-rotateto-displayrotation-position" title="Permanent link">&para;</a></h4>
+<h5 id="description_42">Description<a class="headerlink" href="#description_42" title="Permanent link">&para;</a></h5>
+<p>Rotates the display to the given position.  </p>
+<p>Axis aligned values only.  </p>
+<h5 id="parameters_38">Parameters<a class="headerlink" href="#parameters_38" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>DisplayRotation</div> position</p>
+</blockquote>
+<h5 id="example_40">Example<a class="headerlink" href="#example_40" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> display.rotateTo(MICROBIT_DISPLAY_ROTATION_180); //rotates 180 degrees from original orientation 
+</code></pre>
+
+<h2 id="enable">enable<a class="headerlink" href="#enable" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="void-enable"><div style='color:#a71d5d; display:inline-block'>void</div> <div style='color:#795da3; display:inline-block'>enable</div>()<a class="headerlink" href="#void-enable" title="Permanent link">&para;</a></h4>
+<h5 id="description_43">Description<a class="headerlink" href="#description_43" title="Permanent link">&para;</a></h5>
+<p>Enables the display, should only be called if the display is disabled.  </p>
+<h5 id="example_41">Example<a class="headerlink" href="#example_41" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> display.enable(); //Enables the display mechanics 
+</code></pre>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only enables the display if the display is currently disabled. </p>
+</div>
+<h2 id="disable">disable<a class="headerlink" href="#disable" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="void-disable"><div style='color:#a71d5d; display:inline-block'>void</div> <div style='color:#795da3; display:inline-block'>disable</div>()<a class="headerlink" href="#void-disable" title="Permanent link">&para;</a></h4>
+<h5 id="description_44">Description<a class="headerlink" href="#description_44" title="Permanent link">&para;</a></h5>
+<p>Disables the display, which releases control of the GPIO pins used by the display, which are exposed on the edge connector.  </p>
+<h5 id="example_42">Example<a class="headerlink" href="#example_42" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> display.disable(); //disables the display 
+</code></pre>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only disables the display if the display is currently enabled. </p>
+</div>
+<h2 id="clear">clear<a class="headerlink" href="#clear" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="void-clear"><div style='color:#a71d5d; display:inline-block'>void</div> <div style='color:#795da3; display:inline-block'>clear</div>()<a class="headerlink" href="#void-clear" title="Permanent link">&para;</a></h4>
+<h5 id="description_45">Description<a class="headerlink" href="#description_45" title="Permanent link">&para;</a></h5>
+<p>Clears the display of any remaining pixels.  </p>
+<p>display.image.clear()  can also be used!  </p>
+<h5 id="example_43">Example<a class="headerlink" href="#example_43" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> display.clear(); //clears the display 
+</code></pre>
+
+<h2 id="setfont">setFont<a class="headerlink" href="#setfont" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="void-setfont-microbitfont-font"><div style='color:#a71d5d; display:inline-block'>void</div> <div style='color:#795da3; display:inline-block'>setFont</div>( <div style='color:#a71d5d; display:inline-block'>MicroBitFont</div> font)<a class="headerlink" href="#void-setfont-microbitfont-font" title="Permanent link">&para;</a></h4>
+<h5 id="description_46">Description<a class="headerlink" href="#description_46" title="Permanent link">&para;</a></h5>
+<p>Updates the font that will be used for display operations.  </p>
+<h5 id="parameters_39">Parameters<a class="headerlink" href="#parameters_39" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitFont</div> font - the new font that will be used to render characters.</p>
+</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>DEPRECATED! Please use  MicroBitFont::setSystemFont()  instead. </p>
+</div>
+<h2 id="getfont">getFont<a class="headerlink" href="#getfont" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="microbitfont-getfont"><div style='color:#a71d5d; display:inline-block'>MicroBitFont</div> <div style='color:#795da3; display:inline-block'>getFont</div>()<a class="headerlink" href="#microbitfont-getfont" title="Permanent link">&para;</a></h4>
+<h5 id="description_47">Description<a class="headerlink" href="#description_47" title="Permanent link">&para;</a></h5>
+<p>Retrieves the font object used for rendering characters on the display.  </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>DEPRECATED! Please use  MicroBitFont::getSystemFont()  instead. </p>
+</div>
+<h2 id="screenshot">screenShot<a class="headerlink" href="#screenshot" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="microbitimage-screenshot"><div style='color:#a71d5d; display:inline-block'>MicroBitImage</div> <div style='color:#795da3; display:inline-block'>screenShot</div>()<a class="headerlink" href="#microbitimage-screenshot" title="Permanent link">&para;</a></h4>
+<h5 id="description_48">Description<a class="headerlink" href="#description_48" title="Permanent link">&para;</a></h5>
+<p>Captures the bitmap currently being rendered on the display.  </p>
+<h5 id="returns_32">Returns<a class="headerlink" href="#returns_32" title="Permanent link">&para;</a></h5>
+<p>a  MicroBitImage  containing the captured data. </p>
+<h2 id="readlightlevel">readLightLevel<a class="headerlink" href="#readlightlevel" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-readlightlevel"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>readLightLevel</div>()<a class="headerlink" href="#int-readlightlevel" title="Permanent link">&para;</a></h4>
+<h5 id="description_49">Description<a class="headerlink" href="#description_49" title="Permanent link">&para;</a></h5>
+<p>Gives a representative figure of the light level in the current environment where are micro:bit is situated.  </p>
+<p>Internally, it constructs an instance of a  MicroBitLightSensor  if not already configured and sets the display mode to DISPLAY_MODE_BLACK_AND_WHITE_LIGHT_SENSE.  </p>
+<p>This also changes the tickPeriod to MICROBIT_LIGHT_SENSOR_TICK_SPEED so that the display does not suffer from artifacts.  </p>
+<h5 id="returns_33">Returns<a class="headerlink" href="#returns_33" title="Permanent link">&para;</a></h5>
+<p>an indicative light level in the range 0 - 255.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>this will return 0 on the first call to this method, a light reading will be available after the display has activated the light sensor for the first time. </p>
+</div>
+<hr /></div>
+        </div>
+
+        <footer class="col-md-12">
+            
+            <center><a href="https://www.lancaster.ac.uk"><image style="width:auto;" height="61" src="../../img/lancs-logo.png"></image></a></center>
+            <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+        </footer>
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script>var base_url = '../..';</script>
+        <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
+        <script src="../../js/base.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            From here you can search these documents. Enter
+                            your search terms below.
+                        </p>
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                            </div>
+                        </form>
+                        <div id="mkdocs-search-results"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

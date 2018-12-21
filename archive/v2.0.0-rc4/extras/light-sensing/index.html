@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+
+	<title>MicroBitLightSensor - micro:bit runtime</title>
+
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link href="../../css/extra.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-76156484-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-custom navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            
+                <a class="navbar-brand" rel="home" href="#" title="micro:bit runtime">
+                    
+                    <!-- Logo author: Aluna Everitt (@AlunaEveritt on Twitter) --->
+                    
+                    <img style="max-width:200px; margin-top: -7px;" src="../.././img/logo[whiteruntime].png">
+                </a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">General <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../..">Introduction</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../concepts/">Concepts</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../advanced/">Advanced</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../online-toolchains/">Web-based Development</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../offline-toolchains/">Offline Development</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../device/">Hardware</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../help/">Help</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">uBit <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../ubit/">Overview</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/i2c/">i2c</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/storage/">storage</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/serial/">serial</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/messageBus/">messageBus</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/button/">buttons</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/display/">display</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/accelerometer/">accelerometer</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/compass/">compass</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/thermometer/">thermometer</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/io/">io</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/radio/">radio</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Data Types <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../data-types/image/">MicroBitImage</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../data-types/event/">MicroBitEvent</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../data-types/string/">ManagedString</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../data-types/packetbuffer/">PacketBuffer</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bluetooth <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../ble/profile/">Profile</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/accelerometer-service/">AccelerometerService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/button-service/">ButtonService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/dfu-service/">DFUService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/event-service/">EventService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/iopin-service/">IOPinService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/led-service/">LEDService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/magnetometer-service/">MagnetometerService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/temperature-service/">TemperatureService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/uart-service/">UARTService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/ble-connection-events/">Connection Events</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/eddystone/">Eddystone Beacons</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Extras <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li class="active">
+    <a href="./">MicroBitLightSensor</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../spi/">SPI</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+
+            
+            
+
+            
+
+            
+            
+
+            
+
+            
+            
+
+            
+
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right hidden-md hidden-sm">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                <li >
+                    <a rel="next" href="../../ble/eddystone/">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../spi/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://github.com/lancaster-university/microbit-dal/">
+                        
+                            <i class="fa fa-github"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#microbitlightsensor">MicroBitLightSensor</a></li>
+        
+            <li><a href="#operation">Operation</a></li>
+        
+            <li><a href="#sensing-life-cycle">Sensing Life Cycle</a></li>
+        
+            <li><a href="#message-bus-id">Message Bus ID</a></li>
+        
+            <li><a href="#message-bus-events">Message Bus Events</a></li>
+        
+    
+        <li class="main "><a href="#api">API</a></li>
+        
+            <li><a href="#constructor">Constructor</a></li>
+        
+            <li><a href="#read">read</a></li>
+        
+            <li><a href="#startsensing">startSensing</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h1 id="microbitlightsensor">MicroBitLightSensor<a class="headerlink" href="#microbitlightsensor" title="Permanent link">&para;</a></h1>
+<h2 id="operation">Operation<a class="headerlink" href="#operation" title="Permanent link">&para;</a></h2>
+<h3 id="sensing-pins">Sensing Pins<a class="headerlink" href="#sensing-pins" title="Permanent link">&para;</a></h3>
+<p>If the current is inverted on an LED, it becomes sensitive to light. In particular
+it is sensitive to the <strong>same colour</strong> of light it emits.</p>
+<p>You will find that the Light Sensor on the micro:bit is more reactive to red light
+than any other colour because that is the colour of light the display emits.</p>
+<p>The display is architected with 3 rows, each with 9 columns. This is illustrated
+below:</p>
+<p><img alt="light-sensing info graphic" src="../../resources/light-sensing.png" /></p>
+<p><center><em>Where the format is: <strong>ROW</strong>.<strong>COLUMN</strong></em></center></p>
+<p>On the micro:bit we have 6 analog pins, 3 are applicable to the display and reside
+on columns 1, 2 and 3.</p>
+<p>This means that we have 9 pins in total that we can sense light on if we are
+fast enough to transition between emitting and sensing light.</p>
+<p>The 9 sense pins are illustrated below:</p>
+<p><center></p>
+<pre><code> _____________________________
+| 1.1 |     | 1.2 |     | 1.3 |
+|_____|_____|_____|_____|_____|
+|     |     |     |     |     |
+|_____|_____|_____|_____|_____|
+| 2.2 |     | 2.3 |     | 2.1 |
+|_____|_____|_____|_____|_____|
+|     |     |     |     |     |
+|_____|_____|_____|_____|_____|
+| 3.3 |     | 3.1 |     | 3.2 |
+|_____|_____|_____|_____|_____|
+</code></pre>
+
+<p></center></p>
+<p>The ADC takes around 4ms to settle and give accurate values with minimal current.
+This places restrictions on our sensing window.</p>
+<h3 id="interleaving">Interleaving<a class="headerlink" href="#interleaving" title="Permanent link">&para;</a></h3>
+<p>In the current implementation, the display and the Light sensor can operate in an
+interleaving manner. This interleaving is enabled due to a special display mode on the <a href="../../ubit/display/">display</a>
+which is automatically activated when <code>readLightLevel</code> is called by the user.</p>
+<p>This special mode (<code>DISPLAY_MODE_BLACK_AND_WHITE_LIGHT_SENSE</code>), increases the rate of the <code>systemTick</code> callback to 5ms, and the
+<a href="../../ubit/display/">display</a> is thusly configured to drop the 4th frame for user processing,
+which in this case, is entirely consumed by the light sensor. This reduces the display
+refresh rate from 55Hz to around 50Hz.</p>
+<p>To signify the window for user processing, the display will fire an event:</p>
+<ul>
+<li><em>ID</em>: <code>MICROBIT_ID_DISPLAY</code></li>
+<li><em>Value</em>: <code>MICROBIT_DISPLAY_EVT_LIGHT_SENSE</code></li>
+</ul>
+<p>This will trigger an event handler in the <code>MicroBitLightSensor</code> class.</p>
+<h2 id="sensing-life-cycle">Sensing Life Cycle<a class="headerlink" href="#sensing-life-cycle" title="Permanent link">&para;</a></h2>
+<p>In the previous section we discussed how the <a href="../../ubit/display/">display</a> and the Light
+Sensor interleave. This section will cover the actual operation of the sensor during
+the <code>MICROBIT_DISPLAY_EVT_LIGHT_SENSE</code> event.</p>
+<p><br/></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you would like to manually trigger the Light Sensor, a few steps must be taken:<br/><br/>
+1) Disable the display so that the column pins are under the users' control.<br/>
+2) Construct an instance of <code>MicroBitLightSensor</code><br/>
+3) Trigger the Light Sensor by firing a <code>MicroBitEvent</code> with the ID <code>MICROBIT_ID_DISPLAY</code> and the value <code>MICROBIT_DISPLAY_EVT_LIGHT_SENSE</code>.</p>
+</div>
+<h4 id="the-concept-of-channels">The Concept of Channels<a class="headerlink" href="#the-concept-of-channels" title="Permanent link">&para;</a></h4>
+<p>As we previously discussed there are 9 pins we can sense light on. However, we face the problem
+of interference from the state of other Columns.</p>
+<p>We found that the best combination was to treat each of the three analog enabled Columns as a channel.
+This leads our picture to look something more like this:</p>
+<p><center></p>
+<pre><code> _____________________________
+|  1  |     |  2  |     |  3  |
+|_____|_____|_____|_____|_____|
+|     |     |     |     |     |
+|_____|_____|_____|_____|_____|
+|  2  |     |  3  |     |  1  |
+|_____|_____|_____|_____|_____|
+|     |     |     |     |     |
+|_____|_____|_____|_____|_____|
+|  3  |     |  1  |     |  2  |
+|_____|_____|_____|_____|_____|
+</code></pre>
+
+<p></center>
+<center><em>Where each number represents a different column, now named a channel as it is a collection of 3 rows</em></center></p>
+<p>This reduces the resolution of our light sensing capabilities as we can
+now no longer can use 9 pins to sense light, purely due to the unfortunate fact
+that we obtain interference from other pins that cannot be mitigated.</p>
+<p>However, we do gain an accurate picture of the overall brightness detected by the display.</p>
+<p>We expose a mean representation of the light level from the 3 channels on the display.</p>
+<h4 id="the-algorithm">The Algorithm<a class="headerlink" href="#the-algorithm" title="Permanent link">&para;</a></h4>
+<p><strong>Upon receiving an event:</strong></p>
+<ul>
+<li>Set all rows to be a DigitalOut, with a value of 0.</li>
+<li>For the current channel:<ul>
+<li>Set the current channel pin HI.</li>
+<li>Immediately transition the current channel to be an AnalogIn</li>
+</ul>
+</li>
+<li>Attach an interrupt to occur 4ms into the future. (This allows our AnalogIn instance
+to settle correctly)</li>
+</ul>
+<p><strong>Upon interrupt:</strong></p>
+<ul>
+<li>Obtain our analog value.</li>
+<li>Release the pin from GPIOTE control. (<em>If we do not do these, this column will not
+be useable in the display driver</em>)</li>
+<li>Move onto the next channel.</li>
+</ul>
+<p>After these two phases have occurred, the display will now once again be available
+for regular usage until the next interleave is signaled by the display.</p>
+<h2 id="message-bus-id">Message Bus ID<a class="headerlink" href="#message-bus-id" title="Permanent link">&para;</a></h2>
+<h2 id="message-bus-events">Message Bus Events<a class="headerlink" href="#message-bus-events" title="Permanent link">&para;</a></h2>
+<h1 id="api">API<a class="headerlink" href="#api" title="Permanent link">&para;</a></h1>
+<h2 id="constructor">Constructor<a class="headerlink" href="#constructor" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="microbitlightsensor-const-matrixmap-map">MicroBitLightSensor( <div style='color:#a71d5d; display:inline-block'>const  MatrixMap  &amp;</div> map)<a class="headerlink" href="#microbitlightsensor-const-matrixmap-map" title="Permanent link">&para;</a></h4>
+<h5 id="description">Description<a class="headerlink" href="#description" title="Permanent link">&para;</a></h5>
+<p>Constructor.  </p>
+<p>Create a representation of the light sensor.  </p>
+<p>map </p>
+<p>The mapping information that relates pin inputs/outputs to physical screen coordinates. Defaults to microbitMatrixMap, defined in  MicroBitMatrixMaps.h .   </p>
+<h5 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>const  MatrixMap  &amp;</div> map - The mapping information that relates pin inputs/outputs to physical screen coordinates. Defaults to microbitMatrixMap, defined in  MicroBitMatrixMaps.h . </p>
+</blockquote>
+<h2 id="read">read<a class="headerlink" href="#read" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-read"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>read</div>()<a class="headerlink" href="#int-read" title="Permanent link">&para;</a></h4>
+<h5 id="description_1">Description<a class="headerlink" href="#description_1" title="Permanent link">&para;</a></h5>
+<p>This method returns a summed average of the three sections of the display.  </p>
+<p>A section is defined as: <br />
+ | 1 | | 2 | | 3 | <br />
+<strong><em>    </em></strong>    <strong><em>    </em></strong>    ___     </p>
+<p><strong><em>    </em></strong>    <strong><em>    </em></strong>    ___    </p>
+<p>2         3         1    </p>
+<p><strong><em>    </em></strong>    <strong><em>    </em></strong>    ___    </p>
+<p><strong><em>    </em></strong>    <strong><em>    </em></strong>    ___    </p>
+<p>3         1         2    </p>
+<p><strong><em>    </em></strong>    <strong><em>    </em></strong>    ___    </p>
+<p>Where each number represents a different section on the 5 x 5 matrix display.  </p>
+<h5 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h5>
+<p>returns a value in the range 0 - 255 where 0 is dark, and 255 is very bright </p>
+<h2 id="startsensing">startSensing<a class="headerlink" href="#startsensing" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="void-startsensing-microbitevent"><div style='color:#a71d5d; display:inline-block'>void</div> <div style='color:#795da3; display:inline-block'>startSensing</div>( <div style='color:#a71d5d; display:inline-block'>MicroBitEvent</div> )<a class="headerlink" href="#void-startsensing-microbitevent" title="Permanent link">&para;</a></h4>
+<h5 id="description_2">Description<a class="headerlink" href="#description_2" title="Permanent link">&para;</a></h5>
+<p>The method that is invoked by sending MICROBIT_DISPLAY_EVT_LIGHT_SENSE using the id MICROBIT_ID_DISPLAY.  </p>
+<h5 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitEvent</div> </p>
+</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>this can be manually driven by calling this member function, with a  MicroBitEvent  using the CREATE_ONLY option of the  MicroBitEvent  constructor. </p>
+</div>
+<hr /></div>
+        </div>
+
+        <footer class="col-md-12">
+            
+            <center><a href="https://www.lancaster.ac.uk"><image style="width:auto;" height="61" src="../../img/lancs-logo.png"></image></a></center>
+            <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+        </footer>
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script>var base_url = '../..';</script>
+        <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
+        <script src="../../js/base.js"></script>
+        <!--<script src="../../archive/v2.0.0-rc3/js/base.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/js/bootstrap-3.0.3.min.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/js/highlight.pack.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/js/jquery-1.10.2.min.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/mkdocs/js/lunr-0.5.7.min.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/mkdocs/js/mustache.min.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/mkdocs/js/require.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/mkdocs/js/search.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/mkdocs/js/text.js"></script>-->
+        <!--<script src="../../resources/bluetooth/functions.js"></script>-->
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            From here you can search these documents. Enter
+                            your search terms below.
+                        </p>
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                            </div>
+                        </form>
+                        <div id="mkdocs-search-results"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

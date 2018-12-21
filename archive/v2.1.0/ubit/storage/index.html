@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+
+	<title>storage - micro:bit runtime</title>
+
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link href="../../css/extra.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-76156484-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-custom navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            
+                <a class="navbar-brand" rel="home" href="#" title="micro:bit runtime">
+                    
+                    <!-- Logo author: Aluna Everitt (@AlunaEveritt on Twitter) --->
+                    
+                    <img style="max-width:200px; margin-top: -7px;" src="../.././img/logo[whiteruntime].png">
+                </a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">General <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../..">Introduction</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../concepts/">Concepts</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../advanced/">Advanced</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../online-toolchains/">Web-based Development</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../offline-toolchains/">Offline Development</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../device/">Hardware</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../help/">Help</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">uBit <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../">Overview</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../i2c/">i2c</a>
+</li>
+
+                    
+                        
+<li class="active">
+    <a href="./">storage</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../serial/">serial</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../messageBus/">messageBus</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../button/">buttons</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../display/">display</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../accelerometer/">accelerometer</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../compass/">compass</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../thermometer/">thermometer</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../io/">io</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../radio/">radio</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Data Types <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../data-types/image/">MicroBitImage</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../data-types/event/">MicroBitEvent</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../data-types/string/">ManagedString</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../data-types/packetbuffer/">PacketBuffer</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bluetooth <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../ble/profile/">Profile</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/accelerometer-service/">AccelerometerService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/button-service/">ButtonService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/dfu-service/">DFUService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/event-service/">EventService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/iopin-service/">IOPinService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/led-service/">LEDService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/magnetometer-service/">MagnetometerService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/temperature-service/">TemperatureService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/uart-service/">UARTService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/ble-connection-events/">Connection Events</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/eddystone/">Eddystone Beacons</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Extras <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../extras/light-sensing/">MicroBitLightSensor</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../extras/spi/">SPI</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+
+            
+            
+
+            
+
+            
+            
+
+            
+
+            
+            
+
+            
+
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right hidden-md hidden-sm">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                <li >
+                    <a rel="next" href="../i2c/">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../serial/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://github.com/lancaster-university/microbit-dal/">
+                        
+                            <i class="fa fa-github"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#ubitstorage">uBit.storage</a></li>
+        
+            <li><a href="#overview">Overview</a></li>
+        
+            <li><a href="#message-bus-id">Message Bus ID</a></li>
+        
+            <li><a href="#message-bus-events">Message Bus Events</a></li>
+        
+            <li><a href="#api">API</a></li>
+        
+            <li><a href="#constructor">Constructor</a></li>
+        
+            <li><a href="#writebytes">writeBytes</a></li>
+        
+            <li><a href="#flashpageerase">flashPageErase</a></li>
+        
+            <li><a href="#flashwordwrite">flashWordWrite</a></li>
+        
+            <li><a href="#put">put</a></li>
+        
+            <li><a href="#get">get</a></li>
+        
+            <li><a href="#remove">remove</a></li>
+        
+            <li><a href="#size">size</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h1 id="ubitstorage">uBit.storage<a class="headerlink" href="#ubitstorage" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p><code>MicroBitStorage</code> provides a simple way to store data on the micro:bit that persists
+through power cycles. It currently takes the form of a key value store which contains
+a number of key value pairs.</p>
+<p>If a user wanted to determine if a micro:bit has just been flashed over USB they
+could simply write the following:</p>
+<pre><code class="cpp">#include &quot;MicroBit.h&quot;
+
+MicroBit    uBit;
+
+int main()
+{
+    uBit.init();
+
+    KeyValuePair* firstTime = uBit.storage.get(&quot;boot&quot;);
+
+    int stored;
+
+    if(firstTime == NULL)
+    {
+        //this is the first boot after a flash. Store a value!
+        stored = 1;
+        uBit.storage.put(&quot;boot&quot;, (uint8_t *)&amp;stored, sizeof(int));
+        uBit.display.scroll(&quot;Stored!&quot;);
+    }
+    else
+    {
+        //this is not the first boot, scroll our stored value.
+        memcpy(&amp;stored, firstTime-&gt;value, sizeof(int));
+        delete firstTime;
+        uBit.display.scroll(stored);
+    }
+}
+</code></pre>
+
+<h3 id="what-is-flash-memory">What is flash memory?<a class="headerlink" href="#what-is-flash-memory" title="Permanent link">&para;</a></h3>
+<p>The micro:bit has 256 kB flash memory and 16 kB random access memory (RAM). Flash memory
+is <em>non-volatile</em>, which essentially means that data is not forgotten when the device
+is powered off, this is the technology that many USB sticks use.</p>
+<p>The alternative, Random Access Memory (also known as <em>volatile</em> memory), cannot be persisted through power cycling the device as its
+operation relies upon maintaining a constant supply of power.</p>
+<p>Therefore, <code>MicroBitStorage</code> utilises the <em>non-volatile</em> nature of flash memory, to
+store its data. This class is utilised by the <a href="../compass/">compass</a>, <a href="../compass/">accelerometer</a>
+and <a href="../blemanager/">bleManager</a> to improve the user experience by persisting calibration
+and bonding data.</p>
+<h3 id="operations">Operations<a class="headerlink" href="#operations" title="Permanent link">&para;</a></h3>
+<p>You can <code>put()</code>, <code>get()</code> and <code>remove()</code> key value pairs from the store.</p>
+<p>Key Value pairs have a fixed length key of <code>16 bytes</code>, and a fixed length value of
+<code>32 bytes</code>. This class only populates a single block (<code>1024 bytes</code>) in its current state,
+which means that <strong>21</strong> Key Value pairs can be stored.</p>
+<h2 id="message-bus-id">Message Bus ID<a class="headerlink" href="#message-bus-id" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>None.</p>
+</blockquote>
+<h2 id="message-bus-events">Message Bus Events<a class="headerlink" href="#message-bus-events" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>None.</p>
+</blockquote>
+<h2 id="api">API<a class="headerlink" href="#api" title="Permanent link">&para;</a></h2>
+<h2 id="constructor">Constructor<a class="headerlink" href="#constructor" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="microbitstorage">MicroBitStorage()<a class="headerlink" href="#microbitstorage" title="Permanent link">&para;</a></h4>
+<h5 id="description">Description<a class="headerlink" href="#description" title="Permanent link">&para;</a></h5>
+<p>Default constructor.  </p>
+<p>Creates an instance of  MicroBitStorage  which acts like a  KeyValueStore  that allows the retrieval, addition and deletion of KeyValuePairs.           </p>
+<h2 id="writebytes">writeBytes<a class="headerlink" href="#writebytes" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-writebytes-uint8_t-42-buffer-uint32_t-address-int-length"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>writeBytes</div>( <div style='color:#a71d5d; display:inline-block'>uint8_t *</div> buffer,  <div style='color:#a71d5d; display:inline-block'>uint32_t</div> address,  <div style='color:#a71d5d; display:inline-block'>int</div> length)<a class="headerlink" href="#int-writebytes-uint8_t-42-buffer-uint32_t-address-int-length" title="Permanent link">&para;</a></h4>
+<h5 id="description_1">Description<a class="headerlink" href="#description_1" title="Permanent link">&para;</a></h5>
+<p>Writes the given number of bytes to the address specified.  </p>
+<h5 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>uint8_t *</div> buffer - the data to write.</p>
+<p><div style='color:#a71d5d; display:inline-block'>uint32_t</div> address - the location in memory to write to.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> length - the number of bytes to write.</p>
+</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>currently not implemented. </p>
+</div>
+<h2 id="flashpageerase">flashPageErase<a class="headerlink" href="#flashpageerase" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="void-flashpageerase-uint32_t-42-page_address"><div style='color:#a71d5d; display:inline-block'>void</div> <div style='color:#795da3; display:inline-block'>flashPageErase</div>( <div style='color:#a71d5d; display:inline-block'>uint32_t *</div> page_address)<a class="headerlink" href="#void-flashpageerase-uint32_t-42-page_address" title="Permanent link">&para;</a></h4>
+<h5 id="description_2">Description<a class="headerlink" href="#description_2" title="Permanent link">&para;</a></h5>
+<p>Method for erasing a page in flash.  </p>
+<p>page_address </p>
+<p>Address of the first word in the page to be erased.   </p>
+<h5 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>uint32_t *</div> page_address - Address of the first word in the page to be erased. </p>
+</blockquote>
+<h2 id="flashwordwrite">flashWordWrite<a class="headerlink" href="#flashwordwrite" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="void-flashwordwrite-uint32_t-42-address-uint32_t-value"><div style='color:#a71d5d; display:inline-block'>void</div> <div style='color:#795da3; display:inline-block'>flashWordWrite</div>( <div style='color:#a71d5d; display:inline-block'>uint32_t *</div> address,  <div style='color:#a71d5d; display:inline-block'>uint32_t</div> value)<a class="headerlink" href="#void-flashwordwrite-uint32_t-42-address-uint32_t-value" title="Permanent link">&para;</a></h4>
+<h5 id="description_3">Description<a class="headerlink" href="#description_3" title="Permanent link">&para;</a></h5>
+<p>Method for writing a word of data in flash with a value.  </p>
+<p>address </p>
+<p>Address of the word to change.  </p>
+<p>value </p>
+<p>Value to be written to flash.   </p>
+<h5 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>uint32_t *</div> address - Address of the word to change.</p>
+<p><div style='color:#a71d5d; display:inline-block'>uint32_t</div> value - Value to be written to flash. </p>
+</blockquote>
+<h2 id="put">put<a class="headerlink" href="#put" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-put-const-char-42-key-uint8_t-42-data-int-datasize"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>put</div>( <div style='color:#a71d5d; display:inline-block'>const char *</div> key,  <div style='color:#a71d5d; display:inline-block'>uint8_t *</div> data,  <div style='color:#a71d5d; display:inline-block'>int</div> dataSize)<a class="headerlink" href="#int-put-const-char-42-key-uint8_t-42-data-int-datasize" title="Permanent link">&para;</a></h4>
+<h5 id="description_4">Description<a class="headerlink" href="#description_4" title="Permanent link">&para;</a></h5>
+<p>Places a given key, and it's corresponding value into flash at the earliest available point.  </p>
+<h5 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>const char *</div> key - the unique name that should be used as an identifier for the given data. The key is presumed to be null terminated.</p>
+<p><div style='color:#a71d5d; display:inline-block'>uint8_t *</div> data - a pointer to the beginning of the data to be persisted.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> dataSize - the size of the data to be persisted</p>
+</blockquote>
+<h5 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h5>
+<p>MICROBIT_OK on success, MICROBIT_INVALID_PARAMETER if the key or size is too large, MICROBIT_NO_RESOURCES if the storage page is full 
+<br/></p>
+<h4 id="int-put-managedstring-key-uint8_t-42-data-int-datasize"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>put</div>( <div style='color:#a71d5d; display:inline-block'>ManagedString</div> key,  <div style='color:#a71d5d; display:inline-block'>uint8_t *</div> data,  <div style='color:#a71d5d; display:inline-block'>int</div> dataSize)<a class="headerlink" href="#int-put-managedstring-key-uint8_t-42-data-int-datasize" title="Permanent link">&para;</a></h4>
+<h5 id="description_5">Description<a class="headerlink" href="#description_5" title="Permanent link">&para;</a></h5>
+<p>Places a given key, and it's corresponding value into flash at the earliest available point.  </p>
+<h5 id="parameters_4">Parameters<a class="headerlink" href="#parameters_4" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>ManagedString</div> key - the unique name that should be used as an identifier for the given data.</p>
+<p><div style='color:#a71d5d; display:inline-block'>uint8_t *</div> data - a pointer to the beginning of the data to be persisted.</p>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> dataSize - the size of the data to be persisted</p>
+</blockquote>
+<h5 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">&para;</a></h5>
+<p>MICROBIT_OK on success, MICROBIT_INVALID_PARAMETER if the key or size is too large, MICROBIT_NO_RESOURCES if the storage page is full </p>
+<h2 id="get">get<a class="headerlink" href="#get" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="keyvaluepair-get-const-char-42-key"><div style='color:#a71d5d; display:inline-block'>KeyValuePair</div> <div style='color:#795da3; display:inline-block'>get</div>( <div style='color:#a71d5d; display:inline-block'>const char *</div> key)<a class="headerlink" href="#keyvaluepair-get-const-char-42-key" title="Permanent link">&para;</a></h4>
+<h5 id="description_6">Description<a class="headerlink" href="#description_6" title="Permanent link">&para;</a></h5>
+<p>Retreives a  KeyValuePair  identified by a given key.  </p>
+<h5 id="parameters_5">Parameters<a class="headerlink" href="#parameters_5" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>const char *</div> key - the unique name used to identify a  KeyValuePair  in flash.</p>
+</blockquote>
+<h5 id="returns_2">Returns<a class="headerlink" href="#returns_2" title="Permanent link">&para;</a></h5>
+<p>a pointer to a heap allocated  KeyValuePair  struct, this pointer will be NULL if the key was not found in storage.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>it is up to the user to free memory after use. </p>
+</div>
+<p><br/></p>
+<h4 id="keyvaluepair-get-managedstring-key"><div style='color:#a71d5d; display:inline-block'>KeyValuePair</div> <div style='color:#795da3; display:inline-block'>get</div>( <div style='color:#a71d5d; display:inline-block'>ManagedString</div> key)<a class="headerlink" href="#keyvaluepair-get-managedstring-key" title="Permanent link">&para;</a></h4>
+<h5 id="description_7">Description<a class="headerlink" href="#description_7" title="Permanent link">&para;</a></h5>
+<p>Retreives a  KeyValuePair  identified by a given key.  </p>
+<h5 id="parameters_6">Parameters<a class="headerlink" href="#parameters_6" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>ManagedString</div> key - the unique name used to identify a  KeyValuePair  in flash.</p>
+</blockquote>
+<h5 id="returns_3">Returns<a class="headerlink" href="#returns_3" title="Permanent link">&para;</a></h5>
+<p>a pointer to a heap allocated  KeyValuePair  struct, this pointer will be NULL if the key was not found in storage.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>it is up to the user to free memory after use. </p>
+</div>
+<h2 id="remove">remove<a class="headerlink" href="#remove" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-remove-const-char-42-key"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>remove</div>( <div style='color:#a71d5d; display:inline-block'>const char *</div> key)<a class="headerlink" href="#int-remove-const-char-42-key" title="Permanent link">&para;</a></h4>
+<h5 id="description_8">Description<a class="headerlink" href="#description_8" title="Permanent link">&para;</a></h5>
+<p>Removes a  KeyValuePair  identified by a given key.  </p>
+<h5 id="parameters_7">Parameters<a class="headerlink" href="#parameters_7" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>const char *</div> key - the unique name used to identify a  KeyValuePair  in flash.</p>
+</blockquote>
+<h5 id="returns_4">Returns<a class="headerlink" href="#returns_4" title="Permanent link">&para;</a></h5>
+<p>MICROBIT_OK on success, or MICROBIT_NO_DATA if the given key was not found in flash. 
+<br/></p>
+<h4 id="int-remove-managedstring-key"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>remove</div>( <div style='color:#a71d5d; display:inline-block'>ManagedString</div> key)<a class="headerlink" href="#int-remove-managedstring-key" title="Permanent link">&para;</a></h4>
+<h5 id="description_9">Description<a class="headerlink" href="#description_9" title="Permanent link">&para;</a></h5>
+<p>Removes a  KeyValuePair  identified by a given key.  </p>
+<h5 id="parameters_8">Parameters<a class="headerlink" href="#parameters_8" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>ManagedString</div> key - the unique name used to identify a  KeyValuePair  in flash.</p>
+</blockquote>
+<h5 id="returns_5">Returns<a class="headerlink" href="#returns_5" title="Permanent link">&para;</a></h5>
+<p>MICROBIT_OK on success, or MICROBIT_NO_DATA if the given key was not found in flash. </p>
+<h2 id="size">size<a class="headerlink" href="#size" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-size"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>size</div>()<a class="headerlink" href="#int-size" title="Permanent link">&para;</a></h4>
+<h5 id="description_10">Description<a class="headerlink" href="#description_10" title="Permanent link">&para;</a></h5>
+<p>The size of the flash based  KeyValueStore .  </p>
+<h5 id="returns_6">Returns<a class="headerlink" href="#returns_6" title="Permanent link">&para;</a></h5>
+<p>the number of entries in the key value store </p>
+<hr /></div>
+        </div>
+
+        <footer class="col-md-12">
+            
+            <center><a href="https://www.lancaster.ac.uk"><image style="width:auto;" height="61" src="../../img/lancs-logo.png"></image></a></center>
+            <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+        </footer>
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script>var base_url = '../..';</script>
+        <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
+        <script src="../../js/base.js"></script>
+        <!--<script src="../../archive/v2.0.0-rc3/js/base.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/js/bootstrap-3.0.3.min.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/js/highlight.pack.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/js/jquery-1.10.2.min.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/mkdocs/js/lunr-0.5.7.min.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/mkdocs/js/mustache.min.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/mkdocs/js/require.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/mkdocs/js/search.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/mkdocs/js/text.js"></script>-->
+        <!--<script src="../../resources/bluetooth/functions.js"></script>-->
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            From here you can search these documents. Enter
+                            your search terms below.
+                        </p>
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                            </div>
+                        </form>
+                        <div id="mkdocs-search-results"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+
+	<title>UARTService - micro:bit runtime</title>
+
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link href="../../css/extra.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-76156484-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-custom navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            
+                <a class="navbar-brand" rel="home" href="#" title="micro:bit runtime">
+                    
+                    <!-- Logo author: Aluna Everitt (@AlunaEveritt on Twitter) --->
+                    
+                    <img style="max-width:200px; margin-top: -7px;" src="../.././img/logo[whiteruntime].png">
+                </a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">General <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../..">Introduction</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../concepts/">Concepts</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../advanced/">Advanced</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../online-toolchains/">Online Development</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../offline-toolchains/">Offline Development</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../device/">Hardware</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../help/">Help</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">uBit <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../ubit/">Overview</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/i2c/">i2c</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/storage/">storage</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/serial/">serial</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/messageBus/">messageBus</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/button/">buttons</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/display/">display</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/accelerometer/">accelerometer</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/compass/">compass</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/thermometer/">thermometer</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/io/">io</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/radio/">radio</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Data Types <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../data-types/image/">MicroBitImage</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../data-types/event/">MicroBitEvent</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../data-types/string/">ManagedString</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../data-types/packetbuffer/">PacketBuffer</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bluetooth <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../profile/">Profile</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../accelerometer-service/">AccelerometerService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../button-service/">ButtonService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../dfu-service/">DFUService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../event-service/">EventService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../iopin-service/">IOPinService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../led-service/">LEDService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../magnetometer-service/">MagnetometerService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../temperature-service/">TemperatureService</a>
+</li>
+
+                    
+                        
+<li class="active">
+    <a href="./">UARTService</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Extras <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../extras/light-sensing/">MicroBitLightSensor</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../extras/spi/">SPI</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+
+            
+            
+
+            
+
+            
+            
+
+            
+
+            
+            
+
+            
+
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right hidden-md hidden-sm">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                <li >
+                    <a rel="next" href="../temperature-service/">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../../extras/light-sensing/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://github.com/lancaster-university/microbit-dal/">
+                        
+                            <i class="fa fa-github"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#bluetooth-uart-service">Bluetooth UART Service</a></li>
+        
+            <li><a href="#introduction">Introduction</a></li>
+        
+            <li><a href="#enabling-and-using-the-service">Enabling and Using the Service</a></li>
+        
+            <li><a href="#bluetooth-service-specification">Bluetooth Service Specification</a></li>
+        
+            <li><a href="#example-microbit-application-animal-vegetable-mineral-game">Example micro:bit application - Animal Vegetable Mineral game</a></li>
+        
+            <li><a href="#example-applications-for-androidiosandroid">Example Applications for Android/IOS/Android</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h1 id="bluetooth-uart-service">Bluetooth UART Service<a class="headerlink" href="#bluetooth-uart-service" title="Permanent link">&para;</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>This Bluetooth Low Energy (BLE) service is an optional part of the standard bluetooth profile for the micro:bit. It is a passive service, that can operate transparently in the background as your main program is running. It provides a form of serial data communications capability over Bluetooth low energy and can be used to exchange arbitrary sequences of bytes in either direction between micro:bit and connected peer.</p>
+<h2 id="enabling-and-using-the-service">Enabling and Using the Service<a class="headerlink" href="#enabling-and-using-the-service" title="Permanent link">&para;</a></h2>
+<p>This service is disabled by default. To enable the service, create an instance of this class in your program at any time after the uBit object has been initialised. Send data from the micro:bit to the connected peer at any time using one of the send methods of the MicroBitUARTService class. To receive data from the connected peer use one of several methods such as readUntil which blocks until a specified delimiter value is received and then returns all previous octets in the receive buffer. Consult the API for details.</p>
+<p>Note that it may make sense to coordinate use of the UART service with the state of the Bluetooth connection, only reading or sending serial data when there is an active Bluetooth connection. Two micro:bit message bus events are provided for this purpose. A full example appears below.</p>
+<pre><code class="cpp">MicroBitUARTService *uart;   
+</code></pre>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Using Bluetooth services is memory hungry. By default, some of the memory normally used by Nordic's Bluetooth protocol stack (known as a SoftDevice), is reclaimed by the micro:bit runtime as general purpose memory for your applications. if you enable more Bluetooth services, then you may need to provide more memory back to Soft Device to ensure proper operation. If after enabling this service your Bluetooth applicaiton cannot access the service reliably, you should consider increasing the value of MICROBIT_SD_GATT_TABLE_SIZE in your inc/MicroBitConfig.h. The more service you add, the larger this will need to be, up to the limit defined in MicroBitConfig.h.</p>
+</div>
+<h2 id="bluetooth-service-specification">Bluetooth Service Specification<a class="headerlink" href="#bluetooth-service-specification" title="Permanent link">&para;</a></h2>
+<p>Please see the <a href="../../resources/bluetooth/microbit-profile-V1.9-Level-2.pdf">micro:bit Bluetooth profile specification</a>.</p>
+<h2 id="example-microbit-application-animal-vegetable-mineral-game">Example micro:bit application - Animal Vegetable Mineral game<a class="headerlink" href="#example-microbit-application-animal-vegetable-mineral-game" title="Permanent link">&para;</a></h2>
+<pre><code class="cpp">#include &quot;MicroBit.h&quot;
+#include &quot;MicroBitSamples.h&quot;
+#include &quot;MicroBitUARTService.h&quot;
+MicroBit uBit;
+MicroBitUARTService *uart;
+
+int connected = 0;
+
+void onConnected(MicroBitEvent e)
+{
+    uBit.display.scroll(&quot;C&quot;);
+
+    connected = 1;
+
+    // my client will send ASCII strings terminated with the colon character
+    ManagedString eom(&quot;:&quot;);
+
+    while(1) {
+        ManagedString msg = uart-&gt;readUntil(eom);
+        uBit.display.scroll(msg);
+    }
+
+}
+
+void onDisconnected(MicroBitEvent e)
+{
+    uBit.display.scroll(&quot;D&quot;);
+    connected = 0;
+}
+
+void onButtonA(MicroBitEvent e)
+{
+    if (connected == 0) {
+        uBit.display.scroll(&quot;NC&quot;);
+        return;
+    }
+    uart-&gt;send(&quot;YES&quot;);
+    uBit.display.scroll(&quot;YES&quot;);
+}
+
+void onButtonB(MicroBitEvent e)
+{
+    if (connected == 0) {
+        uBit.display.scroll(&quot;NC&quot;);
+        return;
+    }
+    uart-&gt;send(&quot;NO&quot;);
+    uBit.display.scroll(&quot;NO&quot;);
+}
+
+void onButtonAB(MicroBitEvent e)
+{
+    if (connected == 0) {
+        uBit.display.scroll(&quot;NC&quot;);
+        return;
+    }
+    uart-&gt;send(&quot;GOT IT!!&quot;);
+    uBit.display.scroll(&quot;GOT IT!!&quot;);
+}
+
+/*
+Recommend disabling the DFU and Event services in MicroBitConfig.h since they are not needed here:
+
+#ifndef MICROBIT_BLE_DFU_SERVICE
+#define MICROBIT_BLE_DFU_SERVICE                0
+#endif
+
+#ifndef MICROBIT_BLE_EVENT_SERVICE
+#define MICROBIT_BLE_EVENT_SERVICE              0
+#endif
+*/
+
+int main()
+{
+    // Initialise the micro:bit runtime.
+    uBit.init();
+
+    // listen for Bluetooth connection state changes
+    uBit.messageBus.listen(MICROBIT_ID_BLE, MICROBIT_BLE_EVT_CONNECTED, onConnected);
+    uBit.messageBus.listen(MICROBIT_ID_BLE, MICROBIT_BLE_EVT_DISCONNECTED, onDisconnected);
+
+    // listen for user button interactions
+    uBit.messageBus.listen(MICROBIT_ID_BUTTON_A, MICROBIT_BUTTON_EVT_CLICK, onButtonA);
+    uBit.messageBus.listen(MICROBIT_ID_BUTTON_B, MICROBIT_BUTTON_EVT_CLICK, onButtonB);
+    uBit.messageBus.listen(MICROBIT_ID_BUTTON_AB, MICROBIT_BUTTON_EVT_CLICK, onButtonAB);
+
+
+    // Note GATT table size increased from default in MicroBitConfig.h
+    // #define MICROBIT_SD_GATT_TABLE_SIZE             0x500
+    uart = new MicroBitUARTService(*uBit.ble, 32, 32); 
+    uBit.display.scroll(&quot;AVM&quot;);
+
+    // If main exits, there may still be other fibers running or registered event handlers etc.
+    // Simply release this fiber, which will mean we enter the scheduler. Worse case, we then
+    // sit in the idle task forever, in a power efficient sleep.
+    release_fiber();
+}
+</code></pre>
+
+<p><strong>Known Issue</strong> In the onConnected event handler method, the call to ManagedString msg = uart-&gt;readUntil(eom); blocks until the specified end of message character is received. This prevents the event handler from exiting. Under normal circumstances this is fine. If however the connected application loses its connection and then reconnects, the onConnected method will not execute and therefore the 'connected' variable which tracks the Bluetooth connection state will not update. The micro:bit application will now behave as though it is not in a connection and therefore functions such as sending text by pressing a button will not work. In this situation the user should simply reset their micro:bit and reconnect their smartphone application. An API which allows serial reads to unblock or perhaps threads to be terminated is under consideration for a future release of the micro:bit runtime.  </p>
+<h2 id="example-applications-for-androidiosandroid">Example Applications for Android/IOS/Android<a class="headerlink" href="#example-applications-for-androidiosandroid" title="Permanent link">&para;</a></h2>
+<h3 id="general-procedures">General Procedures<a class="headerlink" href="#general-procedures" title="Permanent link">&para;</a></h3>
+<p>A connected peer such as a smartphone application can transmit data to the micro:bit, up to a maximum of 20 octets at a time by writing to the RX Characteristic. Either of the Write Request or Write Command (i.e. write with no response) PDUs may be used by the client. </p>
+<p>See the profile page and profile reference documentation UUID details.</p>
+<h3 id="android">Android<a class="headerlink" href="#android" title="Permanent link">&para;</a></h3>
+<p><img src="../../resources/bluetooth/uart_demo.png" alt="UART Demo"></p>
+<h4 id="android-bluetooth-apis">Android Bluetooth APIs<a class="headerlink" href="#android-bluetooth-apis" title="Permanent link">&para;</a></h4>
+<p>Android developers should make themselves familiar with the <a href="http://developer.android.com/guide/topics/connectivity/bluetooth-le.html">Android Bluetooth low energy APIs</a></p>
+<h4 id="microbit-ble-demo-android">microbit-ble-demo-android<a class="headerlink" href="#microbit-ble-demo-android" title="Permanent link">&para;</a></h4>
+<p>The open source microbit-ble-demo-android application contains a demonstration of the micro:bit Bluetooth UART service in the form of a guessing game called Animal Vegetable Mineral. The main body of code for this demonstration can be found in ui.UartAvmActivity.java except for the Bluetooth operations themselves which are in bluetooth.BleAdapterService which acts as a kind of higher level Bluetooth API for activities to use without needing to directly concern themselves too closely with the Android APIs themselves. In most cases, operations are asynchronous so that the activity code initiates a Bluetooth operation by calling one of the methods in bluetooth.BleAdapterService (e.g. readCharacteristic(....) ) and later receives a message containing the result of the operation from this object via a Handler object. The message is examined in the Handler code and acted upon.</p>
+<p>Key parts of the magnetometer demonstration in this application are explained next.</p>
+<h4 id="in-bluetoothbleadapterservice">In bluetooth.BleAdapterService<a class="headerlink" href="#in-bluetoothbleadapterservice" title="Permanent link">&para;</a></h4>
+<pre><code class="java">public static String UARTSERVICE_SERVICE_UUID = &quot;6E400001B5A3F393E0A9E50E24DCCA9E&quot;;
+public static String UART_RX_CHARACTERISTIC_UUID = &quot;6E400002B5A3F393E0A9E50E24DCCA9E&quot;;
+public static String UART_TX_CHARACTERISTIC_UUID = &quot;6E400003B5A3F393E0A9E50E24DCCA9E&quot;;
+</code></pre>
+
+<h4 id="in-uiuartavmactivity">In ui.UartAvmActivity<a class="headerlink" href="#in-uiuartavmactivity" title="Permanent link">&para;</a></h4>
+<pre><code class="java">// enabling indications on the UART TX characteristic
+if (bluetooth_le_adapter.setIndicationsState(Utility.normaliseUUID(BleAdapterService.UARTSERVICE_SERVICE_UUID), Utility.normaliseUUID(BleAdapterService.UART_TX_CHARACTERISTIC_UUID), true)) {
+    showMsg(Utility.htmlColorGreen(&quot;UART TX indications ON&quot;));
+} else {
+    showMsg(Utility.htmlColorRed(&quot;Failed to set UART TX indications ON&quot;));
+}
+</code></pre>
+
+<pre><code class="java">// handling indications
+case BleAdapterService.NOTIFICATION_OR_INDICATION_RECEIVED:
+    bundle = msg.getData();
+    service_uuid = bundle.getString(BleAdapterService.PARCEL_SERVICE_UUID);
+    characteristic_uuid = bundle.getString(BleAdapterService.PARCEL_CHARACTERISTIC_UUID);
+    b = bundle.getByteArray(BleAdapterService.PARCEL_VALUE);
+    if (characteristic_uuid.equalsIgnoreCase((Utility.normaliseUUID(BleAdapterService.UART_TX_CHARACTERISTIC_UUID)))) {
+        String ascii=&quot;&quot;;
+        try {
+            ascii = new String(b,&quot;US-ASCII&quot;);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+            showMsg(Utility.htmlColorGreen(&quot;Could not convert TX data to ASCII&quot;));
+            return;
+        }
+        if (!ascii.equals(Constants.AVM_CORRECT_RESPONSE)) {
+            showAnswer(ascii);
+        } else {
+            showAnswer(ascii+&quot; You only needed &quot;+guess_count+&quot; guesses!&quot;);
+        }
+    }
+    break; 
+</code></pre>
+
+<pre><code class="java">// sending data to the micro:bit by writing to the RX Characteristic
+public void onSendText(View view) {
+    EditText text = (EditText) UartAvmActivity.this.findViewById(R.id.avm_question_text);
+    try {
+        String question = text.getText().toString() + &quot;:&quot;;
+        byte[] ascii_bytes = question.getBytes(&quot;US-ASCII&quot;);
+        bluetooth_le_adapter.writeCharacteristic(Utility.normaliseUUID(BleAdapterService.UARTSERVICE_SERVICE_UUID), Utility.normaliseUUID(BleAdapterService.UART_RX_CHARACTERISTIC_UUID), ascii_bytes);
+        guess_count++;
+        showGuessCount();
+    } catch (UnsupportedEncodingException e) {
+        e.printStackTrace();
+        showMsg(&quot;Unable to convert text to ASCII bytes&quot;);
+    }
+}
+</code></pre>
+
+<h4 id="video-demonstration">Video Demonstration<a class="headerlink" href="#video-demonstration" title="Permanent link">&para;</a></h4>
+<iframe src="https://player.vimeo.com/video/164622668" width="750" height="422" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>
+        </div>
+
+        <footer class="col-md-12">
+            
+            <center><a href="https://www.lancaster.ac.uk"><image style="width:auto;" height="61" src="../../img/lancs-logo.png"></image></a></center>
+            <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+        </footer>
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script>var base_url = '../..';</script>
+        <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
+        <script src="../../js/base.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            From here you can search these documents. Enter
+                            your search terms below.
+                        </p>
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                            </div>
+                        </form>
+                        <div id="mkdocs-search-results"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

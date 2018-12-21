@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+
+	<title>messageBus - micro:bit runtime</title>
+
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link href="../../css/extra.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-76156484-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-custom navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            
+                <a class="navbar-brand" rel="home" href="#" title="micro:bit runtime">
+                    
+                    <!-- Logo author: Aluna Everitt (@AlunaEveritt on Twitter) --->
+                    
+                    <img style="max-width:200px; margin-top: -7px;" src="../.././img/logo[whiteruntime].png">
+                </a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">General <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../..">Introduction</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../concepts/">Concepts</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../advanced/">Advanced</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../online-toolchains/">Web-based Development</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../offline-toolchains/">Offline Development</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../device/">Hardware</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../help/">Help</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">uBit <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../">Overview</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../i2c/">i2c</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../storage/">storage</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../serial/">serial</a>
+</li>
+
+                    
+                        
+<li class="active">
+    <a href="./">messageBus</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../button/">buttons</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../display/">display</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../accelerometer/">accelerometer</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../compass/">compass</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../thermometer/">thermometer</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../io/">io</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../radio/">radio</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Data Types <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../data-types/image/">MicroBitImage</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../data-types/event/">MicroBitEvent</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../data-types/string/">ManagedString</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../data-types/packetbuffer/">PacketBuffer</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bluetooth <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../ble/profile/">Profile</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/accelerometer-service/">AccelerometerService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/button-service/">ButtonService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/dfu-service/">DFUService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/event-service/">EventService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/iopin-service/">IOPinService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/led-service/">LEDService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/magnetometer-service/">MagnetometerService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/temperature-service/">TemperatureService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/uart-service/">UARTService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/ble-connection-events/">Connection Events</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ble/eddystone/">Eddystone Beacons</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Extras <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../extras/light-sensing/">MicroBitLightSensor</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../extras/spi/">SPI</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+
+            
+            
+
+            
+
+            
+            
+
+            
+
+            
+            
+
+            
+
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right hidden-md hidden-sm">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                <li >
+                    <a rel="next" href="../serial/">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../button/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://github.com/lancaster-university/microbit-dal/">
+                        
+                            <i class="fa fa-github"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#ubitmessagebus">uBit.messageBus</a></li>
+        
+            <li><a href="#overview">Overview</a></li>
+        
+            <li><a href="#registering-an-event-handler">Registering an event handler</a></li>
+        
+            <li><a href="#wildcard-events">Wildcard Events</a></li>
+        
+            <li><a href="#defining-a-threading-mode">Defining a Threading Mode</a></li>
+        
+            <li><a href="#c-event-handlers">C++ Event Handlers</a></li>
+        
+            <li><a href="#removing-event-handlers">Removing Event Handlers</a></li>
+        
+            <li><a href="#message-bus-id">Message Bus ID</a></li>
+        
+            <li><a href="#message-bus-events">Message Bus Events</a></li>
+        
+            <li><a href="#api">API</a></li>
+        
+            <li><a href="#constructor">Constructor</a></li>
+        
+            <li><a href="#send">send</a></li>
+        
+            <li><a href="#process">process</a></li>
+        
+            <li><a href="#elementat">elementAt</a></li>
+        
+            <li><a href="#add">add</a></li>
+        
+            <li><a href="#remove">remove</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h1 id="ubitmessagebus">uBit.messageBus<a class="headerlink" href="#ubitmessagebus" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>The micro:bit has an eventing model that can notify user code when specific things happen on the micro:bit.</p>
+<p>For example, the <a href="../accelerometer/"><code>MicroBitAccelerometer</code></a> will raise events to indicate that the
+micro:bit has be been shaken, or is in freefall. <a href="../button/"><code>MicroBitButton</code></a> will send events on a range of button up, down, click and hold events.</p>
+<p>Programmers are also free (in fact, encouraged!) to send their own events whenever they feel it would be useful.</p>
+<h2 id="registering-an-event-handler">Registering an event handler<a class="headerlink" href="#registering-an-event-handler" title="Permanent link">&para;</a></h2>
+<p>The <code>MicroBitMessageBus</code> records which events your program is interested in, and delivers those <code>MicroBitEvent</code>s to your program as they occur
+through a defined <strong>event handler</strong>.  </p>
+<p>This is achieved through the <code>MicroBitMessageBus</code> <code>listen</code> function. This lets you attach a callback
+to a function when a specified event (or events) occur.</p>
+<p>You can also control the queuing and threading model used for your callback function on a per event handler basis.</p>
+<p>This may sound complex at first, but it is actually very simple. For example, to find out when button A is clicked, write some code like this:</p>
+<pre><code class="cpp">#include &quot;MicroBit.h&quot;
+
+MicroBit    uBit;
+
+void onButtonA(MicroBitEvent)
+{
+    uBit.display.print(&quot;A&quot;);
+}
+
+int main()
+{
+    uBit.init();
+    uBit.messageBus.listen(MICROBIT_ID_BUTTON_A, MICROBIT_BUTTON_EVT_CLICK, onButtonA);
+
+    // We don't want to drop out of main!
+    while(1)
+        uBit.sleep(100);
+}
+</code></pre>
+
+<p>Now, whenever the <code>MICROBIT_BUTTON_EVT_CLICK</code> event is raise by <code>MICROBIT_ID_BUTTON_A</code>, your code inside function <code>onButtonA</code> will be automatically run.</p>
+<p>You can call listen as many times as you want to attached functions to each of the events that are useful for your program.</p>
+<h2 id="wildcard-events">Wildcard Events<a class="headerlink" href="#wildcard-events" title="Permanent link">&para;</a></h2>
+<p>Sometimes though, you want to capture all events generated by some component. For example, you might want to know when any changes in a button has happened.</p>
+<p>In this case, there is a special event value called <code>MICROBIT_EVT_ANY</code>. If you call listen with this value, then ALL events from the given source component will be delivered to your function.</p>
+<p>You can find out which ones by looking at the <code>MicroBitEvent</code> delivered to your function - it contains the source and value variable of the event.</p>
+<p>For example, you could write a program like this:</p>
+<pre><code class="cpp">#include &quot;MicroBit.h&quot;
+
+MicroBit    uBit;
+
+void onButtonA(MicroBitEvent e)
+{
+    if (e.value == MICROBIT_BUTTON_EVT_CLICK)
+        uBit.display.scroll(&quot;CLICK&quot;);
+
+    if (e.value == MICROBIT_BUTTON_EVT_DOWN)
+        uBit.display.scroll(&quot;DOWN&quot;);
+}
+
+int main()
+{
+    uBit.init();
+    uBit.messageBus.listen(MICROBIT_ID_BUTTON_A, MICROBIT_EVT_ANY, onButtonA);
+
+    // We don't want to drop out of main!
+    while(1)
+        uBit.sleep(100);
+}
+</code></pre>
+
+<p>If you <em>REALLY</em> want even more events, there is also a <code>MICROBIT_ID_ANY</code> source, that allows you to attach a function to event generated from any component.</p>
+<p>Use this sparingly though, as this could be quite a lot of events!</p>
+<p>The following code would attach the <code>onEvent</code> function to receive all the events from the whole runtime:</p>
+<pre><code class="cpp">#include &quot;MicroBit.h&quot;
+
+MicroBit    uBit;
+
+void onEvent(MicroBitEvent)
+{
+    uBit.display.scroll(&quot;SOMETHING HAPPENED!&quot;);
+}
+
+int main()
+{
+    uBit.init();
+    uBit.messageBus.listen(MICROBIT_ID_ANY, MICROBIT_EVT_ANY, onEvent);
+
+    // We don't want to drop out of main!
+    while(1)
+        uBit.sleep(100);
+}
+</code></pre>
+
+<h2 id="defining-a-threading-mode">Defining a Threading Mode<a class="headerlink" href="#defining-a-threading-mode" title="Permanent link">&para;</a></h2>
+<p>Whenever you register a listener, you may choose the threading mode used with that handler. Every event handler can have its own threading mode, that defines when your handler
+will be executed, and how it will react to receiving multiple events.</p>
+<p>There are four permissible modes for event handlers. These are:</p>
+<table>
+<thead>
+<tr>
+<th>Threading mode</th>
+<th>Brief Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MESSAGE_BUS_LISTENER_IMMEDIATE</td>
+<td>Handler is called directly from the code raising the event. Event handler is <em>not</em> permitted to block.</td>
+</tr>
+<tr>
+<td>MESSAGE_BUS_LISTENER_DROP_IF_BUSY</td>
+<td>Handler is executed through its own fiber. If another event arrives whilst the previous event is still being processed, the new event will be silently dropped.</td>
+</tr>
+<tr>
+<td>MESSAGE_BUS_LISTENER_QUEUE_IF_BUSY</td>
+<td>Handler is executed though its own fiber. If another event arrives, it is queued, and the event handler will immediately be called again once processing is complete. (default)</td>
+</tr>
+<tr>
+<td>MESSAGE_BUS_LISTENER_REENTRANT</td>
+<td>Every event is executed in its own fiber. if another event arrives, it is handled concurrently in its own fiber.</td>
+</tr>
+</tbody>
+</table>
+<p>These various modes provide great flexibility in how the runtime can be used to support higher level languages and applications. For example, <code>MESSAGE_BUS_LISTENER_IMMEDIATE</code> is ideal for very simple, lightweight handlers, as this will provide very timely response to events with a low processing overhead. However, it is easy to cause side effects on other parts of the code if it does not return promptly.
+<code>MESSAGE_BUS_LISTENER_DROP_IF_BUSY</code> provide semantics identical to the Scratch programming language, and can be used to build easy to understand, asynchronous environments.</p>
+<p><code>MESSAGE_BUS_LISTENER_QUEUE_IF_BUSY</code> provides similar semantics, but with tolerance to avoiding loss of high frequency events.</p>
+<p><code>MESSAGE_BUS_LISTENER_REENTRANT</code> provides guaranteed causal ordering and improved concurrency, but at the cost of additional complexity and RAM.</p>
+<p>You can define the threading mode you want to use on a per event handler basis as an optional final parameter to the listen function:</p>
+<pre><code class="cpp">#include &quot;MicroBit.h&quot;
+
+MicroBit    uBit;
+
+bool pressed = false;
+
+void onButtonA(MicroBitEvent)
+{
+    pressed = true;
+}
+
+int main()
+{
+    uBit.init();
+    uBit.messageBus.listen(MICROBIT_ID_BUTTON_A, MICROBIT_BUTTON_EVT_CLICK, onButtonA, MESSAGE_BUS_LISTENER_IMMEDIATE);
+
+    // We don't want to drop out of main!
+    while(1)
+    {
+        if(pressed)
+            uBit.display.scroll(&quot;Pressed!&quot;);
+        uBit.sleep(100);
+    }
+}
+</code></pre>
+
+<h2 id="c-event-handlers">C++ Event Handlers<a class="headerlink" href="#c-event-handlers" title="Permanent link">&para;</a></h2>
+<p>It is also possible to write event handlers as C++ member functions. If you don't know what this means, then don't worry, as that also means you won't need it. :-)</p>
+<p>For those programmers who do like to write C++, you can use a variation of the <code>listen</code> function to register your member function event handler.</p>
+<p>This takes the same form as the examples above, but with an additional parameter to specify the object to call the method on. You are also required to specify your event handler using legal C++ syntax.</p>
+<p>For example, you can write code like this to register an event handler in your own class:</p>
+<pre><code class="cpp">MyCoolObject::onButtonPressed(MicroBitEvent e)
+{
+    uBit.display.print(&quot;A&quot;);
+}
+
+MyCoolObject::MyCoolObject()
+{
+    uBit.messageBus.listen(MICROBIT_ID_BUTTON_A, MICROBIT_BUTTON_EVT_CLICK, this, &amp;MyCoolObject::onButtonPressed);
+}
+</code></pre>
+
+<p>Again, it is also possible to a threading mode as an optional final parameter:</p>
+<pre><code class="cpp">MyCoolObject::onButtonPressed(MicroBitEvent e)
+{
+    uBit.display.print(&quot;A&quot;);
+}
+
+MyCoolObject::MyCoolObject()
+{
+    uBit.messageBus.listen(MICROBIT_ID_BUTTON_A, MICROBIT_BUTTON_EVT_CLICK, this, &amp;MyCoolObject::onButtonPressed, MESSAGE_BUS_LISTENER_IMMEDIATE);
+}
+</code></pre>
+
+<h2 id="removing-event-handlers">Removing Event Handlers<a class="headerlink" href="#removing-event-handlers" title="Permanent link">&para;</a></h2>
+<p>Event handlers can be dynamically removed from the message bus as well as added. To do this, use the <code>ignore</code> function. This takes precisely the same parameters as the
+listen function, except that the threading mode argument is never used.</p>
+<p>For example, to remove the event handlers shown above:</p>
+<pre><code class="cpp">uBit.messageBus.ignore(MICROBIT_ID_BUTTON_A, MICROBIT_BUTTON_EVT_CLICK, onButtonA);
+uBit.messageBus.ignore(MICROBIT_ID_BUTTON_A, MICROBIT_BUTTON_EVT_CLICK, this, &amp;MyCoolObject::onButtonPressed);
+</code></pre>
+
+<h2 id="message-bus-id">Message Bus ID<a class="headerlink" href="#message-bus-id" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Constant</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MICROBIT_ID_MESSAGE_BUS_LISTENER</td>
+<td>1021</td>
+</tr>
+</tbody>
+</table>
+<p>The message bus will send a <code>MICROBIT_ID_MESSAGE_BUS_LISTENER</code> event whenever a new listener is added to the message bus.</p>
+<p>This event allows other parts of the system to detect when interactions are taking place with a component. This is primarily used as a power management mechanism - allowing on demand activation of hardware when necessary.</p>
+<h2 id="message-bus-events">Message Bus Events<a class="headerlink" href="#message-bus-events" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Constant</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Message Bus ID of listener</td>
+<td>1-65535</td>
+</tr>
+</tbody>
+</table>
+<h2 id="api">API<a class="headerlink" href="#api" title="Permanent link">&para;</a></h2>
+<h2 id="constructor">Constructor<a class="headerlink" href="#constructor" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="microbitmessagebus">MicroBitMessageBus()<a class="headerlink" href="#microbitmessagebus" title="Permanent link">&para;</a></h4>
+<h5 id="description">Description<a class="headerlink" href="#description" title="Permanent link">&para;</a></h5>
+<p>Default constructor.  </p>
+<p>Adds itself as a fiber component, and also configures itself to be the default  EventModel  if defaultEventBus is NULL.           </p>
+<h2 id="send">send<a class="headerlink" href="#send" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-send-microbitevent-evt"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>send</div>( <div style='color:#a71d5d; display:inline-block'>MicroBitEvent</div> evt)<a class="headerlink" href="#int-send-microbitevent-evt" title="Permanent link">&para;</a></h4>
+<h5 id="description_1">Description<a class="headerlink" href="#description_1" title="Permanent link">&para;</a></h5>
+<p>Queues the given event to be sent to all registered recipients.  </p>
+<h5 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitEvent</div> evt - The event to send.</p>
+</blockquote>
+<h5 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h5>
+<pre><code class="cpp"> MicroBitMessageBus bus; 
+
+ // Creates and sends the MicroBitEvent using bus. 
+ MicrobitEvent evt(MICROBIT_ID_BUTTON_A, MICROBIT_BUTTON_EVT_CLICK); 
+
+ // Creates the MicrobitEvent, but delays the sending of that event. 
+ MicrobitEvent evt1(MICROBIT_ID_BUTTON_A, MICROBIT_BUTTON_EVT_CLICK, CREATE_ONLY); 
+
+ bus.send(evt1); 
+
+ // This has the same effect! 
+ evt1.fire() 
+</code></pre>
+
+<h2 id="process">process<a class="headerlink" href="#process" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-process-microbitevent-evt"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>process</div>( <div style='color:#a71d5d; display:inline-block'>MicroBitEvent  &amp;</div> evt)<a class="headerlink" href="#int-process-microbitevent-evt" title="Permanent link">&para;</a></h4>
+<h5 id="description_2">Description<a class="headerlink" href="#description_2" title="Permanent link">&para;</a></h5>
+<p>Internal function, used to deliver the given event to all relevant recipients. Normally, this is called once an event has been removed from the event queue.  </p>
+<h5 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitEvent  &amp;</div> evt - The event to send.</p>
+</blockquote>
+<h5 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h5>
+<p>1 if all matching listeners were processed, 0 if further processing is required.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is recommended that all external code uses the  send()  function instead of this function, or the constructors provided by MicrobitEvent. </p>
+</div>
+<p><br/></p>
+<h4 id="int-process-microbitevent-evt-bool-urgent"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>process</div>( <div style='color:#a71d5d; display:inline-block'>MicroBitEvent  &amp;</div> evt,  <div style='color:#a71d5d; display:inline-block'>bool</div> urgent)<a class="headerlink" href="#int-process-microbitevent-evt-bool-urgent" title="Permanent link">&para;</a></h4>
+<h5 id="description_3">Description<a class="headerlink" href="#description_3" title="Permanent link">&para;</a></h5>
+<p>Internal function, used to deliver the given event to all relevant recipients. Normally, this is called once an event has been removed from the event queue.  </p>
+<h5 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitEvent  &amp;</div> evt - The event to send.</p>
+<p><div style='color:#a71d5d; display:inline-block'>bool</div> urgent - The type of listeners to process (optional). If set to true, only listeners defined as urgent and non-blocking will be processed otherwise, all other (standard) listeners will be processed. Defaults to false.</p>
+</blockquote>
+<h5 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">&para;</a></h5>
+<p>1 if all matching listeners were processed, 0 if further processing is required.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is recommended that all external code uses the  send()  function instead of this function, or the constructors provided by MicrobitEvent. </p>
+</div>
+<h2 id="elementat">elementAt<a class="headerlink" href="#elementat" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="microbitlistener-elementat-int-n"><div style='color:#a71d5d; display:inline-block'>MicroBitListener</div> <div style='color:#795da3; display:inline-block'>elementAt</div>( <div style='color:#a71d5d; display:inline-block'>int</div> n)<a class="headerlink" href="#microbitlistener-elementat-int-n" title="Permanent link">&para;</a></h4>
+<h5 id="description_4">Description<a class="headerlink" href="#description_4" title="Permanent link">&para;</a></h5>
+<p>Returns the microBitListener with the given position in our list.  </p>
+<h5 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>int</div> n - The position in the list to return.</p>
+</blockquote>
+<h5 id="returns_2">Returns<a class="headerlink" href="#returns_2" title="Permanent link">&para;</a></h5>
+<p>the  MicroBitListener  at postion n in the list, or NULL if the position is invalid. </p>
+<h2 id="add">add<a class="headerlink" href="#add" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-add-microbitlistener-42-newlistener"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>add</div>( <div style='color:#a71d5d; display:inline-block'>MicroBitListener  *</div> newListener)<a class="headerlink" href="#int-add-microbitlistener-42-newlistener" title="Permanent link">&para;</a></h4>
+<h5 id="description_5">Description<a class="headerlink" href="#description_5" title="Permanent link">&para;</a></h5>
+<p>Add the given  MicroBitListener  to the list of event handlers, unconditionally.  </p>
+<h5 id="parameters_4">Parameters<a class="headerlink" href="#parameters_4" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitListener  *</div> newListener</p>
+</blockquote>
+<h5 id="returns_3">Returns<a class="headerlink" href="#returns_3" title="Permanent link">&para;</a></h5>
+<p>MICROBIT_OK if the listener is valid, MICROBIT_INVALID_PARAMETER otherwise. </p>
+<h2 id="remove">remove<a class="headerlink" href="#remove" title="Permanent link">&para;</a></h2>
+<p><br/></p>
+<h4 id="int-remove-microbitlistener-42-newlistener"><div style='color:#a71d5d; display:inline-block'>int</div> <div style='color:#795da3; display:inline-block'>remove</div>( <div style='color:#a71d5d; display:inline-block'>MicroBitListener  *</div> newListener)<a class="headerlink" href="#int-remove-microbitlistener-42-newlistener" title="Permanent link">&para;</a></h4>
+<h5 id="description_6">Description<a class="headerlink" href="#description_6" title="Permanent link">&para;</a></h5>
+<p>Remove the given  MicroBitListener  from the list of event handlers.  </p>
+<h5 id="parameters_5">Parameters<a class="headerlink" href="#parameters_5" title="Permanent link">&para;</a></h5>
+<blockquote>
+<p><div style='color:#a71d5d; display:inline-block'>MicroBitListener  *</div> newListener</p>
+</blockquote>
+<h5 id="returns_4">Returns<a class="headerlink" href="#returns_4" title="Permanent link">&para;</a></h5>
+<p>MICROBIT_OK if the listener is valid, MICROBIT_INVALID_PARAMETER otherwise. </p>
+<hr /></div>
+        </div>
+
+        <footer class="col-md-12">
+            
+            <center><a href="https://www.lancaster.ac.uk"><image style="width:auto;" height="61" src="../../img/lancs-logo.png"></image></a></center>
+            <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+        </footer>
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script>var base_url = '../..';</script>
+        <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
+        <script src="../../js/base.js"></script>
+        <!--<script src="../../archive/v2.0.0-rc3/js/base.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/js/bootstrap-3.0.3.min.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/js/highlight.pack.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/js/jquery-1.10.2.min.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/mkdocs/js/lunr-0.5.7.min.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/mkdocs/js/mustache.min.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/mkdocs/js/require.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/mkdocs/js/search.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc3/mkdocs/js/text.js"></script>-->
+        <!--<script src="../../resources/bluetooth/functions.js"></script>-->
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            From here you can search these documents. Enter
+                            your search terms below.
+                        </p>
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                            </div>
+                        </form>
+                        <div id="mkdocs-search-results"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

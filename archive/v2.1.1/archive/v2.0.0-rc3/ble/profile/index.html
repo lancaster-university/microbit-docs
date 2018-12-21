@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+
+	<title>Profile - micro:bit runtime</title>
+
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link href="../../css/extra.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-76156484-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-custom navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            
+                <a class="navbar-brand" rel="home" href="#" title="micro:bit runtime">
+                    
+                    <!-- Logo author: Aluna Everitt (@AlunaEveritt on Twitter) --->
+                    
+                    <img style="max-width:200px; margin-top: -7px;" src="../.././img/logo[whiteruntime].png">
+                </a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">General <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../..">Introduction</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../concepts/">Concepts</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../advanced/">Advanced</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../online-toolchains/">Online Development</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../offline-toolchains/">Offline Development</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../device/">Hardware</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../help/">Help</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">uBit <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../ubit/">Overview</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/i2c/">i2c</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/storage/">storage</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/serial/">serial</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/messageBus/">messageBus</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/button/">buttons</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/display/">display</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/accelerometer/">accelerometer</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/compass/">compass</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/thermometer/">thermometer</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/io/">io</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../ubit/radio/">radio</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Data Types <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../data-types/image/">MicroBitImage</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../data-types/event/">MicroBitEvent</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../data-types/string/">ManagedString</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../data-types/packetbuffer/">PacketBuffer</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Bluetooth <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li class="active">
+    <a href="./">Profile</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../accelerometer-service/">AccelerometerService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../button-service/">ButtonService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../dfu-service/">DFUService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../event-service/">EventService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../iopin-service/">IOPinService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../led-service/">LEDService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../magnetometer-service/">MagnetometerService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../temperature-service/">TemperatureService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../uart-service/">UARTService</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Extras <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+<li >
+    <a href="../../extras/light-sensing/">MicroBitLightSensor</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../../extras/spi/">SPI</a>
+</li>
+
+                    
+                    </ul>
+                </li>
+            
+            
+
+            
+
+            
+            
+
+            
+
+            
+            
+
+            
+
+            
+            
+
+            
+
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right hidden-md hidden-sm">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                <li >
+                    <a rel="next" href="../../data-types/packetbuffer/">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../accelerometer-service/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://github.com/lancaster-university/microbit-dal/">
+                        
+                            <i class="fa fa-github"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#bbc-microbit-bluetooth-profile">BBC micro:bit Bluetooth Profile</a></li>
+        
+            <li><a href="#introduction">Introduction</a></li>
+        
+            <li><a href="#credits">Credits</a></li>
+        
+            <li><a href="#profile-design">Profile Design</a></li>
+        
+            <li><a href="#bluetooth-security">Bluetooth Security</a></li>
+        
+            <li><a href="#reference-documentation">Reference Documentation</a></li>
+        
+            <li><a href="#gatt-services">GATT Services</a></li>
+        
+            <li><a href="#using-the-bluetooth-profile">Using the Bluetooth Profile</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h1 id="bbc-microbit-bluetooth-profile">BBC micro:bit Bluetooth Profile<a class="headerlink" href="#bbc-microbit-bluetooth-profile" title="Permanent link">&para;</a></h1>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>The BBC micro:bit ships with a default Bluetooth profile included in the run-time firmware.</p>
+<p>The profile consists of various "services" and "characteristics" designed to give easy access to the micro:bit's hardware so that initial exploration of the device's capabilities may take place using a corresponding application on another, compatible Bluetooth device such as a smartphone.</p>
+<p>Given the nature of micro:bit and the tools which will be available to developers, it will be possible for the profile to be partly or completely changed and replaced with a profile of the developer's own design. The latter case is out of scope for this document which focuses on the standard, default profile only.</p>
+<h2 id="credits">Credits<a class="headerlink" href="#credits" title="Permanent link">&para;</a></h2>
+<p><img alt="" src="data:image/*;base64,iVBORw0KGgoAAAANSUhEUgAAAXwAAAB3CAYAAAAAV/u9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NTc3MiwgMjAxNC8wMS8xMy0xOTo0NDowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjdBMzdDOTlGMzM1NzExRTQ4N0FFRDRENTZGQkI4REQ0IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjdBMzdDOUEwMzM1NzExRTQ4N0FFRDRENTZGQkI4REQ0Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6N0EzN0M5OUQzMzU3MTFFNDg3QUVENEQ1NkZCQjhERDQiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6N0EzN0M5OUUzMzU3MTFFNDg3QUVENEQ1NkZCQjhERDQiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7sQa/wAABi7UlEQVR42uxd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" /></p>
+<p><img alt="" src="data:image/*;base64,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" /></p>
+<p>The Bluetooth profile for micro:bit is the result of a close collaboration between Martin Woolley of Bluetooth SIG (Twitter: @bluetooth_mdw) and Dr Joe Finney of Lancaster University.</p>
+<h2 id="profile-design">Profile Design<a class="headerlink" href="#profile-design" title="Permanent link">&para;</a></h2>
+<p>micro:bit acts as a Bluetooth GAP Peripheral and advertises so that GAP Central devices such as a smart phone can discover and connect to it.</p>
+<p>Standard Bluetooth SIG "adopted" services have been used where appropriate in conjunction with custom services designed specifically for micro:bit.</p>
+<p>The micro:bit default profile is based around the capabilities and features of the micro:bit device itself. It is not tightly coupled to any particular application of the device such as video control or telephony. It is however able to indicate actions it wishes a connected client device to perform or signal events that have occurred and which the client is expected to act upon in some way.</p>
+<p>All services are "primary services" and so may be discovered and enumerated by a client wishing to determine the capabilities of the device.</p>
+<p>Ease of use has been considered to be more important than having absolute configurability of all aspects of the hardware in the default profile.</p>
+<p>The profile was designed using Bluetooth Developer Studio, a free of charge tool available for download from www.bluetooth.com</p>
+<h2 id="bluetooth-security">Bluetooth Security<a class="headerlink" href="#bluetooth-security" title="Permanent link">&para;</a></h2>
+<p>micro:bit uses standard Bluetooth security. Bluetooth defines a series of optional security features of which the following are used for micro:bit:</p>
+<ol>
+<li>
+<p>Pairing with passkey and MITM protection</p>
+</li>
+<li>
+<p>White Listing</p>
+</li>
+<li>
+<p>Encrypted link for operations involving most characteristics</p>
+</li>
+</ol>
+<p>Pairing equips the micro:bit and a trusted peer device with the potential to perform security operations when interacting such as utilising an AES 128 bit encrypted link. All interactions involving custom services except for the DFU Control Service must be performed over an encrypted link. Note that encryption will be automatically applied whenever required. If a peer device is not paired with the micro:bit and a secure operation is attempted it will be rejected and the usual, expected behaviour of the peer is that it will inititiate the pairing process automatically.</p>
+<p>White listing allows paired devices only to connect to and interact with the micro:bit. Attempts to connect from devices not in the white list are ignored by the Bluetooth Link Layer.</p>
+<h3 id="advertising">Advertising<a class="headerlink" href="#advertising" title="Permanent link">&para;</a></h3>
+<p>The micro:bit will advertise if in "pairing mode" or if it has been previously paired/bonded in which case it will advertise but a white list will be active and connections will only be accepted from previously paired devices. See below for more information on pairing.</p>
+<p>In pairing mode the micro:bit will advertise with flags set indicating it is discoverable (LE General Discoverable Mode) as showing here:</p>
+<p><img src="../../resources/bluetooth/adv_pairing_mode.png" alt="Advertising in Pairing Mode"></p>
+<p>In “normal mode” (i.e. not pairing mode) advertsing packets have neither the LE Limited Discoverable mode or the LE General Discoverable Mode flags set and so in this situation may not be listed in the “available Bluetooth devices” screen of some smartphones which have not paired with the micro:bit. This is by design.</p>
+<p><img src="../../resources/bluetooth/adv_normal_mode.png" alt="Advertising in Normal Mode"></p>
+<h3 id="pairing">Pairing<a class="headerlink" href="#pairing" title="Permanent link">&para;</a></h3>
+<p>To interact with any service on the micro:bit the peer device must first be paired/bonded with it.</p>
+<iframe src="https://player.vimeo.com/video/161609551" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+<p><a href="https://vimeo.com/161609551">How to pair your BBC micro:bit with an Android phone or tablet</a> from <a href="https://vimeo.com/user35324434">Martin Woolley</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+
+<p>To pair with a micro:bit it must first be placed in "pairing mode". To do this, hold down both buttons A and B and press and hold the reset button. If powered by USB, let go of the reset button but keep holding both buttons A and B down. This will result in the micro:bit going into pairing mode and the words "PAIRING MODE" should be seen scrolling across the display followed by the graphical representation of the micro:bit 5 character identifier.</p>
+<p>Next, initiate pairing on the peer device. On Android for example, go into Settings/Bluetooth and allow the system to scan for and discover the advertising micro:bit. Select it and pairing will commence. The micro:bit will indicate it's ready to pair by displaying an arrow which points left towards button A. Press button A and a 6 digit number will be displayed on the micro:bit, one digit at a time. The peer device should now allow you to enter the 6 digit pass key. Do so and if the correct number was entered into the peer, micro:bit will display a tick/check to indicate pairing was achieved.</p>
+<p>A maximum of 4 devices may be paired with a micro:bit simultaneously (note though that only one paired device may connect to the micro:bit at a time).</p>
+<h2 id="reference-documentation">Reference Documentation<a class="headerlink" href="#reference-documentation" title="Permanent link">&para;</a></h2>
+<p>Details of the micro:bit's Bluetooth services, characteristics, the operations they each support and any associated descriptors along with UUID values can be found in the associated <a href="../../resources/bluetooth/microbit-profile-V1.9-Level-2.pdf">micro:bit Bluetooth profile specification</a></p>
+<p>A simplified overview appears below.</p>
+<h2 id="gatt-services">GATT Services<a class="headerlink" href="#gatt-services" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th><strong>Service</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>micro:bit optionality</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Generic Access Service</td>
+<td>Adopted</td>
+<td>mandatory</td>
+<td>Provides generic information about the device. Mandatory in GATT profiles.</td>
+</tr>
+<tr>
+<td>Generic Attribute Service</td>
+<td>Adopted</td>
+<td>mandatory</td>
+<td>Can inform clients of changes in the attribute table such as reassigned handle values.Mandatory in GATT profiles.</td>
+</tr>
+<tr>
+<td>Device Information Service</td>
+<td>Adopted</td>
+<td>mandatory</td>
+<td>Provides more comprehensive details about the device and its manufacturer</td>
+</tr>
+<tr>
+<td>Accelerometer Service</td>
+<td>Custom</td>
+<td>optional</td>
+<td>Provides access to the accelerometer sensor state and configuration of the frequency with which readings are reported.</td>
+</tr>
+<tr>
+<td>Magnetometer Service</td>
+<td>Custom</td>
+<td>optional</td>
+<td>Provides access to the magnetometer sensor state and configuration of the frequency with which readings are reported. Provides access to a "current bearing" value in degrees.</td>
+</tr>
+<tr>
+<td>Temperature Service</td>
+<td>Custom</td>
+<td>optional</td>
+<td>Provides access to a simplified, integer temperature measurement in celsius, derived from several sensors in the micro:bit.</td>
+</tr>
+<tr>
+<td>Button Service</td>
+<td>Custom</td>
+<td>optional</td>
+<td>Allow button state changes to be notified to the client</td>
+</tr>
+<tr>
+<td>LED Service</td>
+<td>Custom</td>
+<td>optional</td>
+<td>Allows access to both the LED "display" grid and the system status LED</td>
+</tr>
+<tr>
+<td>IO Pin Service</td>
+<td>Custom</td>
+<td>optional</td>
+<td>Allows access to and configuration of IO pins on the edge connector.</td>
+</tr>
+<tr>
+<td>Event Service</td>
+<td>Custom</td>
+<td>optional</td>
+<td>Allows the micro:bit to inform the connected client of the types of event it wants to be informed about. Allows the client to inform the micro:bit of relevant events. Allows micro:bit to inform the client of events originating on the micro:bit.Event data includes both a type and a reason or origin.</td>
+</tr>
+<tr>
+<td>DFU Control Service</td>
+<td>Custom</td>
+<td>mandatory</td>
+<td>Used to initiate device firmware update. Defined by Nordic Semiconductor.</td>
+</tr>
+<tr>
+<td>UART Service</td>
+<td>Custom</td>
+<td>optional</td>
+<td>Provides pseudo serial data communications over Bluetooth low energy, allowing arbitrary byte sequences to be exchanged in either direction with a connected peer. Data from micro:bit to peer is transmitted using Bluetooth Indications. Data from the peer to the micro:bit is transmitted using Write or Write No Response PDUs. This is an implementation of Nordic Semicondutor's UART/Serial Port Emulation over Bluetooth low energy.</td>
+</tr>
+</tbody>
+</table>
+<p>The maximum number of bytes which may be transmitted in one PDU is limited to the MTU minus three or 20 octets to be precise.</p>
+<p>See https://developer.nordicsemi.com/nRF5_SDK/nRF51_SDK_v8.x.x/doc/8.0.0/s110/html/a00072.html for the original Nordic Semiconductor documentation by way of background.</p>
+<p>Note: This service was added after micro:bits initially shipped to school and so is not in the default image. |</p>
+<p>Known issue: the firmware on micro:bits shipped initially to schools contains the full Bluetooth profile. Once the software has been changed by flashing an application created using any of the on-line code editors however, all services are lost except for Device Information Service, Event Service and DFU Control Service. If you need other services you must restore your micro:bit to its original state by installing the <a href="../../resources/BBC_MICROBIT_OOB_FINAL.zip">default hex file</a> or better still <a href="../../resources/microbit-1_4_17_pwr0.zip">this hex file</a> which does not use the display so you can use it over Bluetooth instead.</p>
+<p>The following sections elaborate on the description of a service and/or its characteristics. For full details see the <a href="../../resources/bluetooth/microbit-profile-V1.9-Level-2.pdf">micro:bit Bluetooth profile specification</a></p>
+<h3 id="about-the-device-information-service">About the Device Information Service<a class="headerlink" href="#about-the-device-information-service" title="Permanent link">&para;</a></h3>
+<p>This is an adopted service which defines 9 characteristics, all of which are optional members of of the service. For micro:bit we chose to include 3 of those characteristics only.</p>
+<p>See <a href="https://developer.bluetooth.org/gatt/services/Pages/ServiceViewer.aspx?u=org.bluetooth.service.device_information.xml">https://developer.bluetooth.org/gatt/services/Pages/ServiceViewer.aspx?u=org.bluetooth.service.device_information.xml</a></p>
+<h3 id="about-the-accelerometer-service">About the Accelerometer Service<a class="headerlink" href="#about-the-accelerometer-service" title="Permanent link">&para;</a></h3>
+<h4 id="characteristics">Characteristics<a class="headerlink" href="#characteristics" title="Permanent link">&para;</a></h4>
+<p><strong>Accelerometer Data</strong> : Contains accelerometer measurements for X, Y and Z axes as 3 unsigned 16 bit values in that order and in little endian format. Data can be read on demand or notified periodically. Values are in the range +/-1000 and in milli-newtons.</p>
+<p><strong>Accelerometer Period:</strong> Determines the frequency with which accelerometer data is reported in milliseconds. Valid values are 1, 2, 5, 10, 20, 80, 160 and 640.</p>
+<h3 id="about-the-magnetometer-service">About the Magnetometer Service<a class="headerlink" href="#about-the-magnetometer-service" title="Permanent link">&para;</a></h3>
+<h4 id="characteristics_1">Characteristics<a class="headerlink" href="#characteristics_1" title="Permanent link">&para;</a></h4>
+<p><strong>Magnetometer Data</strong> : Contains magnetometer measurements for X, Y and Z axes as 3 unsigned 16 bit values in that order and in little endian format. Data can be read on demand or notified periodically.</p>
+<p><strong>Magnetometer Period</strong> : Determines the frequency with which magnetometer data is reported in milliseconds. Valid values are 1, 2, 5, 10, 20, 80, 160 and 640.</p>
+<p><strong>Magnetometer Bearing</strong> : Compass bearing in degrees from North.</p>
+<p>Note: to deliver meaningful data the micro:bit magnetometer must first be calibrated. The calibration procedure can be triggered by simply using the compass in your micro:bit program, or adding the MicroBitMagnetometer Bluetooth service to your Bluetooth profile*.</p>
+<p>* from v2.0.0 of the runtime onwards.</p>
+<h3 id="about-the-temperature-service">About the Temperature Service<a class="headerlink" href="#about-the-temperature-service" title="Permanent link">&para;</a></h3>
+<h4 id="characteristics_2">Characteristics<a class="headerlink" href="#characteristics_2" title="Permanent link">&para;</a></h4>
+<p><strong>Temperature</strong> : Signed integer 8 bit value in celsius.</p>
+<h3 id="about-the-button-service">About the Button Service<a class="headerlink" href="#about-the-button-service" title="Permanent link">&para;</a></h3>
+<p>The Button Service exposes the two buttons on the micro:bit and allows their state to be read on demand by a connected client or the client to subscribe to notifications of state change. 3 button states are defined and represented by a simple numeric enumeration:  0 = not pressed, 1 = pressed, 2 = long press.</p>
+<h3 id="about-the-led-service">About the LED Service<a class="headerlink" href="#about-the-led-service" title="Permanent link">&para;</a></h3>
+<p>The service provides the client with direct control of each individual LED in the display grid. The client may also work at a higher level of abstraction and send strings of text to be displayed one character at a time on the LED display, with configurable scrolling transitions from one character to the next.</p>
+<p>A single characteristic containing a 32 bit mask (7 bits are unused) represents all 25 LEDs with a 0 bit indicating LED OFF and a 1 indicating LED ON. The characteristic may be written or read in a single GATT operation allowing efficient manipulation of all LEDs in the grid.</p>
+<p>Other characteristics allow a text string to be written to it by the client for display and the scrolling delay may be set.</p>
+<h4 id="characteristics_3">Characteristics<a class="headerlink" href="#characteristics_3" title="Permanent link">&para;</a></h4>
+<p><strong>LED Matrix State</strong> : Allows the state of any|all LEDs in the 5x5 grid to be set to on or off with a single GATT operation. Consists of a 32 bit field with bits 0 - 24 representing the off (0) or on (1) state of the corresponding LED.</p>
+<p><strong>LED Text</strong> : A UTF-8 string to be shown on the LED display. Maximum length 20 octets.</p>
+<p><strong>Scrolling Delay</strong> : Specifies a millisecond delay to wait for in between showing each character on the display.</p>
+<h3 id="about-the-io-pin-service">About the IO Pin Service<a class="headerlink" href="#about-the-io-pin-service" title="Permanent link">&para;</a></h3>
+<h4 id="characteristics_4">Characteristics<a class="headerlink" href="#characteristics_4" title="Permanent link">&para;</a></h4>
+<p><strong>Pin Data</strong> : Contains data relating to zero or more pins. Structured as a variable length array of up to 19 Pin Number / Value pairs. Pin Number and Value are each uint8 fields. Note however that the micro:bit has a 10 bit ADC and so values are compressed to 8 bits with a loss of resolution.</p>
+<p>WRITE: Clients may write values to one or more pins in a single GATT write operation. A pin to which a value is to be written must have been configured for output using the Pin IO Configuration characteristic. Any attempt to write to a pin which is configured for input will be ignored.</p>
+<p>NOTIFY: Notifications will deliver Pin Number / Value pairs for those pins defined as input pins by the Pin IO Configuration characteristic and whose value when read differs from the last read of the pin.</p>
+<p>READ: A client reading this characteristic will receive Pin Number / Value pairs for <strong>all</strong> those pins defined as input pins by the Pin IO Configuration characteristic.</p>
+<p>The associated Pin AD Configuration characteristic allows the client to indicate how each pin is to be used, as either an analogue or a digital pin.</p>
+<p><strong>Pin IO Configuration</strong> : A bit mask which allows each pin to be configured for input or output use. Bit n corresponds to pin n where 0 &lt;= n &lt; 19. A value of 0 means configured for output and 1 means configured for input.</p>
+<p><strong>Pin AD Configuration</strong> : A bit mask which allows each pin to be configured for analogue or digital use. Bit n corresponds to pin n where 0 &lt;= n &lt; 19. A value of 0 means digital and 1 means analogue.</p>
+<h3 id="about-the-event-service">About the Event Service<a class="headerlink" href="#about-the-event-service" title="Permanent link">&para;</a></h3>
+<p>The Event Service allows events or commands to be notified to the micro:bit by a connected client and it allows micro:bit to notify the connected client of events or commands originating from with the micro:bit. The micro:bit can inform the client of the types of event it is interested in being informed about (e.g. an incoming call) and the client can inform the micro:bit of types of event it wants to be notified about.  The term "event" will be used here for both event and command types of data.</p>
+<p>Events may have an associated value.</p>
+<p>Note that specific event ID values including any special values such as those which may represent wild cards are not defined here. The micro:bit run time documentation should be consulted for this information.</p>
+<p>Multiple events of different types may be notified to the client or micro:bit at the same time.</p>
+<p>Event data is encoded as an array of structs each encoding an event of a given type together with an associated value. Event Type and Event Value are both defined as uint16 and therefore the length of this array will always be a multiple of 4.</p>
+<table>
+<thead>
+<tr>
+<th>struct event {  uint16 event_type;  uint16 event_value;};</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+<p>event_type and event_value are each encoded in little endian format.</p>
+<p>The Event Service has four characteristics in total:</p>
+<p><strong>micro:bit Requirements</strong> is a variable length list of event data structures which indicates the types of client event, potentially with a specific value which the micro:bit wishes to be informed of when they occur. The client should read this characteristic when it first connects to the micro:bit. It may also subscribe to notifications to that it can be informed if the value of this characteristic is changed by the micro:bit firmware.</p>
+<p>Note that an event_type of zero means ANY event type and an event_value part set to zero means ANY event value.</p>
+<p><strong>Client Requirements</strong> is a variable length list of event data structures which indicates the types of micro:bit event, potentially with a specific value which the client wishes to be informed of when they occur. The client should write to this characteristic when it first connects to the micro:bit.</p>
+<p>Note that an event_type of zero means ANY event type and an event_value part set to zero means ANY event value.</p>
+<p><strong>micro:bit Event</strong> contains one or more event structures which should be notified to the client. It supports notifications and as such the client should subscribe to notifications from this characteristic.</p>
+<p><strong>Client Event</strong> is a writable characteristic which the client may write one or more event structures to, to inform the micro:bit of events which have occurred on the client. These should be of types indicated in the micro:bit Requirements characteristic bit mask.</p>
+<h3 id="about-the-dfu-control-service">About the DFU Control Service<a class="headerlink" href="#about-the-dfu-control-service" title="Permanent link">&para;</a></h3>
+<p>Allows clients to initiate the micro:bit pairing and over the air firmware update procedures. Firmware updates are actually handled by the Nordic Semiconductor DFU service which is not part of this profile, after the micro:bit enters an alternate bootloader.</p>
+<h4 id="characteristics_5">Characteristics<a class="headerlink" href="#characteristics_5" title="Permanent link">&para;</a></h4>
+<p><strong>DFU Control</strong> : Writing 0x01 initiates rebooting the micro:bit into the Nordic Semiconductor bootloader if the DFU Flash Code characteristic has been written to with the correct secret key. Writing 0x02 to this charactertistic  means "request flash code".</p>
+<h3 id="about-the-uart-service">About the UART Service<a class="headerlink" href="#about-the-uart-service" title="Permanent link">&para;</a></h3>
+<p>Provides a pseudo serial interface to the micro:bit for the exchange of arbitrary sequences of bytes. A maximum of 20 octets (MTU of 23 minus 3) can be transmitted in a single operation but a series of operations can be executed to affect something like serial data communications.</p>
+<p>This is an implementation of the Nordic Semiconductor UART service:</p>
+<p>https://developer.nordicsemi.com/nRF5_SDK/nRF51_SDK_v8.x.x/doc/8.0.0/s110/html/a00072.html </p>
+<h4 id="characteristics_6">Characteristics<a class="headerlink" href="#characteristics_6" title="Permanent link">&para;</a></h4>
+<p><strong>TX Characteristic</strong>: Allows the micro:bit to transmit a byte array containing an arbitrary number of arbitrary octet values to a connected device. Uses Indications for this purpose.</p>
+<p><strong>RX Characteristic</strong>: Allows a connected client to send a byte array containing an arbitrary number of arbitrary octet values to a connected micro:bit using with Write Requests or Write Commands.</p>
+<h2 id="using-the-bluetooth-profile">Using the Bluetooth Profile<a class="headerlink" href="#using-the-bluetooth-profile" title="Permanent link">&para;</a></h2>
+<p>Click on the Bluetooth menu and then select one of the Bluetooth services for a page of information dedicated to that service including information for application developers.</p>
+<p>Martin Woolley's personal blog contains a series of micro:bit Bluetooth demonstration videos. See <a href="http://bluetooth-mdw.blogspot.co.uk/p/bbc-microbit.html">http://bluetooth-mdw.blogspot.co.uk/p/bbc-microbit.html</a></p>
+<p>The Android application featured in the videos was written by Martin and contains a series of demonstrations, each exercising at least one of the micro:bit Bluetooth services. The application  available in github. Information regarding the use of each service appears in the individual service pages of this site.</p></div>
+        </div>
+
+        <footer class="col-md-12">
+            
+            <center><a href="https://www.lancaster.ac.uk"><image style="width:auto;" height="61" src="../../img/lancs-logo.png"></image></a></center>
+            <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+        </footer>
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script>var base_url = '../..';</script>
+        <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
+        <script src="../../js/base.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            From here you can search these documents. Enter
+                            your search terms below.
+                        </p>
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                            </div>
+                        </form>
+                        <div id="mkdocs-search-results"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -24,16 +24,6 @@
         <![endif]-->
 
         
-        <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-            ga('create', 'UA-76156484-1', 'auto');
-            ga('send', 'pageview');
-        </script>
-        
     </head>
 
     <body>
@@ -286,6 +276,12 @@
                         
 <li >
     <a href="../magnetometer-service/">MagnetometerService</a>
+</li>
+
+                    
+                        
+<li >
+    <a href="../partial-flashing-service/">PartialFlashingService</a>
 </li>
 
                     
@@ -578,13 +574,21 @@ If you do decide to disable pairing, be aware that your micro:bit now has no Blu
 <td>optional</td>
 <td>Provides pseudo serial data communications over Bluetooth low energy, allowing arbitrary byte sequences to be exchanged in either direction with a connected peer. Data from micro:bit to peer is transmitted using Bluetooth Indications. Data from the peer to the micro:bit is transmitted using Write or Write No Response PDUs. This is an implementation of Nordic Semicondutor's UART/Serial Port Emulation over Bluetooth low energy.</td>
 </tr>
+<tr>
+<td>Partial Flashing Service</td>
+<td>Custom</td>
+<td>mandatory</td>
+<td>Allows a client to update the MakeCode program on the Micro:Bit via BLE.</td>
+</tr>
 </tbody>
 </table>
 <p>The maximum number of bytes which may be transmitted in one PDU is limited to the MTU minus three or 20 octets to be precise.</p>
 <p>See https://developer.nordicsemi.com/nRF5_SDK/nRF51_SDK_v8.x.x/doc/8.0.0/s110/html/a00072.html for the original Nordic Semiconductor documentation by way of background.</p>
 <p>Note: This service was added after micro:bits initially shipped to school and so is not in the default image. |</p>
-<p>Known issue: the firmware on micro:bits shipped initially to schools contains the full Bluetooth profile. Once the software has been changed by flashing an application created using any of the on-line code editors however, all services are lost except for Device Information Service, Event Service and DFU Control Service. If you need other services you must restore your micro:bit to its original state by installing the <a href="../../resources/BBC_MICROBIT_OOB_FINAL.zip">default hex file</a> or better still <a href="../../resources/microbit-1_4_17_pwr0.zip">this hex file</a> which does not use the display so you can use it over Bluetooth instead.</p>
+<p>Known issue: the firmware on micro:bits shipped initially to schools contains the full Bluetooth profile. Once the software has been changed by flashing an application created using any of the on-line code editors however, all services are lost except for Device Information Service, Event Service and DFU Control Service. If you need other services you must restore your micro:bit to its original state by installing the <a href="../../resources/BBC_MICROBIT_OOB_FINAL.zip">default hex file</a> or better still <a href="../../resources/microbit-1_4_17_pwr0.zip">this hex file</a> which does not use the display so you can use it over Bluetooth instead. A DAL 2.1.0 version of the all services hex file <a href="../../resources/BLE_All_Services_DAL_2-1-1.hex.zip">can be found here.</a></p>
 <p>The following sections elaborate on the description of a service and/or its characteristics. For full details see the <a href="https://lancaster-university.github.io/microbit-docs/resources/bluetooth/bluetooth_profile.html">micro:bit Bluetooth profile specification</a></p>
+<h3 id="all-services-enabled-hex-file">All Services Enabled Hex File<a class="headerlink" href="#all-services-enabled-hex-file" title="Permanent link">&para;</a></h3>
+<p>The <a href="../../docs/resources/BLE_All_Services_DAL_2-1-1.hex.zip">'bluetooth-services' hex file</a> (originally written in C++) enables all the Bluetooth services listed below and tests when the micro:bit is connected and disconnected via Bluetooth. The source can be found here: https://github.com/lancaster-university/microbit-samples/blob/master/source/examples/bluetooth-services/main.cpp</p>
 <h3 id="about-the-device-information-service">About the Device Information Service<a class="headerlink" href="#about-the-device-information-service" title="Permanent link">&para;</a></h3>
 <p>This is an adopted service which defines 9 characteristics, all of which are optional members of of the service. For micro:bit we chose to include 3 of those characteristics only.</p>
 <p>See <a href="https://developer.bluetooth.org/gatt/services/Pages/ServiceViewer.aspx?u=org.bluetooth.service.device_information.xml">https://developer.bluetooth.org/gatt/services/Pages/ServiceViewer.aspx?u=org.bluetooth.service.device_information.xml</a></p>
@@ -597,7 +601,8 @@ If you do decide to disable pairing, be aware that your micro:bit now has no Blu
 <p><strong>Magnetometer Data</strong> : Contains magnetometer measurements for X, Y and Z axes as 3 unsigned 16 bit values in that order and in little endian format. Data can be read on demand or notified periodically.</p>
 <p><strong>Magnetometer Period</strong> : Determines the frequency with which magnetometer data is reported in milliseconds. Valid values are 1, 2, 5, 10, 20, 80, 160 and 640.</p>
 <p><strong>Magnetometer Bearing</strong> : Compass bearing in degrees from North.</p>
-<p>Note: to deliver meaningful data the micro:bit magnetometer must first be calibrated. The calibration procedure can be triggered by simply using the compass in your micro:bit program, or adding the MicroBitMagnetometer Bluetooth service to your Bluetooth profile*.</p>
+<p><strong>Magnetometer Calibration</strong> : Used to trigger a magnetometer calibration. This is done by writing <code>0x01</code> to the characteristic.</p>
+<p>Note: to deliver meaningful data the micro:bit magnetometer must first be calibrated. *.</p>
 <p>* from v2.0.0 of the runtime onwards.</p>
 <h3 id="about-the-temperature-service">About the Temperature Service<a class="headerlink" href="#about-the-temperature-service" title="Permanent link">&para;</a></h3>
 <h4 id="characteristics_2">Characteristics<a class="headerlink" href="#characteristics_2" title="Permanent link">&para;</a></h4>
@@ -649,7 +654,11 @@ Octet 4, LED Row 5: bit4 bit3 bit2 bit1 bit0
 <th>struct event {  uint16 event_type;  uint16 event_value;};</th>
 </tr>
 </thead>
-<tbody></tbody>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
 </table>
 <p>event_type and event_value are each encoded in little endian format.</p>
 <p>The Event Service has four characteristics in total:</p>
@@ -670,6 +679,10 @@ Octet 4, LED Row 5: bit4 bit3 bit2 bit1 bit0
 <h4 id="characteristics_6">Characteristics<a class="headerlink" href="#characteristics_6" title="Permanent link">&para;</a></h4>
 <p><strong>TX Characteristic</strong>: Allows the micro:bit to transmit a byte array containing an arbitrary number of arbitrary octet values to a connected device. Uses Indications for this purpose.</p>
 <p><strong>RX Characteristic</strong>: Allows a connected client to send a byte array containing an arbitrary number of arbitrary octet values to a connected micro:bit using with Write Requests or Write Commands.</p>
+<h3 id="about-the-partial-flashing-service">About the Partial Flashing Service<a class="headerlink" href="#about-the-partial-flashing-service" title="Permanent link">&para;</a></h3>
+<p>Allows clients to update the MakeCode section of firmware over a BLE connection. This is a faster method than using the DFU Control service but will not work across different versions of the DAL e.g. Bluetooth vs Radio.</p>
+<h4 id="characteristics_7">Characteristics<a class="headerlink" href="#characteristics_7" title="Permanent link">&para;</a></h4>
+<p><strong>Partial Flash Characteristic</strong> : This is used to control the memory map and transfer data to be written to the flash storage. A write request beginning 0x00 is used to request for information from the Memory Map, and a request beginning 0x01 is used to transfer data to be written to the flash.</p>
 <h2 id="using-the-bluetooth-profile">Using the Bluetooth Profile<a class="headerlink" href="#using-the-bluetooth-profile" title="Permanent link">&para;</a></h2>
 <p>Click on the Bluetooth menu and then select one of the Bluetooth services for a page of information dedicated to that service including information for application developers.</p>
 <p>Martin Woolley's personal blog contains a series of micro:bit Bluetooth demonstration videos. See <a href="http://bluetooth-mdw.blogspot.co.uk/p/bbc-microbit.html">http://bluetooth-mdw.blogspot.co.uk/p/bbc-microbit.html</a></p>
@@ -679,6 +692,7 @@ Octet 4, LED Row 5: bit4 bit3 bit2 bit1 bit0
         <footer class="col-md-12">
             
             <center><a href="https://www.lancaster.ac.uk"><image style="width:auto;" height="61" src="../../img/lancs-logo.png"></image></a></center>
+            <center>DAL Version v2.1.1</center>
             <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
         </footer>
 
@@ -697,6 +711,63 @@ Octet 4, LED Row 5: bit4 bit3 bit2 bit1 bit0
         <!--<script src="../../archive/v2.0.0-rc3/mkdocs/js/require.js"></script>-->
         <!--<script src="../../archive/v2.0.0-rc3/mkdocs/js/search.js"></script>-->
         <!--<script src="../../archive/v2.0.0-rc3/mkdocs/js/text.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc4/archive/v2.0.0-rc3/js/base.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc4/archive/v2.0.0-rc3/js/bootstrap-3.0.3.min.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc4/archive/v2.0.0-rc3/js/highlight.pack.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc4/archive/v2.0.0-rc3/js/jquery-1.10.2.min.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc4/archive/v2.0.0-rc3/mkdocs/js/lunr-0.5.7.min.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc4/archive/v2.0.0-rc3/mkdocs/js/mustache.min.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc4/archive/v2.0.0-rc3/mkdocs/js/require.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc4/archive/v2.0.0-rc3/mkdocs/js/search.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc4/archive/v2.0.0-rc3/mkdocs/js/text.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc4/js/base.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc4/js/bootstrap-3.0.3.min.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc4/js/highlight.pack.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc4/js/jquery-1.10.2.min.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc4/mkdocs/js/lunr-0.5.7.min.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc4/mkdocs/js/mustache.min.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc4/mkdocs/js/require.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc4/mkdocs/js/search.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc4/mkdocs/js/text.js"></script>-->
+        <!--<script src="../../archive/v2.0.0-rc4/resources/bluetooth/functions.js"></script>-->
+        <!--<script src="../../archive/v2.1.0/archive/v2.0.0-rc3/js/base.js"></script>-->
+        <!--<script src="../../archive/v2.1.0/archive/v2.0.0-rc3/js/bootstrap-3.0.3.min.js"></script>-->
+        <!--<script src="../../archive/v2.1.0/archive/v2.0.0-rc3/js/highlight.pack.js"></script>-->
+        <!--<script src="../../archive/v2.1.0/archive/v2.0.0-rc3/js/jquery-1.10.2.min.js"></script>-->
+        <!--<script src="../../archive/v2.1.0/archive/v2.0.0-rc3/mkdocs/js/lunr-0.5.7.min.js"></script>-->
+        <!--<script src="../../archive/v2.1.0/archive/v2.0.0-rc3/mkdocs/js/mustache.min.js"></script>-->
+        <!--<script src="../../archive/v2.1.0/archive/v2.0.0-rc3/mkdocs/js/require.js"></script>-->
+        <!--<script src="../../archive/v2.1.0/archive/v2.0.0-rc3/mkdocs/js/search.js"></script>-->
+        <!--<script src="../../archive/v2.1.0/archive/v2.0.0-rc3/mkdocs/js/text.js"></script>-->
+        <!--<script src="../../archive/v2.1.0/js/base.js"></script>-->
+        <!--<script src="../../archive/v2.1.0/js/bootstrap-3.0.3.min.js"></script>-->
+        <!--<script src="../../archive/v2.1.0/js/highlight.pack.js"></script>-->
+        <!--<script src="../../archive/v2.1.0/js/jquery-1.10.2.min.js"></script>-->
+        <!--<script src="../../archive/v2.1.0/mkdocs/js/lunr-0.5.7.min.js"></script>-->
+        <!--<script src="../../archive/v2.1.0/mkdocs/js/mustache.min.js"></script>-->
+        <!--<script src="../../archive/v2.1.0/mkdocs/js/require.js"></script>-->
+        <!--<script src="../../archive/v2.1.0/mkdocs/js/search.js"></script>-->
+        <!--<script src="../../archive/v2.1.0/mkdocs/js/text.js"></script>-->
+        <!--<script src="../../archive/v2.1.0/resources/bluetooth/functions.js"></script>-->
+        <!--<script src="../../archive/v2.1.1/archive/v2.0.0-rc3/js/base.js"></script>-->
+        <!--<script src="../../archive/v2.1.1/archive/v2.0.0-rc3/js/bootstrap-3.0.3.min.js"></script>-->
+        <!--<script src="../../archive/v2.1.1/archive/v2.0.0-rc3/js/highlight.pack.js"></script>-->
+        <!--<script src="../../archive/v2.1.1/archive/v2.0.0-rc3/js/jquery-1.10.2.min.js"></script>-->
+        <!--<script src="../../archive/v2.1.1/archive/v2.0.0-rc3/mkdocs/js/lunr-0.5.7.min.js"></script>-->
+        <!--<script src="../../archive/v2.1.1/archive/v2.0.0-rc3/mkdocs/js/mustache.min.js"></script>-->
+        <!--<script src="../../archive/v2.1.1/archive/v2.0.0-rc3/mkdocs/js/require.js"></script>-->
+        <!--<script src="../../archive/v2.1.1/archive/v2.0.0-rc3/mkdocs/js/search.js"></script>-->
+        <!--<script src="../../archive/v2.1.1/archive/v2.0.0-rc3/mkdocs/js/text.js"></script>-->
+        <!--<script src="../../archive/v2.1.1/js/base.js"></script>-->
+        <!--<script src="../../archive/v2.1.1/js/bootstrap-3.0.3.min.js"></script>-->
+        <!--<script src="../../archive/v2.1.1/js/highlight.pack.js"></script>-->
+        <!--<script src="../../archive/v2.1.1/js/jquery-1.10.2.min.js"></script>-->
+        <!--<script src="../../archive/v2.1.1/mkdocs/js/lunr-0.5.7.min.js"></script>-->
+        <!--<script src="../../archive/v2.1.1/mkdocs/js/mustache.min.js"></script>-->
+        <!--<script src="../../archive/v2.1.1/mkdocs/js/require.js"></script>-->
+        <!--<script src="../../archive/v2.1.1/mkdocs/js/search.js"></script>-->
+        <!--<script src="../../archive/v2.1.1/mkdocs/js/text.js"></script>-->
+        <!--<script src="../../archive/v2.1.1/resources/bluetooth/functions.js"></script>-->
         <!--<script src="../../resources/bluetooth/functions.js"></script>-->
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
