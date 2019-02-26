@@ -424,7 +424,33 @@
 <p>Please see the <a href="https://lancaster-university.github.io/microbit-docs/resources/bluetooth/bluetooth_profile.html">micro:bit Bluetooth profile specification</a>.</p>
 <h2 id="example-applications-for-androidiosandroid">Example Applications for Android/IOS/Android<a class="headerlink" href="#example-applications-for-androidiosandroid" title="Permanent link">&para;</a></h2>
 <h3 id="general-procedures">General Procedures<a class="headerlink" href="#general-procedures" title="Permanent link">&para;</a></h3>
-<p>micro:bit includes a magnetometer or "digital compass". The Bluetooth profile gives access to magnetometer data via the Magnetometer Service which includes 3 characteristics. Magnetometer Period controls the frequency with which magnetometer data is reported over Bluetooth. Magnetometer Bearing can deliver compass bearing measurements in degrees from North as Bluetooth notifications. Similarly, Magnetometer Data supports notifications and can deliver "raw" X, Y, Z values which describe the current bearing as a 3D vector. </p>
+<p>micro:bit includes a magnetometer or "digital compass". The Bluetooth profile gives access to magnetometer data via the Magnetometer Service which includes four characteristics:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Characteristic Name</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Magnetometer Period</td>
+<td>Controls the frequency with which magnetometer data is reported over Bluetooth.</td>
+</tr>
+<tr>
+<td>Magnetometer Bearing</td>
+<td>Compass bearing measurements in degrees from North as Bluetooth notifications.</td>
+</tr>
+<tr>
+<td>Magnetometer Data</td>
+<td>Raw X, Y, Z values which describe the current bearing as a 3D vector.</td>
+</tr>
+<tr>
+<td>Magnetometer Calibration</td>
+<td>Allows calibration of the compass to be triggered over a Bluetooth connection. Write a value of 0x01 to initiate the calibration process. If you want feedback on the outcome, enable notifications. For the full set of values this characteristic may contain and their meaning, see <a href="../../resources/bluetooth/bluetooth_profile.html">micro:bit Bluetooth profile specification</a></td>
+</tr>
+</tbody>
+</table>
 <ul>
 <li>X is the magnetic field strength in the direction of magnetic north</li>
 <li>Y is the magnetic field strength in the direction of magnetic east i.e. 90 degrees from magnetic north</li>

@@ -24,7 +24,7 @@
     
 	<div class="profile_item">
 	  <div class="profile_label">Profile Name</div>
-	  <div class="profile_value">BBC microbit V1_10</div>
+	  <div class="profile_value">BBC microbit V1_11</div>
 	</div>
 
 	<div class="profile_item">
@@ -41,7 +41,12 @@ Twitter: @bluetooth_mdw</pre></div>
 	  <div class="profile_label">Summary:</div>
 	</div>
 	<div class="profile_item">
-	  <div class="text_block"><pre>Version 1.10 - 1st September 2016
+	  <div class="text_block"><pre>Version 1.11 - 28th July 2017
+
+Added Magnetometer Calibration characteristic to the Magnetometer Service
+Added support for Write Without Response to the Client Event characteristic
+
+Version 1.10 - 1st September 2016
 
 Added PWM support to the IO Pin Service by adding the PWM Control characteristic.
 Specified that characteristics in the IO Pin Service are all optional (but at least one must be included).
@@ -211,6 +216,13 @@ Removed Write property from MicroBit Requirements characteristic.</pre></div>
 		  <div class="char_text_block"><pre></pre></div>
 	</div>
 
+	<div class="characteristic_item">
+		  <div class="characteristic_label">Information:</div>
+	</div>
+	<div class="characteristic_item">
+		  <div class="char_text_block"><pre></pre></div>
+	</div>
+    
    	<div class="characteristic_item">
 		  <div class="characteristic_label">Examples</div>
 	</div>
@@ -322,6 +334,13 @@ Removed Write property from MicroBit Requirements characteristic.</pre></div>
 		  <div class="char_text_block"><pre></pre></div>
 	</div>
 
+	<div class="characteristic_item">
+		  <div class="characteristic_label">Information:</div>
+	</div>
+	<div class="characteristic_item">
+		  <div class="char_text_block"><pre></pre></div>
+	</div>
+    
    	<div class="characteristic_item">
 		  <div class="characteristic_label">Examples</div>
 	</div>
@@ -433,6 +452,13 @@ Removed Write property from MicroBit Requirements characteristic.</pre></div>
 		  <div class="char_text_block"><pre></pre></div>
 	</div>
 
+	<div class="characteristic_item">
+		  <div class="characteristic_label">Information:</div>
+	</div>
+	<div class="characteristic_item">
+		  <div class="char_text_block"><pre></pre></div>
+	</div>
+    
    	<div class="characteristic_item">
 		  <div class="characteristic_label">Examples</div>
 	</div>
@@ -606,6 +632,13 @@ Removed Write property from MicroBit Requirements characteristic.</pre></div>
 		  <div class="char_text_block"><pre></pre></div>
 	</div>
 
+	<div class="characteristic_item">
+		  <div class="characteristic_label">Information:</div>
+	</div>
+	<div class="characteristic_item">
+		  <div class="char_text_block"><pre></pre></div>
+	</div>
+    
    	<div class="characteristic_item">
 		  <div class="characteristic_label">Examples</div>
 	</div>
@@ -782,6 +815,13 @@ Only one instance of the Device Information Service is exposed on a device.
 		  <div class="char_text_block"><pre></pre></div>
 	</div>
 
+	<div class="characteristic_item">
+		  <div class="characteristic_label">Information:</div>
+	</div>
+	<div class="characteristic_item">
+		  <div class="char_text_block"><pre></pre></div>
+	</div>
+    
    	<div class="characteristic_item">
 		  <div class="characteristic_label">Examples</div>
 	</div>
@@ -893,6 +933,13 @@ Only one instance of the Device Information Service is exposed on a device.
 		  <div class="char_text_block"><pre></pre></div>
 	</div>
 
+	<div class="characteristic_item">
+		  <div class="characteristic_label">Information:</div>
+	</div>
+	<div class="characteristic_item">
+		  <div class="char_text_block"><pre></pre></div>
+	</div>
+    
    	<div class="characteristic_item">
 		  <div class="characteristic_label">Examples</div>
 	</div>
@@ -1004,6 +1051,13 @@ Only one instance of the Device Information Service is exposed on a device.
 		  <div class="char_text_block"><pre>The value of this characteristic is a UTF-8 string representing the hardware revision for the hardware within the device.</pre></div>
 	</div>
 
+	<div class="characteristic_item">
+		  <div class="characteristic_label">Information:</div>
+	</div>
+	<div class="characteristic_item">
+		  <div class="char_text_block"><pre></pre></div>
+	</div>
+    
    	<div class="characteristic_item">
 		  <div class="characteristic_label">Examples</div>
 	</div>
@@ -1115,6 +1169,13 @@ Only one instance of the Device Information Service is exposed on a device.
 		  <div class="char_text_block"><pre>The value of this characteristic is a UTF-8 string representing the firmware revision for the firmware within the device.</pre></div>
 	</div>
 
+	<div class="characteristic_item">
+		  <div class="characteristic_label">Information:</div>
+	</div>
+	<div class="characteristic_item">
+		  <div class="char_text_block"><pre></pre></div>
+	</div>
+    
    	<div class="characteristic_item">
 		  <div class="characteristic_label">Examples</div>
 	</div>
@@ -1228,6 +1289,13 @@ Only one instance of the Device Information Service is exposed on a device.
 		  <div class="char_text_block"><pre></pre></div>
 	</div>
 
+	<div class="characteristic_item">
+		  <div class="characteristic_label">Information:</div>
+	</div>
+	<div class="characteristic_item">
+		  <div class="char_text_block"><pre></pre></div>
+	</div>
+    
    	<div class="characteristic_item">
 		  <div class="characteristic_label">Examples</div>
 	</div>
@@ -1404,6 +1472,13 @@ Data can be read on demand or notified periodically.</pre></div>
 		  <div class="char_text_block"><pre>Contains accelerometer measurements for X, Y and Z axes as 3 signed 16 bit values in that order and in little endian format. X, Y and Z values should be divided by 1000.</pre></div>
 	</div>
 
+	<div class="characteristic_item">
+		  <div class="characteristic_label">Information:</div>
+	</div>
+	<div class="characteristic_item">
+		  <div class="char_text_block"><pre></pre></div>
+	</div>
+    
    	<div class="characteristic_item">
 		  <div class="characteristic_label">Examples</div>
 	</div>
@@ -1520,6 +1595,13 @@ Data can be read on demand or notified periodically.</pre></div>
 Valid values are 1, 2, 5, 10, 20, 80, 160 and 640.</pre></div>
 	</div>
 
+	<div class="characteristic_item">
+		  <div class="characteristic_label">Information:</div>
+	</div>
+	<div class="characteristic_item">
+		  <div class="char_text_block"><pre></pre></div>
+	</div>
+    
    	<div class="characteristic_item">
 		  <div class="characteristic_label">Examples</div>
 	</div>
@@ -1691,6 +1773,13 @@ Valid values are 1, 2, 5, 10, 20, 80, 160 and 640.</pre></div>
 Data can be read on demand or notified periodically.</pre></div>
 	</div>
 
+	<div class="characteristic_item">
+		  <div class="characteristic_label">Information:</div>
+	</div>
+	<div class="characteristic_item">
+		  <div class="char_text_block"><pre></pre></div>
+	</div>
+    
    	<div class="characteristic_item">
 		  <div class="characteristic_label">Examples</div>
 	</div>
@@ -1807,6 +1896,13 @@ Data can be read on demand or notified periodically.</pre></div>
 Valid values are 1, 2, 5, 10, 20, 80, 160 and 640.</pre></div>
 	</div>
 
+	<div class="characteristic_item">
+		  <div class="characteristic_label">Information:</div>
+	</div>
+	<div class="characteristic_item">
+		  <div class="char_text_block"><pre></pre></div>
+	</div>
+    
    	<div class="characteristic_item">
 		  <div class="characteristic_label">Examples</div>
 	</div>
@@ -1918,6 +2014,13 @@ Valid values are 1, 2, 5, 10, 20, 80, 160 and 640.</pre></div>
 		  <div class="char_text_block"><pre>Compass bearing in degrees from North.</pre></div>
 	</div>
 
+	<div class="characteristic_item">
+		  <div class="characteristic_label">Information:</div>
+	</div>
+	<div class="characteristic_item">
+		  <div class="char_text_block"><pre></pre></div>
+	</div>
+    
    	<div class="characteristic_item">
 		  <div class="characteristic_label">Examples</div>
 	</div>
@@ -1981,6 +2084,128 @@ Valid values are 1, 2, 5, 10, 20, 80, 160 and 640.</pre></div>
 	   	<div class="characteristic_field_value">
 <table>
 			<tr><td>1. bearing value&nbsp;:&nbsp;uint16</td></tr>
+</table></div>
+	  </div>
+
+
+<!-- Descriptor Block -->
+	  <div class="characteristic_field">
+		  <div class="characteristic_field_label">Descriptors</div>
+	   	<div class="characteristic_field_value">
+<table>
+			<tr><td>1. Client Characteristic Configuration&nbsp;:&nbsp;2902</td></tr>
+</table></div>
+	  </div>
+
+
+
+<!-- Characteristic Block -->
+	  <div class="characteristic_hdg">
+	   	<div class="characteristic_hdg_text"><p>Magnetometer Calibration</p></div>
+	  </div>
+	  
+  	<div class="characteristic_item">
+		  <div class="characteristic_label">UUID</div>
+		  <div class="characteristic_value">E95DB358251D470AA062FA1922DFA9A8</div>
+	  </div>
+
+  	<div class="characteristic_item">
+		  <div class="characteristic_label">Type</div>
+		  <div class="characteristic_value"></div>
+	  </div>
+
+  	<div class="characteristic_item">
+		  <div class="characteristic_label">Requirement</div>
+		  <div class="mandatory_property">Mandatory</div>
+	  </div>
+	  
+  	<div class="characteristic_item">
+		  <div class="characteristic_label">Abstract:</div>
+    </div>
+  	<div class="characteristic_item">
+		  <div class="char_text_block"><pre></pre></div>
+    </div>
+
+	<div class="characteristic_item">
+		  <div class="characteristic_label">Summary:</div>
+	</div>
+	<div class="characteristic_item">
+		  <div class="char_text_block"><pre></pre></div>
+	</div>
+
+	<div class="characteristic_item">
+		  <div class="characteristic_label">Information:</div>
+	</div>
+	<div class="characteristic_item">
+		  <div class="char_text_block"><pre>0 - state unknown
+1 - calibration requested
+2 - calibration completed OK
+3 - calibration completed with error</pre></div>
+	</div>
+    
+   	<div class="characteristic_item">
+		  <div class="characteristic_label">Examples</div>
+	</div>
+   	<div class="characteristic_item">
+		  <div class="char_text_block"><pre></pre></div>
+	</div>
+
+  	<div class="characteristic_item">
+		  <div class="characteristic_label">Read</div>
+		  <div class="characteristic_value">Excluded</div>
+	  </div>
+
+  	<div class="characteristic_item">
+		  <div class="characteristic_label">Write</div>
+		  <div class="mandatory_property">Mandatory</div>
+	  </div>
+
+  	<div class="characteristic_item">
+		  <div class="characteristic_label">Write Without Response</div>
+		  <div class="characteristic_value">Excluded</div>
+	  </div>
+
+  	<div class="characteristic_item">
+		  <div class="characteristic_label">Signed Write</div>
+		  <div class="characteristic_value">Excluded</div>
+	  </div>
+
+  	<div class="characteristic_item">
+		  <div class="characteristic_label">Reliable Write</div>
+		  <div class="characteristic_value">Excluded</div>
+	  </div>
+
+  	<div class="characteristic_item">
+		  <div class="characteristic_label">Notify</div>
+		  <div class="mandatory_property">Mandatory</div>
+	  </div>
+
+  	<div class="characteristic_item">
+		  <div class="characteristic_label">Indicate</div>
+		  <div class="characteristic_value">Excluded</div>
+	  </div>
+
+  	<div class="characteristic_item">
+		  <div class="characteristic_label">Broadcast</div>
+		  <div class="characteristic_value">Excluded</div>
+	  </div>
+
+  	<div class="characteristic_item">
+		  <div class="characteristic_label">Writable Auxiliaries</div>
+		  <div class="characteristic_value">Excluded</div>
+	  </div>
+
+  	<div class="characteristic_item">
+		  <div class="characteristic_label">Extended Properties</div>
+		  <div class="characteristic_value">Excluded</div>
+	  </div> 
+
+  <!-- Field Block -->
+	  <div class="characteristic_field">
+		  <div class="characteristic_field_label">Fields</div>
+	   	<div class="characteristic_field_value">
+<table>
+			<tr><td>1. calibration field&nbsp;:&nbsp;uint8</td></tr>
 </table></div>
 	  </div>
 
@@ -2090,6 +2315,13 @@ Valid values are 1, 2, 5, 10, 20, 80, 160 and 640.</pre></div>
 3 button states are defined and represented by a simple numeric enumeration:  0 = not pressed, 1 = pressed, 2 = long press.</pre></div>
 	</div>
 
+	<div class="characteristic_item">
+		  <div class="characteristic_label">Information:</div>
+	</div>
+	<div class="characteristic_item">
+		  <div class="char_text_block"><pre></pre></div>
+	</div>
+    
    	<div class="characteristic_item">
 		  <div class="characteristic_label">Examples</div>
 	</div>
@@ -2203,6 +2435,13 @@ Valid values are 1, 2, 5, 10, 20, 80, 160 and 640.</pre></div>
 3 button states are defined and represented by a simple numeric enumeration:  0 = not pressed, 1 = pressed, 2 = long press.</pre></div>
 	</div>
 
+	<div class="characteristic_item">
+		  <div class="characteristic_label">Information:</div>
+	</div>
+	<div class="characteristic_item">
+		  <div class="char_text_block"><pre></pre></div>
+	</div>
+    
    	<div class="characteristic_item">
 		  <div class="characteristic_label">Examples</div>
 	</div>
@@ -2389,6 +2628,13 @@ and whose value when read differs from the last read of the pin.
 READ: A client reading this characteristic will receive Pin Number / Value pairs for all those pins defined as input pins by the Pin IO Configuration characteristic.</pre></div>
 	</div>
 
+	<div class="characteristic_item">
+		  <div class="characteristic_label">Information:</div>
+	</div>
+	<div class="characteristic_item">
+		  <div class="char_text_block"><pre></pre></div>
+	</div>
+    
    	<div class="characteristic_item">
 		  <div class="characteristic_label">Examples</div>
 	</div>
@@ -2503,6 +2749,13 @@ READ: A client reading this characteristic will receive Pin Number / Value pairs
 Bit n corresponds to pin n where 0 LESS THAN OR EQUAL TO n LESS THAN 19. A value of 0 means digital and 1 means analogue.</pre></div>
 	</div>
 
+	<div class="characteristic_item">
+		  <div class="characteristic_label">Information:</div>
+	</div>
+	<div class="characteristic_item">
+		  <div class="char_text_block"><pre></pre></div>
+	</div>
+    
    	<div class="characteristic_item">
 		  <div class="characteristic_label">Examples</div>
 	</div>
@@ -2618,6 +2871,13 @@ Note that in practice, setting a pin's mask bit means that it will be read by th
 Bit n corresponds to pin n where 0 LESS THAN OR EQUAL TO n LESS THAN 19. A value of 0 means configured for output and 1 means configured for input.</pre></div>
 	</div>
 
+	<div class="characteristic_item">
+		  <div class="characteristic_label">Information:</div>
+	</div>
+	<div class="characteristic_item">
+		  <div class="char_text_block"><pre></pre></div>
+	</div>
+    
    	<div class="characteristic_item">
 		  <div class="characteristic_label">Examples</div>
 	</div>
@@ -2741,6 +3001,13 @@ Value is in the range 0 – 1024, per the current DAL API (e.g. setAnalogValue).
 Fields are transmitted over the air in Little Endian format.</pre></div>
 	</div>
 
+	<div class="characteristic_item">
+		  <div class="characteristic_label">Information:</div>
+	</div>
+	<div class="characteristic_item">
+		  <div class="char_text_block"><pre></pre></div>
+	</div>
+    
    	<div class="characteristic_item">
 		  <div class="characteristic_label">Examples</div>
 	</div>
@@ -2926,6 +3193,13 @@ Octet 4, LED Row 5: bit4 bit3 bit2 bit1 bit0
 </pre></div>
 	</div>
 
+	<div class="characteristic_item">
+		  <div class="characteristic_label">Information:</div>
+	</div>
+	<div class="characteristic_item">
+		  <div class="char_text_block"><pre></pre></div>
+	</div>
+    
    	<div class="characteristic_item">
 		  <div class="characteristic_label">Examples</div>
 	</div>
@@ -3037,6 +3311,13 @@ Octet 4, LED Row 5: bit4 bit3 bit2 bit1 bit0
 		  <div class="char_text_block"><pre>A short UTF-8 string to be shown on the LED display. Maximum length 20 octets.</pre></div>
 	</div>
 
+	<div class="characteristic_item">
+		  <div class="characteristic_label">Information:</div>
+	</div>
+	<div class="characteristic_item">
+		  <div class="char_text_block"><pre></pre></div>
+	</div>
+    
    	<div class="characteristic_item">
 		  <div class="characteristic_label">Examples</div>
 	</div>
@@ -3148,6 +3429,13 @@ Octet 4, LED Row 5: bit4 bit3 bit2 bit1 bit0
 		  <div class="char_text_block"><pre>Specifies a millisecond delay to wait for in between showing each character on the display.</pre></div>
 	</div>
 
+	<div class="characteristic_item">
+		  <div class="characteristic_label">Information:</div>
+	</div>
+	<div class="characteristic_item">
+		  <div class="char_text_block"><pre></pre></div>
+	</div>
+    
    	<div class="characteristic_item">
 		  <div class="characteristic_label">Examples</div>
 	</div>
@@ -3350,6 +3638,13 @@ Note that an event_type of zero means ANY event type and an event_value part set
 event_type and event_value are each encoded in little endian format.</pre></div>
 	</div>
 
+	<div class="characteristic_item">
+		  <div class="characteristic_label">Information:</div>
+	</div>
+	<div class="characteristic_item">
+		  <div class="char_text_block"><pre></pre></div>
+	</div>
+    
    	<div class="characteristic_item">
 		  <div class="characteristic_label">Examples</div>
 	</div>
@@ -3470,6 +3765,13 @@ struct event {
 </pre></div>
 	</div>
 
+	<div class="characteristic_item">
+		  <div class="characteristic_label">Information:</div>
+	</div>
+	<div class="characteristic_item">
+		  <div class="char_text_block"><pre></pre></div>
+	</div>
+    
    	<div class="characteristic_item">
 		  <div class="characteristic_label">Examples</div>
 	</div>
@@ -3593,6 +3895,13 @@ Note that an event_type of zero means ANY event type and an event_value part set
 event_type and event_value are each encoded in little endian format.</pre></div>
 	</div>
 
+	<div class="characteristic_item">
+		  <div class="characteristic_label">Information:</div>
+	</div>
+	<div class="characteristic_item">
+		  <div class="char_text_block"><pre></pre></div>
+	</div>
+    
    	<div class="characteristic_item">
 		  <div class="characteristic_label">Examples</div>
 	</div>
@@ -3712,6 +4021,13 @@ struct event {
 </pre></div>
 	</div>
 
+	<div class="characteristic_item">
+		  <div class="characteristic_label">Information:</div>
+	</div>
+	<div class="characteristic_item">
+		  <div class="char_text_block"><pre></pre></div>
+	</div>
+    
    	<div class="characteristic_item">
 		  <div class="characteristic_label">Examples</div>
 	</div>
@@ -3731,7 +4047,7 @@ struct event {
 
   	<div class="characteristic_item">
 		  <div class="characteristic_label">Write Without Response</div>
-		  <div class="characteristic_value">Excluded</div>
+		  <div class="mandatory_property">Mandatory</div>
 	  </div>
 
   	<div class="characteristic_item">
@@ -3885,6 +4201,13 @@ to with the correct secret key.
 Writing 0x02 to this characteristic  means "request flash code".</pre></div>
 	</div>
 
+	<div class="characteristic_item">
+		  <div class="characteristic_label">Information:</div>
+	</div>
+	<div class="characteristic_item">
+		  <div class="char_text_block"><pre></pre></div>
+	</div>
+    
    	<div class="characteristic_item">
 		  <div class="characteristic_label">Examples</div>
 	</div>
@@ -4055,6 +4378,13 @@ Writing 0x02 to this characteristic  means "request flash code".</pre></div>
 		  <div class="char_text_block"><pre>Signed integer 8 bit value in degrees celsius.</pre></div>
 	</div>
 
+	<div class="characteristic_item">
+		  <div class="characteristic_label">Information:</div>
+	</div>
+	<div class="characteristic_item">
+		  <div class="char_text_block"><pre></pre></div>
+	</div>
+    
    	<div class="characteristic_item">
 		  <div class="characteristic_label">Examples</div>
 	</div>
@@ -4167,6 +4497,13 @@ Writing 0x02 to this characteristic  means "request flash code".</pre></div>
 		  <div class="char_text_block"><pre>Determines the frequency with which temperature data is updated in milliseconds.</pre></div>
 	</div>
 
+	<div class="characteristic_item">
+		  <div class="characteristic_label">Information:</div>
+	</div>
+	<div class="characteristic_item">
+		  <div class="char_text_block"><pre></pre></div>
+	</div>
+    
    	<div class="characteristic_item">
 		  <div class="characteristic_label">Examples</div>
 	</div>
@@ -4342,6 +4679,13 @@ documentation by way of background.</pre></div>
 The maximum number of bytes which may be transmitted in one PDU is limited to the MTU minus three or 20 octets to be precise.</pre></div>
 	</div>
 
+	<div class="characteristic_item">
+		  <div class="characteristic_label">Information:</div>
+	</div>
+	<div class="characteristic_item">
+		  <div class="char_text_block"><pre></pre></div>
+	</div>
+    
    	<div class="characteristic_item">
 		  <div class="characteristic_label">Examples</div>
 	</div>
@@ -4455,6 +4799,13 @@ The maximum number of bytes which may be transmitted in one PDU is limited to th
 The maximum number of bytes which may be transmitted in one PDU is limited to the MTU minus three or 20 octets to be precise.</pre></div>
 	</div>
 
+	<div class="characteristic_item">
+		  <div class="characteristic_label">Information:</div>
+	</div>
+	<div class="characteristic_item">
+		  <div class="char_text_block"><pre></pre></div>
+	</div>
+    
    	<div class="characteristic_item">
 		  <div class="characteristic_label">Examples</div>
 	</div>
