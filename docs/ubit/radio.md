@@ -33,7 +33,7 @@ which can be used to identify you or your micro:bit. All devices look identical.
 | Channel Rate | 1Mbps. |
 | Maximum Transfer Unit | Typically 32 bytes, but reconfigurable in code up to 1024 bytes. |
 | Addressing | All devices share the same address to guarantee user privacy. |
-| Encryption | None. User level encryption (or BLE) should be considered if secture channels are required. |
+| Encryption | None. User level encryption (or BLE) should be considered if secure channels are required. |
 | Meshing | None. (yet!) |
 | Error Detection | 16 bit hardware CRC. |
 | Transmisson Power| Eight user configurable settings from 0 (-30dbm) to 7 (+4dbm). |
