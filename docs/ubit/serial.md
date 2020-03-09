@@ -18,7 +18,7 @@ one fiber can access the Serial port at a time.
 The USB interface on the micro:bit is the [KL26Z](https://www.mbed.com/en/development/hardware/prototyping-production/daplink/daplink-on-kl26z/#Updating_your_DAPLink_firmware).
 
 !!! note
-    On Mac OSX and Linux Serial communication works out of the box, however on Windows an additional
+    On macOS and Linux Serial communication works out of the box, however on Windows an additional
     **[driver](https://developer.mbed.org/handbook/Windows-serial-configuration)** is required.
 
 !!! warning

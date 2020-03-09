@@ -61,14 +61,14 @@ The expected result will be that the micro:bit will scroll `HELLO WORLD! :)` on 
 
 ____________________
 
-## Installation on Mac OSX
+## Installation on macOS
 
 ### Install yotta and dependencies
 
 The first step is to get `yotta` and its dependencies onto your machine, to do this follow the install guide [here](http://docs.yottabuild.org/#installing).
 
 
-For the micro:bit targets you currently still need the `srecord` tools, which can be installed on **Mac OSX** using
+For the micro:bit targets you currently still need the `srecord` tools, which can be installed on **macOS** using
 [brew](http://brew.sh/):
 ```
 brew install srecord
