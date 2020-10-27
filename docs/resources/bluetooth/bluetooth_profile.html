@@ -24,7 +24,7 @@
     
 	<div class="profile_item">
 	  <div class="profile_label">Profile Name</div>
-	  <div class="profile_value">BBC microbit V1_11</div>
+	  <div class="profile_value">BBC microbit V1_12</div>
 	</div>
 
 	<div class="profile_item">
@@ -41,7 +41,12 @@ Twitter: @bluetooth_mdw</pre></div>
 	  <div class="profile_label">Summary:</div>
 	</div>
 	<div class="profile_item">
-	  <div class="text_block"><pre>Version 1.11 - 28th July 2017
+	  <div class="text_block"><pre>Version 1.12 - 27th October 2020
+
+Changed Manufacturer Name String characteristic requirement to Optional
+Changed UART service requirement to Optional
+
+Version 1.11 - 28th July 2017
 
 Added Magnetometer Calibration characteristic to the Magnetometer Service
 Added support for Write Without Response to the Client Event characteristic
@@ -1270,7 +1275,7 @@ Only one instance of the Device Information Service is exposed on a device.
 
   	<div class="characteristic_item">
 		  <div class="characteristic_label">Requirement</div>
-		  <div class="mandatory_property">Mandatory</div>
+		  <div class="mandatory_property">Optional</div>
 	  </div>
 	  
   	<div class="characteristic_item">
@@ -4601,7 +4606,7 @@ Writing 0x02 to this characteristic  means "request flash code".</pre></div>
 
 	<div class="service_item">
 	  <div class="service_label">Requirement</div>
-		  <div class="mandatory_property">Mandatory</div>
+		  <div class="mandatory_property">Optional</div>
 	</div>
 
 	<div class="service_item">
