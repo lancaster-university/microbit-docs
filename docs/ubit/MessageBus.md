@@ -116,8 +116,8 @@ There are four permissible modes for event handlers. These are:
 | ------------- |-------------|
 | MESSAGE_BUS_LISTENER_IMMEDIATE | Handler is called directly from the code raising the event. Event handler is *not* permitted to block. |
 | MESSAGE_BUS_LISTENER_DROP_IF_BUSY | Handler is executed through its own fiber. If another event arrives whilst the previous event is still being processed, the new event will be silently dropped. |
-| MESSAGE_BUS_LISTENER_QUEUE_IF_BUSY | Handler is executed though its own fiber. If another event arrives, it is queued, and the event handler will immediately be called again once processing is complete. (default) |
-| MESSAGE_BUS_LISTENER_REENTRANT | Every event is executed in its own fiber. if another event arrives, it is handled concurrently in its own fiber. |
+| MESSAGE_BUS_LISTENER_QUEUE_IF_BUSY | Handler is executed through its own fiber. If another event arrives, it is queued, and the event handler will immediately be called again once processing is complete. (default) |
+| MESSAGE_BUS_LISTENER_REENTRANT | Every event is executed in its own fiber. If another event arrives, it is handled concurrently in its own fiber. |
 
 These various modes provide great flexibility in how the runtime can be used to support higher level languages and applications. For example, `MESSAGE_BUS_LISTENER_IMMEDIATE` is ideal for very simple, lightweight handlers, as this will provide very timely response to events with a low processing overhead. However, it is easy to cause side effects on other parts of the code if it does not return promptly.
 `MESSAGE_BUS_LISTENER_DROP_IF_BUSY` provide semantics identical to the Scratch programming language, and can be used to build easy to understand, asynchronous environments.
